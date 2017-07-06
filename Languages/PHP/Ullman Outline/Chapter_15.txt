@@ -1,0 +1,98 @@
+Chapter 15
+
+Introducing jQuery
+
+-what is jQuery?
+	-initial definition needs to be defining JavaScript
+		-primarily used to add dynamic components in web applications
+		-generally runs on the client
+			-because PHP runs on server it is usually not concerned with the type of browser
+			-JavaScript needs to typically be customized with variations on browser types
+	-jQuery is just a JavaScript library of code whose use can expedite and simplify development (framework)
+		-extendable via plugins to create other components
+		-core is able to handle all key JavaScript jobs
+		-many JavaScript frameworks -- in no way is jQuery the best
+		-simple and cryptic syntax
+			-can be used to access document object model
+		-jQuery being an extension of the JavaScript library just means that over the next courses JavaScript will be used
+		-remember that JavaScript is based in object orientation
+	-develop in Mozilla, run in opera or chrome
+-incorporating jQuery
+	-built into all browsers typically by default
+	-include JavaScript tags:
+		<script src="file.js" type="text/javascript" charset="utf-8"></script>
+	-jQuery will have -- jquery-X.Y.Z.min.js -- X.Y.Z is version -- min indicates minification
+		-minification: removal of spaces, newlines, and comments out of code
+	-in script tag point to location of jQuery file on website:
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" charset="utf-8"></script>
+Using jQuery -- can be placed in a separate file and included
+	-code can be referenced after page is loaded using window.onLoad
+		$document.ready(some_function);
+	-anonymous function: defininition without using a name:
+		$(document).ready(function(){//code});
+	-simplified in jQuery to just using: $(function(){//code});
+	-example -- creating an alert when the document is ready:
+		-$(function(){alert("Ready!");});
+	-in OOP -- function is technically called a method
+	-$() is shorthand to call jQuery() function
+	-ready status is slightly not the same in jQuery than in JavaScript
+Selecting Page Elements
+	$(document) -- selects web document
+	-to select other page elements use CSS selectors in place of document:
+		#something -- by id -- .something -- by class -- something -- by type
+	ex) $('#caption') -- selects element with id value of caption
+	-jQuery has its own custom selectors allowing you to select page elements in more sophisticated ways
+Event Handling:
+	-events in JavaScript are primarily actions within the web browser
+		-moving cursor over image or piece of text, clicking link, changing the value of a form element, submitting a form
+	-handled with event listeners:
+		jQuery syntax: selection.eventType(call to method);
+		-common values: change, focus, mouseover, click, select, and submit
+	ex) $('img').mouseover(function(){//code});
+	-val() is applied to receive textual inputs with forms
+DOM -- changing what user sees
+	-easily accomplished with jQuery
+	-hide() and show(), fadeIn(), fadeOut()
+		$('#actualID').hide() -- hides after successfully completed
+	-toggle() -- hides a visible element to show a hidden one
+	-addClass() removeClass() applies or removes a CSS class
+		-toggleClass()
+	-assigns new value to element: $('something').val('Love');
+	-html() returns html contents of an element, text() does similar
+	-errors in jQuery: no error on selecting elements that don't exist or functions with non-existent elements
+	-In JavaScript multiple operations can be utilized at one time with dot operator -- $('#ID').show().addClass('thisClass').text('Hello, World');
+	-add, move, or remove elements with append(), prepend(), or remove()
+	-change attributes of a selection using attr() -- $('#buttonID').attr('enabled','enabled') -- enables button by ID
+
+Using Ajax
+ -what is Ajax? - used of JavaScript to perform server-side requests outside of user's perception
+ -example)
+	user begins on a login page -- say login.html
+	upon text input browser is taken to login.php where server call validates action successfully
+-in Ajax model form is "hijacked" by javascript which will in turn send data to a server-side script
+-improves user experience overall by getting a better user experience through letting user stay on page when logging in
+-creates an interface of sorts so providing a better user experience begins to be easier
+-added layer of performance -- less data transferred between client and server 
+-it is best to return one single string with PHP that does not contain any HTML
+	-PHP output is what the JavaScript receives that performs the Ajax requests
+-acceptable that server-side PHP scripts in an Ajax process to set cookies or begin a session -- JavaScript update will be necessary
+Creating the JavaScript:
+	-JavaScript that interrupts input submit sent to database is the glue between the client-side HTML and server-side PHP
+	-object references in JavaScript -- var objectName = new Object();
+		upon creation set properties with:
+		objectName.property = value;
+	-Object() is a blank template in JavaScript
+	-jQuery's ajax() call -- performs an ajax request with lone argument of request settings 
+		invoked as: $.ajax(settings); -- hide all error messages with: $('.errorMessage').hide(); -- class call to errorMessage
+	-example login event listener:
+		$('#login').submit(function(){//code});
+	-in script 15.10:
+		options.url = 'script.php';
+		$.ajax(options);
+		url property names actual server-side script
+	-in debugging run script directly to confirm that it works
+		-extension in mozilla can show details about Ajax requests
+		-dragonfly extension in opera
+	-always use both JavaScript and PHP validations
+		
+ 

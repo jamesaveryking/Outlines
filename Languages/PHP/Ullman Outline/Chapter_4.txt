@@ -1,0 +1,65 @@
+Chapter 4
+
+Introduction to MySQL
+-MySQL is world's most popular oper-source database application
+	-according to MySQL website
+-When creating a database:
+	-three general data types of MySQL
+		-text, numeric, date/time
+	-use names (identifiers) that are clear, meaningful, and easty to type
+		-should contain only letters, numbers, and underscores
+		-should not be the same as an existing keyword
+		-should be treated as case-sensitive
+		-cannot be longer than 64 characters (actually bytes)
+		-must be unique within its domain
+			-two columns or two tables cannot have the same name
+	-database name should be unique to MySQL server
+		-tables names should be unique within database
+			-colum names should be unique within each table
+	-always work with one case and as if case sensitivity applied
+	-determine correct data type -- reference page on 115
+		-specifying length and passing a value that is more than length will result in truncation
+		-length should correspond to largest possible numerical value or longest string
+	-special data types: enum and set
+		-enum: can store only one value of a possible several thousand
+		-set: allows for up to 64 possible values
+	-determine correct sub-type to set even more constraints on the range
+	-char vs. varchar
+		-char pads unused memory with spaces
+		-varchar uses only the size of passed string
+	-DECIMAL type is preferred if absolute precision is necessary
+	-TINYINT(1) is the equivalent of boolean in SQL -- 1 and 0
+		-BINARY,VARBINARY,TINYBLOB,MEDIUMBLOB,LONGBLOB -- store binary data such as entire files or encrypted data
+	-TIMESTAMP is usually automatically set to the day and time and update occurs
+-column properties:
+	-Null vs. Not null -- required || optional
+
+-indexes and keys
+	-index -- way of requesting that the database keep an eye on the values of a specific column or combination of columns
+		-improves performance when retrieving records
+	-key -- integral to normalization process used in design of complex databases 
+		-primary -- artificial way to refer to a record and has to abide by three rules
+			-it must always have a value
+			-value must never change
+			-value must be unique for each record in the table
+		-foreign -- what the primary key connects to in another database
+-values in columns can be preset -- generally good with a known number of values
+	-col_name ENUM('val1','val2') default 'val1'
+		-enum's default value is the first possible value
+-ZEROFILL -- any extra room will be padded with zeroes
+-defining column values:
+	1) identify primary key
+	2) identify what can be null
+	3) make any numeric type unsigned if it will never be negative
+	4) establish default value
+	5) confirm definition
+-text columns can have defined character sets and collations
+-default values must be static
+-TEXT columns cannot be assigned to default values (usually dynamic)
+
+-accessing database out of command line
+	-mysql -h hostname -p -- prompts to enter a password
+	-after login to database -- USE test_database; -- specifies test_database for every subsequent command
+	
+	
+	

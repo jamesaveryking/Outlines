@@ -1,0 +1,59 @@
+Chapter 9
+
+-connecting to MySQL via PHP
+	$dbc = mysqli_connect(hostname,username,password,db_name);
+	-$dbc variable now used as a reference point in all references to database connection
+	-mysqli_connect_error() -- returns the connection error
+	-once connect setting characterset of database is necessary
+		mysqli_set_charset($dbc, 'utf-8');
+	-include database connection as script in scripts that need to connect to shield authentication credentials
+		-- define as constants the host, username, password, and database
+			DEFINE('DB_USER','username');
+			DEFINE('DB_PASSWORD','password'); -- same with host, database name
+		-- then connect with defined constants
+			$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not connect: '.mysqli_connect_error());
+		-- place database connection file outside of the web directory -- security
+				-root web directory is htdocs -- place outside
+-executing simple queries:
+	assume dbc establisheds
+	query - SELECT ...
+	result = mysqli_query(dbc, query);
+	-different queries have different results
+		-INSERT, UPDATE, DELETE -- returns true or false depending on completion
+			-true means ran without error but not necessarily the desired result
+	-always close connection once connection is done
+		mysql_close($dbc)
+	--see register.php
+	--multiple queries at one time
+		mysqli_multi_query()
+-handling SELECT query
+	mysqli_fetch_array()
+	-can take two parameters:
+		-result set 
+		-optional second parameter specifying what type of array is returned -- associative, indexed, or both
+			-MYSQLI_ASSOC, MYSQLI_NUM, MYSQLI_BOTH
+	-- returns one row at a time
+	-read every record by:
+	while($row = mysqli_fetch_array($result)){//do something with $row}
+	-see script 9.4
+-security using SQL:
+	-three broad issues to consider:
+		-protecting the MySQL access information
+			-accomplished by storing SQL calls outside of web directory to limit access by browser
+		-not revealing too much about the database
+			-do not let user see error messages or queries being used
+		-being catious when running queries particularlly user submitter
+			-go on basis of never trusting user supplied data
+				-validate data submission and the data type
+				-use regex to validate submitted data matches what is expected
+				-type-cast some values to guarantee that they are numbers
+				-mysqli_real_escape_string() -- run user-submitted data through this 
+-counting returned records
+	$num_returned = mysqli_num_rows($r);
+-counting affected records of a query call 
+	$num = mysqli_affected_rows($dbc); -- argument is database connection instead of result
+	-in the sequence of the script call this immediately after the query is run
+	-if truncate is run and then mysqli_affected_rows the return value will be 0
+	-if update is run and does not change the value of any column the result is 0
+	
+	

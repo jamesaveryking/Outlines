@@ -1,0 +1,182 @@
+PHP and Dynamic Web Design by Larry Ullman 4th Edition Notes
+
+Introduction and Chapter 1
+
+Introduction
+
+www.php.net
+www.zend.net
+
+
+-PHP Acronym:
+	-originally stood for personal home page
+	-developed by Rasmus Lerdorf in 1994 to track visitors to his online resume
+	-as language became better acronym evolved to stand for: "PHP: Hypertext Preprocessor"
+-Official Website Definition:
+	-"widely used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML"
+		-"PHP can be embedded into HTML"
+			-a standard HTML page can support PHP scripts wherever needed and end up with a dynamic result
+		-scripting as opposed to compiled
+			-designed for web scripts not standalone applications
+			-scripts run only after an event occurs -- submits form or goes to Uniform Resource Locator
+		-server-side cross-platform technology
+			-all PHP scripts run on server
+			-all PHP scripts must be accessed via a URL
+			-typically cross-server and cross-OS compatible
+-security is not in the language it stems out of how the language is used
+-how it basically works:
+	-user visits website written in PHP
+	-user provides some input (button click, etc.)
+	-input is read by website server and server sends output of PHP script that handles the exact input or combination of inputs
+
+-MySQL:
+	-owned officially by Oracle
+	-open-source database management system and language so it is techically a relational database management system
+	-if using language to make money a MySQL license should be bought
+	-can work with tables as large at 8 million TB on some OS -- generally used with 4GB otherwise
+
+Chapter 1
+
+-encoding in html meta tags tells browser what types of language to use:
+
+<html>
+<head>
+<neta http-equiv = "content-type" content="text/heml; charset=utf-8"/> --- utf-8 encodes 8-bit unicode standard
+</head>
+<body>
+
+</body>
+</html>
+
+Basic Syntax:
+
+<body> -- usually put within body of page because page layout generation is typically what is being loaded out of server
+<? php code ?>
+</body>
+
+-All PHP is case sensitive and must end with a semi-colon
+-to output text to a screen use the echo or print commands -- author prefers echo -- technically called language constructs and not functions
+	-both can be used over multiple lines without explicit concatenation
+-single and double quotations are permitted to be used and can be used interchangeably to be displayed
+	-can also be displayed using / in front -- "/"Hello/"" == '"Hello"'
+
+-php is often used to echo or print html code to the screen:
+	echo '<p>This is a paragraph tag sent via PHP</p>';
+	
+-Potential errors in simple scripting:
+	-Parse Error -- equivalent of syntax error
+	-No text rendered:
+		-HTML problem
+		-configuration of server problem:
+			-display_errors could be turned off
+-White Space in PHP:
+	-3 notable areas of occurrence:
+		1) In the PHP script -- generally white space insensitive but it is always good practice to manage white space sensitively
+		2) In the HTML page
+		3) In the rendered web page
+	-To alter spacing:
+		-HTML --- <br/> or <p></p>
+		-PHP --- echo over multiple lines or echo the newline character in double quotes which is equivalent to Enter or Return
+			echo "\n";
+-Commenting -- best practice of all types of programming
+	-NEVER nest comments inside of other comments
+	-HTML -- <!-- Comment -->
+		-can be seen in source code of web page
+	-PHP
+		1) #Comment
+		2) //Comment
+		3) /* multiple line comment*/
+		-viewable server side but does not get sent to web page
+	-Best Programming Habit !!!!!!!!!!!!!!!!!!!!!
+		-first comment of each script (or any program)
+			-date created, date modified, creator, creator's contact, purpose of script, potentially modifier if modifier is not creator
+-Variables - 8 supported in PHP
+	-Supported Types:
+		-4 scalar (single-value)
+			-Boolean -- TRUE or FALSE
+			-Integer
+			-Floating Point
+			-Strings
+		-2 nonscalar (multi-value)
+			-arrays
+			-objects
+		-Resources -- used in interacting with databases
+		-Null
+	-Syntactical Rules:
+		-name must begin with a dollar sign -- $variable_name
+		-name can contain a combination of letters, numbers, and the underscore
+		-first character of variable must be a letter or underscore
+		-variable names are case sensitive
+	-predefined variables already have value before script is executed
+		-usually reflect property of server as a whole
+	-assigned values using the equals sign called the assignment operator
+	-to display a value of a variable print without any quotations, with double quotations, but NOT single quotations
+		-valid prints:
+			print $variable_name;
+			print "Name: $variable_name";
+		-invalid print:
+			print 'Name: $variable_name';
+-Strings
+	-quoted block of characters, numbers, symbols, white space
+	-create using single or double quotations:
+		$s1 = "String 1";
+		$s2 = 'String 2';
+	-to print value of string within context use either string only or DOUBLE quotations
+		print $s1;
+		echo "S2: $s2";
+	-no limit to size in language of PHP - only limitation is server hardware
+	-concatenation:
+		$a = 'a';
+		$b = 'b';
+		$c = $a . $b; -- "ab"
+		$d = $c .','. $a -- "ab,a"
+		echo $a.' '.$b; --- sends out "a b"
+		-concatenations assignment operator -- .=
+			-works like += or *= but using concatenation		
+	-PHP built in string functions:
+		-strlen() -- character length of string
+		-strtolower() -- converts case to lower
+		-strtoupper() -- converts case to upper
+		-ucfirst() -- capitalizes first letter in string
+		-ucword() -- capitalizes first letter of every word
+-Numbers
+	-built in functions to use with numbers:
+		-round()
+			-rounds to nearest integer
+		-number_format()
+		$number = 7000000
+			-groups number into commonly written version including commas
+			-ex) number_format($number) --- 7,000,000
+			-can also be used to specify decimal precision
+			-ex) number_format($number, 2) -- 7,000,000.00
+-Constants
+	-unlike variables in that:
+		-values cannot be changed
+		-declared value using define()
+			define('CONSTANT_NAME','constant_value);
+		-typically good practice to define constants with all capitals
+		-access value with name instead of dollar sign
+	-to print/echo constant:
+		1) use two echo statements:
+			echo "Good Morning, ";
+			echo NAME;
+		2) use concatenation:
+			echo "Good Morning, ".NAME;
+	-PHP stored constants:
+		-PHP_VERSION -- version of PHP being used
+		-PHP_OS -- server operating system
+-Single Quotes vs. Double Quotes
+	-values in single quotation marks are treated literally
+	-values in double quotation marks are interpreted
+	ex) 
+	$forgiveness = 70*7;
+	echo 'Forgiveness: $forgiveness'; -- literally prints "Forgiveness: $forgiveness"
+	echo "Forgiveness: $forgiveness'; -- interprets variable "Forgiveness: 490"
+	-special characters:
+		\" -- double quote
+		\' -- single quote
+		\\ -- backslash
+		\n -- new line
+		\r -- carriage return
+		\t -- tab
+		\$ -- literal dollar sign

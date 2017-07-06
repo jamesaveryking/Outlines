@@ -1,0 +1,158 @@
+Chapter 2 - Programming with PHP
+
+-HTML forms basic layout:
+	<form action="script.php" method = "post"> (form components such as text boxes, radio buttons, select menus, check boxes...) </form>
+-used to handle input with HTML generate GUI components with php scripts on server side upon some input or combination of inputs
+-get and post refer to method to be used
+	-get is used to request information (database record or results of a search)
+		-can return via the back button in a web browser (not supported with post)
+		-limit on how much data can be transferred
+	-post is used when an action is expected (updating database record or sending an email)
+-PHP scripts handle forms
+	-handling: PHP page will do something with the data it receives (which is the data the user enters into the form)
+	-in this chapter the scripts will only print back to the browser
+	EX)
+		<input type="text" name="city"/>
+		
+		PHP would be able to access this HTML form at all times with $_REQUEST['city']
+		-ALWAYS check to maintain case sensitivity
+	-$_REQUEST is a special variable type called a superglobal -- stores all data sent to PHP page or in cookies through either get or post method
+-older versions of PHP used magic quotes which is now being phased out
+	-equivalent to stripslashes()
+	-backslashes all quotations
+-Condtionals and Operators:
+	-if statement syntax -- curly braces not required if executing only one statement
+		if (condition)
+		{
+		
+		}
+		elseif
+		{
+		
+		}
+		else
+		{
+		
+		]
+	-conditionals:
+		== != < > <= >= ! && AND || OR XOR (and not)
+	-automatically true:
+		-$var -- if var != 0, empty string, FALSE, NULL
+		-isset($var) if var != NULL -- includes true if equal to 0,FAlSE, or empty string (anything other than NULL)
+		-TRUE, true, True
+	-switch statement syntax
+		switch($variable)
+		{
+			case 'value1':
+				//code
+				break;
+			case 'value2':
+				//code
+				break;
+			default:
+				//code
+				break;
+		}
+
+-form validation:
+	-empty() function checks to see if form has a value of an empty string, 0, NULL, or FALSE
+		-always check initially to prevent passing empty values into database
+	-after empty check constraints on variables:
+		-type
+		-range
+		-any ranges that are malicious
+-arrays -- holds multiple separate pieces of information unlike scalar
+	-list of values of same data type
+	-structured as key-value pair where key is the index or element and value is the item stored at that element
+	-two types of arrays in PHP:
+		-indexed -- numerical key
+		-associative -- string key
+	-PHP predefined superglobal arrays:
+		$_GET (all values sent to script rom HTML via get method),$_POST (all values sent to script from HTML via post)
+		$_REQUEST (subsets: get,post,cookie),$_SERVER (info about server running scripts),$_ENV (additional info about server),$_SESSION (chapter 12),$_COOKIE (chapter 12)
+	-arrays must be printed with reference to individual reference keys
+		-valid: echo $array[0]
+		-invalid: echo $array
+		-when key reference is string:
+			-valid: echo "Information: {$array['key']}";
+			-bad practice: echo "Information: $array['key']'; -- string reference to key causes errors
+		-reference $_POST array by string key in HTML form
+			{$_POST['form_name']}
+			-good practice is to create short-hand variable reference:
+				$form_data_name = $_POST['form_name'];
+	-initializing arrays:
+		-add elements one at a time (not very practical but syntatically vaiid)
+			$array_name[] = 'element1'
+			$array_name[] = 'element2'
+			|			|			|
+			$array_name[] = 'elementN'
+		-add element by key value -- can be multiple worded strings "first name" or "phone number"
+			$array_name['string_key'] = 'value'
+			$array_name[numeric_key] = 'value'
+		-array function
+			-can work to initialize without any elements, with every value by key, every value without key, or every value with first key value specified numerically and subsequent values in incremented key reference places
+				$new_array = array(); //initializes without any elements, elements can be manually added afterwards ($new_array[] = 'val1'
+				
+				$new_array = array(
+					'val1' => 'value',
+					'val2' => 'value'
+				}; //specifies every key
+				
+				$new_array = array('val1',val2',val3',...,'valN'); // initializes without explicit key reference
+				
+				$new_array = array(
+					1 => 'val1','val2',...,'valN'
+				); //values keyed incrementally after initial key reference
+		-range function
+			-can create array with specified numerical or alphabetic range [1:14] pr [a:g]
+				range(7,14) creates numerical array with range [7:14]
+	-Accessing Elements in array
+		-to access every element in array use a foreach loop
+			foreach($array as $value){//calculate something based on value}
+		-to access every key and value pair use foreach with specification
+			foreach($array as $key => $value){echo "The value at $key is $value";}
+	-array funcions
+		-to determine the number of elements in an array use count()
+			$num_elements = count($array)
+		-is_array() determines if a value is an array
+		-invalid argument supplied with foreach means that foreach is not being passed an array
+-Multidimensional arrays
+	$array1 = range(1,7)
+	$array2 = range(1,14)
+	$array3 = array(
+		'One' => $array1,
+		'Two' => $array2
+	)
+	-to access values:
+		$array3['One'][2] == $array3['Two'][2]
+		$array3[$array1] -- entire array
+	-loop through every individual element with nested foreach
+	-$_POST can have multidimensional arrays
+		ex) radio buttons checked in an interests group passed as interests array
+		-also good to populate form with multiple selections
+-Unique array aspects of PHP
+	-conversions between strings and arrays
+		-$array = explode(separator,$string) -- separator marks what is used to distinguish separate array elements
+		-$string = implode(glue, $array) -- glue is characters or code inserted between array elements to create the single string
+-Sorting Arrays:
+	-Ascending Order
+		-sort() -- sorts an array by value discarding the original keys
+			-keys will be reset after this sorting process
+			-if key-value relationship is important do not use sort
+		-asort() -- sorts array by value while maintaining the keys 
+		-ksort() -- sorts array by keys while maintaining the key-value relationship
+	-Descending Order
+		-rsort(), arsort(), krsort()
+	-Special Functions
+		-shuffle() -- randomizes order of array
+		-natsort() -- sorts in natural order by numbers in strings
+		-usort() -- multidimensional arrays (see manual)
+-Looping
+	-While loop syntax -- unknown number of iterations
+		while(condition){//code}
+		-used mostly with retrieving results from database (chapter 9)
+	-For loop syntax -- finite, known number of iterations
+		for(initial expression; condition; closing expression){//code}
+		
+			
+			

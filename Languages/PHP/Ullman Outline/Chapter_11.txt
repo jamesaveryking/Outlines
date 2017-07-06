@@ -1,0 +1,103 @@
+Chapter 11
+
+-sending an email using PHP:
+	mail(to, subject, body, [headers])
+	-takes additional 5th argument adding additional parameters to be sent to the mail-sending applications
+	-to -- should be an email adress or series of addresses separated by commmas
+		-example@domain.com | example@domain,example@domain,example@domain | Actual Name <example@domain> | Actual Name <example@domain>, Actual Name <example@domain> 
+	-subject -- creates subject line of email
+		-subject line cannot contain the new line characters
+	-body -- contents of email
+		-can span multiple lines
+		-can use newline character in double quotations 
+		-each line should be no longer than 70 characters
+			-can be accomplishing using wordwrap()
+			$body = wordwrap($boday, 70)
+	-header can set:
+		-From, Reply-To, Cc, Bcc
+		ex) mail($to, $subject, $body, 'From: example@domain')
+		-to use multiple separate headers with \r\n 
+			$headers = "From: example@domain\r\n";
+			$headers .= "Cc: example@domain\r\n";
+			mail($to, $subject, $body, $header);
+	-two things must be present when working
+		-computer on which PHP is running must have a working mail server
+			-should not be an issue on a hosted site
+		-prevent spam attacks -- addressed in chapter 13
+	-returns a 1 or a 0 based on success or failure
+-handling file uploads
+	-most all types of the possible forms can be handled similarly in PHP except file uploads
+		-two necessary dimension:
+			-HTML form must be displayed with the code to allow the upload
+				-upon upload, server stores file temporarily in a directory
+			-PHP must copy uploaded file to destination
+	-server configurations:
+		-PHP language itself
+			-php.ini dictates how PHP handles uploads specifically stating how large of a file can be uploaded and where the upload should temporarily be stored
+				-edit if any conditions apply:
+					-file_uploads is disabled
+					-PHP has no temporary directory to use
+					-you will be uploading very large files
+					-if using a hosted site, preconfigured settings are already present
+		-configure locations and permissions of temporary directory
+		-destination directory must also have the permissions established
+			-see page 337
+	-confirm server settings with phpinfo() command
+		-verify that file_uploads has a value of on
+		-limits on upload_max_filesize (2MB by default) and post_max_size(8MB) won't be a restriction
+		-if running on windows -- see that upload_tmp_dir has a value
+			-if not on windows value absence is still good to go
+		-if necessary open php.ini in text editor
+			-search to make any necessary edits in text editor
+	-htdocs handles all uploaded files in the web directory -- create upload file directory outside of root directory to securely store uploaded data
+		-set perimissions on uploads so that web directory can write data into the directory
+		-in unix --correct permissions with chmod -- 775 or 777
+		-due to time constraints use set_time_limit() or max_input_time value in php.ini
+	-required form syntax to handle the upload
+		<form enctype="multipart/form-data" action="script.php" method="post"><input type="hidden" name="MAX_FILE_SIZE" value="30000"/> File <input type="file" name="upload"/>
+		-enctype tag indicates that it should handle multiple types of data including files
+		-MAX_FILE_SIZE is a form on rectricting how large the chosen file should be allowed to be
+		-once file is received:
+			move_uploaded_file(temporary_filename,/path/to/destination/filename);
+	-see script 11.2 -- MIME type indicates what kind the file is -- create an array of allowed options
+	-once file is uploaded but didn't work on the being moved to proper server directory use the unlink() -- prior to use check that file exists()
+	-excluding enctype attribute is a common reason of error creation
+	-existince can be validated with is_uploaded_file() condition
+	--move_uploaded_file() will overwrite existing file without warning if new and existing file both have the same name
+-PHP and Javascript
+	-Javascript is client side, PHP is server side so Javascript can detect things like browser window size, create pop-up window, make image mouseovers
+	-PHP interacts with MySQL on the server but Javascript cannot
+	-PHP can dynamically generate Javascript
+	-using Javascript:
+		<script type="text/javascript">
+		//Actual Javascript code
+		</scipt?
+	-using external Javascript file or charset attribute:
+		<script type="text/javascript" charset = "utf-8" src="somefile.js"></script>
+	-javascript is only object oriented -- not like PHP which is both scripting and object oriented
+	-different browsers have different attributes concerning size
+-Understanding HTTP Headers
+	-use a PHP proxy script to access the different images within the uploads directory when using the browser on client's side
+	-header function is used to redirect the Web browser with many different jobs
+	syntax: header(header string);
+		-can be used to perform many tasks such as redirecting the web browser, sending files, creating cookies, controlling page caching, etc.
+		header('Location: http://www.example.com/page.php'); -- sends browser to specified URL
+		header("Content-Type:appliation/pdr\n"); --specifies MIME type in browser to let it know it is about to receive a pdf
+		header("Content-Disposition:attachment; filename=\"somefile.pdf\"\n"); -- prompts the browser to download the file
+		header("Content-Length: 4096\n"); -- corresponds to the length of data sent
+	-NOTHING CAN BE SENT TO WEB BROWSER BEFORE USING HEADER FUNCTION
+	-character set can be specified in PHP using:
+	<?php header('Content-Type: text/html; charset=UTF-8'); ?> as first line of web page that must be PHP script, before any HTML
+	-a proxy script can only send one single file or image at a time
+-Date and Time
+	date_default_time_zone(tz)
+	checkdate(month, day, year) -- returns true if date is in valid range (present or past)
+	date(format, [timestamp]) -- timestamp is optional representing seconds since Unix Epoch (midnight January 1, 1970)
+	get_date() -- returns an array of values with respect to a day and time
+	
+	
+		
+	
+	
+	
+	

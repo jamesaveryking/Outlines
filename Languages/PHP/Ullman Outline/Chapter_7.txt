@@ -1,0 +1,180 @@
+Chapter 7
+
+-JOIN -- critical in querying normalized databases with multiple tables
+	-allows databases that are broken into multiple tables to be able to perform multiple queries on multiple tables simultaneously 
+	-uses two or more tables to produce a virtual table
+	-syntax:
+		SELECT columsn FROM table JOINN_TYPE table1 JOIN_CLAUSE
+	-best to specify returned columns instead of returning all columns
+	-use dot syntax (.) when querying multiple tables
+	-two main types of joins: innter and outer
+		-subtypes contained within both
+	-can additionally be used on WHERE and ORDER BY
+	-ALIAS helps with optimizing JOIN using dot notation
+	-INNER JOIN -- returns all results out of named tables wherever a match is made -- exclusive
+		ex) -- selects three columns to create a temporary table 
+		SELECT m.message_id, m.subject, f.name
+		FROM message AS m INNER JOIN forums AS f
+		ON m.forum_id = f.forum_id -- equality comparison makes this an equijoin -- if column in both tables has the same name equijoins can be replaced with (USING)
+		WHERE f.name = 'MySQL'
+		--can be used alternatively without INNER JOIN call by placing a comma between all tables to be called in SELECT and turn the ON or USING clause into another WHERE condition
+			-JOINs that do not include ON, USING, WHERE, or any JOIN clause are called full joins
+				-try not to use on larger tables
+		--NULL value in a column referenced by INNER JOIN will never be returned
+		--different types of joins supported by different types of versions
+	-OUTER JOIN --returns all records matched by both tables and some records that don't match -- inclusive
+		-three subtypes: left, right, full, selft joins
+			-left is most important
+				-ordering of table calls in left call determines what is returned
+				-visualize by Venn diagram
+				-if no match is located between the two tables NULL values will be used
+			-left join is preferred over right join -- arguably no need to have both because they have the same job
+			-full outer join is a combination of both the left and right joins to return all values with NULLs in place where there is no match 
+				-equivalent to using left, rights joins and UNION
+			-self join is not common but is helpful -- joins table to itself
+				-see page 210
+	-joins are not limited in scope by keys
+		-any column can be referenced despite keys
+	-joins can be performed across multiple databases using database.table.column as long as every database is on the same server
+	-OUTER in a left outer join is optional and typically omitted
+	-joining three or more tables creates a virtual table that is between the first, second, and third (or more) referenced tables
+		ex)
+		SELECT columns FROM table1 JOIN_TYPE table2 JOIN_CLAUSE JOIN_TYPE table3 JOIN_CLAUSE
+		-join types do not have to be the same -- one could be inner and one could be outer
+		-WHERE, ORDER BY, and LIMIT can be added to the end
+		-three likely errors:
+			-simple syntax error usually with parentheses of separate clauses
+			-ambiguous column error -- common among any join type
+			-lack of return results -- decrement tables used
+		ex) -- retrieves message ID, subject, and forum name of every message posted by the user troutster
+			SELECT m.message_id, m.subject, f.name
+			FROM users AS u
+			INNER JOIN messages AS M
+			USING (user_id)
+			INNER JOIN forums AS f
+			USING (forum_id)
+			WHERE u.username  = 'troutster';
+-Grouping Selected Results
+	-using grouping or aggregate functions on complex queries
+		-AVG, COUNT, GROUP_CONCAT, MAX, MIN, SUM
+			-GROUP_CONCAT is a concatenation of a column's values
+		-DISTINCT can be used on AVG, COUNT, SUM -- to determine the unique number as opposed to duplicates
+		-return individual values if used on their own but, if used with GROUP BY, will return a value for each row in a result set
+		SELECT columns FROM table WHERE conditions GROUP BY column ORDER BY column LIMIT x,y
+		-GROUP BY can also be used with JOIN
+		-GROUP BY will group NULL values together
+		-COUNT only counts values that are not null
+		-HAVING clause is a WHERE condition applied to a group
+		-SUM or AVG cannot be applied to date or time values
+-Advanced Selections:
+	-GREATEST() returns the largest value in a list
+	-LEAST() returns the least value in a list
+	-apply to multiple columns within the same row
+	-COALESCE() -- returns the first non-null value in a list -- can be replaced by IFNULL(value, return_if_null)
+	-IF() -- SELECT IF (condition, return_if_true, return_if_false) -- ex) SELECT IF(gender='M','Male','Female') FROM people;
+		-INSERT INTO people (gender) VALUES (IF(something='Male','M','F'))
+	-CASE() -- can be treated like PHP's switch statement -- uses CASE, WHEN, ELSE
+		SELECT CASE gender WHEN 'M' THEN 'Male' WHEN 'F' THEN 'Female' ELSE 'NULL' END FROM people
+-Performing FULLTEXT Searches
+	-LIKE is limited to one word -- FULLTEXT allows queryiing of a series of words (like google)
+	-ALTER clause can be used to add, delete, or change a column or rename a table -- ALTER TABLE tablename CLAUSE
+		-see page 222
+	-these types of searches require a FULLTEXT index which can only be created on a MyISAM table 
+		-step one of search is adding this index to the body and subject columns
+			-return table type with SHOW TABLE STATUS\G
+				-used on specific table with SHOW TABLE STATUS LIKE 'tablename'
+			-if it is not MyISAM type this can be changed with ALTER TABLE tablename ENGINE = MyISAM
+		-step two is to add the FULLTEXT index to the messages
+			ALTER TABLE tablename ADD FULLTEXT(body, message)
+			ALTER TABLE tablename ADD INDEX_TYPE(columns) -- generic to add any index to table
+			-can be slower because complex indexing is required
+			-on FULLTEXT index can only be applied to a single table at a time
+		-step three -- after FULLTEXT index is established begin querying using MATCH...AGAINST in WHERE condition
+			SELECY * FROM tablename WHERE MATCH (columns) AGAINST (terms)
+			-rules of returning value:
+				-strings are broken down into individual keywords
+				-keywords less than four characters are ommitted
+				-popular words, called stopwords, will be ignored
+				-if more than half of the records match the keywords no records are returned
+		-complete example:
+			SELECT subject, body FROM messages WHERE MATCH (body, subject) AGAINST('database');
+			-returns results as long as at least one and less than 50 percent of records in messages have the word database in their body or subject
+			-including MATCH...AGAINST in a SELECT clause will return the actual relevance
+		-ranking values with FULLTEXT -- multiple words create rank and the more matched words will have a greater rank value
+		-these searches are case sensitive by default
+	-IN BOOLEAN MODE
+		-added to AGAINST clause
+		-SELECT * FROM tablename WHERE MATCH(columns) AGAINST('+term1 -term2' IN BOOLEAN MODE) -- match is made if term1 is present and term2 is absent
+		-the tilde (~) is used as a less harsh minus to say that the word can be present but the return rank is higher if it is not present
+		-table of all characters on page 227
+		-wildcard character matches variations in a word -- Je* would match Jesus and Jehovah
+		-greater than or less than specific ranking of relevance
+		-keyword not preceded by operator is optional and rank is higher if word is present
+		-result will be returned even if greater than half of records match search
+		-results are no automatically sorted by relevance
+		-minimum word length (4 characters) still applies
+		SELECT subject, body FROM messages WHERE MATCH(body, subject) AGAINST('*HTML' IN BOOLEAN MODE)\G 
+		--locates all variants of HTML because of wildcard character in subject and body of messages table
+	-default search mode is natural language if FULLTEXT is not specified
+	-WITH QUERY EXPANSION can increase the number of returned results -- two searches return a single result set
+-Optimizing Queries
+	-OPTIMIZE -- run after ALTER or DELETE to cut down on space between records 
+	-ANALYZE -- run after INSERT or UPDATE to update indexes typically after a large amount of data is transfered
+	-EXPLAIN -- advanced topic soon to be covered
+	-data optimization overall:
+		-choose the best storage engine
+		-use the smallest data type possible on each column
+		-use NOT NULL on columns wherever possible
+		-use integers as primary keys
+		-judiciously create indexes with the correct type and column assignment
+		-limit indexes to a certain number of characters if possible
+		-avoid creating too many indexes
+		-check data type and, if strings, sets and collations when creating joins between columns
+	-practice of good queries: join two or more tables, use grouping and aggregate functions, contain WHERE clauses
+	-understanding explain -- preface queries with EXPLAIN
+		EXPLAIN SELECT ... FROM ... WHERE
+		-output contains specific attributes to query that can be read as:
+			-type -- best = eq_ref, worst = all
+			-possible_keys -- potential indexes that can be used to locate corresponding rows in database
+			-key,key_len,ref -- specifies what will actually be used on that query (actual key, length of actual key, columns used)
+			-rows -- estimate of potential row number to examing
+			-extra -- additional information on query -- do not want to see using filesort and using temporary -- indicates extra steps
+			-EXPLAIN EXTENDED - includes additional details on search
+	-normalized database structure should always be primary goal
+-Transactions:
+	-require InnoDB version
+	-begin a series of queries and end with either COMMIT or ROLLBACK
+		-COMMIT -- executes all queries
+		-ROLLBACK -- does not execute any of the queries
+			-CREATE, ALTER, DROP, TRUNCATE, DELETE on tables or databases cannot be rolled back
+		-both return the MySQL window to autocommit mode where every sequential query is run immediately
+	-example: logging in a user by username and password:
+		1) verify username
+		2) verify password
+		3) set username as being online
+		4) verify that user is online
+	-in autocommit mode begin a transaction with START TRANSACTION
+	-create protection from potential and unexpected errors
+	-to alter autocommit nature type: SET AUTOCOMMIT = 0 -- now START TRANSACTION  is not necessary and all queries will be run when a COMMIT command is typed
+	-SAVEPOINT can be used to roll back to that point
+-Encryption
+	--SHA1() -- stores a hashed version of encrypted data
+		-permanent encryption
+	--AES_ENCRYPT() and AES_DECRYPT() -- best encryption option to send data over network
+		-not permanent encryption
+		-takes in two arguments -- data to be encrypted and a salt argument -- a string specifying randomness of encryption
+			-'nacl1987salt!'
+			INSERT INTO users (username, pass) VALUES ('troutster', AES_ENCRYPT('mypass','nacl1987salt!'))
+			SELECT * FROM users WHERE username = 'troutster' AND AES_DECRYPT(pass, 'nacl1987salt!') = 'mypass'
+		-returns binary encryption of data -- column type must be VARBINARY or BLOB
+		-each piece of data should use a unique salt and the longer the salt the better
+		-additional example -- encrypting user PIN:
+			UPDATE customers SET nacl = SUBSTRING(MD5(RAND()),-20) WHERE customer_id=1; -- creates salt - MD5 generates 32-bit character string and takes last 20 characters
+			UPDATE customers SET pin=AES_ENCRYPT(1234,nacl) WHERE customer_id=1; -- encrypts
+			SELECT customer_id, AES_DECRYPT(pin, nacl) AS pin FROM customers WHERE customer_id=1; -- retrieves
+		-better security practice to connect via SSH
+			
+		
+			
+		
+	

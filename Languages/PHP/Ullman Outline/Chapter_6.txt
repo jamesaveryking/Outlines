@@ -1,0 +1,126 @@
+Chapter 6
+
+Database Design
+
+-structure of database: schema
+-database design: database modeling
+-normalization: 
+	-eleminates redundancies and other problems that would undermine the integrity of your database
+	-developed by IBM researcher E.F. Codd in early 1970s -- also invented relational database
+		-created a series of rules called normal forms that help define constraints
+			-think about all potential questions and answers
+	-err on side of storing more information
+	-keys are integral to normalized databases
+		-primary and foreign
+			-primary -- unique identifier that has to abide by certain rules (assign based on matching these three rules):
+				-always have a value
+				-have a static value
+				-have a unique value for every record
+				ex) ssn
+				-always invent if there is none in table (typically as ID)
+				-only one per table -- ideally an integer
+			-foreign -- often previously assigned primary key in a different table
+-relationships -- how data in tables relate (3 types):
+	-one-to-one (ssn)
+	-1:n (gender)
+	-n:n (authors of books)
+	-design of database results in ERD diagram (entity-relationship diagram)
+-relational in rdbms stems out of tables which are technically called relations
+-first normal form:
+	-each column must contain only one value (atomic || indivisible)
+	-no table can have repeating groups of related data
+		-always check repetition of column theme and break down if applicable
+	-to change to 1NF 
+		-identify column that contains multiple pieces of information
+		-break up columns into distinct pieces of data
+		-turn any repeating column groups into their own table
+	-horizontal analysis -- guarantee fields in single row do not repeat
+-second normal form:
+	-2NF
+	-vertical test in a way
+	-identify columns with repeated values and create new table of these values with primary keys to be referenced in original table
+	-to solve:
+		-identify any non-key columns that aren't dependent upont the table's primary key
+		-create new tables accordingly
+		-assign or create new primary identifying keys
+		-create requisite foreign keys and indicate relationship
+	-ideally creates new 1:1 or 1:n relationships out of n:n
+	-never have duplicate rows in the same table
+-third normal form:
+	-2NF and every non-key column is mutually independent -- changin value in one column would require changing the value in another
+	-isolates columns to be relevant to the table 
+	-ex) two tables with a primary key on book id, one table is the author one is the book, and the book table has the publisher's address and name
+		-violates because publisher information should be in separate table
+	-to create compliancy:
+		-identify any columns in any table that are interdependent
+		-create new tables accordingly
+-database design does have subjectivity by nature
+-only two reasons to override normalization: convenience and performance
+-primary and foreign key relationships should have the same data type
+-Indexes are a special system tha tdatabases use to improve the performance of Select queries
+	-best used in where, order by, and like clauses
+	-typically not used where null or limited range of values is allowed
+	-MySQL has four types of different indexes:
+		-INDEX - standard
+		-UNIQUE - requires each row to have a unique value for column
+		-FULLTEXT - chapter 7
+		-PRIMARY KEY - particular unique index
+	-add clause to create table when creating table:
+		-INDEX_TYPE index_name (columns)
+	-adding index of col1,col2,col3 -- creates an index for uses of col1 col2 and col3 in this order or on all three columns together
+	-to create index:
+		-add primary key index on all primary keys
+		-add unique indexes to any columns whose values cannot be duplicated
+		-add fulltext if appropriate
+		-add standard indexes to columns used in a where clause
+		-add standard indexes to columns frequently used in order by and join clauses
+	-indexes can be created on already populated table -- error will result if performed on unique value
+	-key is synonomous for index in MySQL
+	-limit length of index to a certain number of characteristics
+-table types:
+	-MyISAM -- older standard that was used but did not support transactions
+	-InnoDB -- default as of MySQL relaase 5.5.5 -- can be used on transactions and perform update
+	-to determine on server -- SHOW ENGINES;
+		-if any require fulltext use MyISAM standard
+		-if any require transaction support use InnoDB
+		-if neither applies use default storage setting
+-languages and MySQL
+	-SHOW CHARACTER SET -- shows available languages - each has one or more collations (rules on comparing characters)
+		-establish with:
+		CREATE TABLE name {
+			something TEXT CHARACTER SET charset COLLATE collation
+		}
+		-when creating database:
+		CREATE DATABASE name CHARACTER SET utf8 COLLATE utf8_general_ci;
+		USE forum
+		-can also be specified within the query
+		-CONVERT() can convert text from one character set to another
+		-change default using ALTER()
+	-character set should match that of PHP scripts
+-time zones:
+	-UTC_DATE()
+	-UTC_TIME()
+	-UTC_TIMESTAMP() -- returns both of above time stamps
+	-CONVERT_TZ(date and time,from,to)
+	-always be consistent in time zone reference
+	-UTC is most accurate by accounting potential planetary movement
+-Foreign Key constraints
+	-InnoDB compatible
+	-set rules concerning a table's break in relationship with another table
+	FOREIGN KEY (item_name) REFERENCES table(column)
+		-goes within a create or alter table
+	-specify deletion error handling by using these:
+		-ON DELETE action
+		-ON UPDATE actions
+	-potential actions:
+		-SET NULL -- sets keys in child rable of deleted parent record to null
+			-column being not null triggers an error
+	-to delete constrained records all child records must be deleted before parent record
+	-foreign key constraints require all columns in the constraint to be indexed
+	-similar to constraints, triggers tell a database that when X happens respond with y
+	
+	
+	
+		
+	
+	

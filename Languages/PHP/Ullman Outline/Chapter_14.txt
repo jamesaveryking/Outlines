@@ -1,0 +1,58 @@
+Chapter 14
+
+Perl-Compatible Regular Expressions
+-strings can be located with comparisons however regular expressions can locate all cases of valid strings within constraints
+-most important applications in PHP:
+	-preg_match() -- returns a 0 or a 1 indicating whether or not the pattern matched the string 
+		preg_match(pattern, subject);
+	-preg_match() will stop once it locates a single match 
+	-preg_match_all() will locate all matches
+	-parameters passed needs wrapped in double quotation marks -- technically searching to locate a specific string
+		-can be used with single quotation marks when special characters are involved
+		-parameters needs to be encased within delimeters -- preg_match('/J/','Jesus Christ of Nazareth is, has been, and always will be the Son of God')
+			-checks if 'J' is contained within the string -- returns true
+	-refer to pcre.php
+	-some text editors allow to replace and match regular expressions throughout and inside several documents or directories
+	-PCRE -- use the established locale -- reflect's designated country or language etc.
+	-previous versions included another type of regular expressions called POSIX -- these have since begun to be deprecated
+Defining Simple Patterns
+	1) literal -- one type of pattern -- taken exactly as interpreted
+		--assuming case-insensitive search is performed rom will match: cd-rom, Paul's letter to the romans
+	2) meta-characters -- special symbols that have a meaning beyond their literal value
+		-caret (^) marks the beginning of a pattern
+		-dollar sign ($) marks the ending 
+		-both are crucial in the validating process
+		see pg. 438
+	-logicals can be used in defining regular expression patterns -- "|"
+	-parenthese can be used -- (yes|no) is logically equivalent to (yes)|no)
+	-to match a single backslash use \\\\
+-to match exact string with another string us strstr()
+-use regular expressions as a last resort
+-pg. 443 is a review of regular expressions
+Uaing Character Classes
+	-instead of typing out every single character use the set:
+		(a|b|c|d|e|f|g) == ([a-g])
+	-meta-characters are treated equivalently except caret (negation as beginning character), dash indicates the range
+	-boundaries -- shortcuts that help locate boundaries -- seen in beginning or end of using a value
+	ex)
+	preg_match(('/^(\d{5})(-\d{4})?$/',$zip)) -- checks possible zip code values
+	-no validation pattern is completely and totally perfect
+	-practicing PCRE expressions will be typically important
+Locating all matches
+	-preg_match_all(pattern, subject, $match);
+	-by default regex will try to match as many values as possible
+	-preg_split() -- will take a string and decompress it into an array using a regular expression pattern
+Using Modifiers
+	-introduces majority of regular expression patterns that can be used
+		-see page 450
+	-most used is "i" which indicates case-insensitive searches
+Matching and Replacing Patterns
+	-preg_replace(pattern, replacement, subject);
+		-optional 4th argument limiting the number of replacements made
+		ex) preg_replace('/cat/','dog','I like my cat'); -- replaces all instances of cat with dog
+		-this is an example but in the case of string replacement always try to use str_replace() instead
+	-back references can be used within the pattern -- ex) pattern that included a grouping would be repeated
+	-PCRE syntax shoud be studied carefully and practiced
+	All thanks, glory, and honor be to Jesus Christ
+		
+		

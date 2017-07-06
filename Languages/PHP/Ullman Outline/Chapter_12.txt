@@ -1,0 +1,78 @@
+Chapter 12
+
+Cookies and Sessions
+	-solves the problem of web statelessness by saving user-specific data
+	-cookies saved in browser, sessions store on the server itself -- server storage is more secure
+Creating a login process:
+	-a form to submit whatever information is necessary
+	-a validation routine that confirms the necessary information was submitted
+	-a database query that compares submitted information to that stored in database
+	-cookies or sessions to store data that reflects successful login
+	-redirection using the header function to redirect user to appropriate page -- should be absolute URL
+		-immediately terminate running script using exit() after redirect
+Necessary Oomponents:
+	-validate that an email address was provided
+	-confirm that the correct password was in use
+	-confirm that the provided email address and password match those stored in the server's database
+	-script 12.2
+		-dirname($_SERVER['PHP_SELF']) -- returns just the directory path to the value of $_SERVER['PHP_SELF"] -- a self-reference to current PHP script
+		-rtrim(url,'/\\') -- removes any additional slashes out of URL
+		-remember that passing values into web url can be done with:
+			$url .= '?name'.urlencode(value);
+Using Cookies:
+	1) url request (web browser(client) --> PHP Script)
+	2) cookies and html (PHP Script --> HTML page)
+	3) url request and cookies (HTML page --> PHP Script)
+	-uses metaphor of a name tag in a store
+	-must be sent from server to client pripr to any other information
+	-set via setcookie() -- setcookie(name, value) -- setcookie('ID',49) -- setcookie('email','email@example.com')
+	-script 12.3
+		-uses require() instead of include() because the scripts are necessary to run entire login
+	-ccokies are limited in size -- 4KB total data and each browser can remember ~50 cookies
+	-setcookie() can have different results in different browsers
+	-always eliminate white space between closing tag and html header tag -- error will result 
+	-cookies may not work in browser over local host
+	-cookie is not accessible until the setting page has been reloaded or another page has been accessed
+	-example redirects to home page should the cookies be disabled
+	-additional parameters on setcookie(name, value, expiration, path, host, secure, httponly)
+		-some browsers have difficulties with cookies that do not list every argument -- explicitly state each parameter even as an empty string
+		-cookie expiration guidelines: pg 384
+	-e-commerce and other privacy-related web applications should use an SSL (secure sockets layer) connection for all transactions
+	-be cautious when using cookies with directories that have different file permissions
+	-to delete cookie simply use empty values -- does not take affect until page reloaded or another page is loaded
+	-benefits of cookies: over time last longer, easier to program, require less service from server
+Using Sessions:
+	-data stored on the server not in the web browser
+		-session identifier used to locate a particular user's record
+	-benefits different than cookies: security through storage on server, more data can be stored in a session
+	-each page using them must call the session_start() function when active
+	-sessions will normally send and read cookies -- begin them early in script
+	-session.auto_start in php.ini file can be changed to 1 to make it unnecessary to use session_start()
+	-arrays can be stored in sessions 
+	-start_session() could be script-specific -- add to each script that calls it (login/logout)
+		-if session is not accessible one page to the next it could be because start_session() is being used on unnecessary scripts
+	-sessions variables need to be de-allocated -- use unset() as with any PHP variable
+		-to delete every session variable -- shouldn't use unset() (individual deletion), declare new session array -- $_SESSION = array();
+	-to remove all session data -- session_destroy() 
+	-garbage collection in PHP:
+		-session.gc_maxlifetime -- max session lifetime in seconds
+		-session.gc_probability -- probability of session deletion
+		-ini_set() can change these settings but be wary of boggging down server or inadvertently ending session of slow users
+	-never set $_SESSION equal to null or unset($_SESSION)
+	-header.html only needs to check if $_SESSION['id'] is set and that the page is not the logout page
+	-three types of information in a session:
+		-session identifier
+		-session data -- store in in a text on server
+		-session array
+Security Aspects:
+	-sensitive information should be stored on a server through a session
+	-points of a potential attack could be the session ID
+		-PHP stores this in a cookie -- possible to use sessions without cookies
+		-security mechanism -- storing sessionID in a cookie makes it harder to steal
+	pg. 396 -- changing the session behavior
+	-additional security mechanism -- change session id upon login -- session_generate_id()
+	-HTTP_USER_AGENT -- combination of the browser and operating system being used
+	-in critical sessions -- require use of cookies and transmit over secure connection
+	-domains store session IDs in other secure directory on domain
+	-session dat itself can be stored in a database rather than text
+	-user's ip address is not a good unique identifier -- could be used with multiple ip's in an LAN  and can change frequently

@@ -1,0 +1,43 @@
+Chapter 10 
+
+-two different ways to pass values and variables to a PHP script
+	1) make use of HTML's hidden input type
+		<input type="hidden" name="do" value="this"/>
+		-when this is included between two form tags the variable $_POST['do'] will have a value of "this" in the handling PHP script
+			-if the form used GET then the value $_GET['do'] would have that value
+		-creation of the form can be skipped by directly appending to URL
+			www.example.com/page.php?do=this
+			-page.php would receive a variable called $_GET['do'] with a value of 'this'
+		-see script view_users.php
+	2) use the URL technique
+		-to append multiple variables use:
+			-...page.php?name1=val1&name2=val2&name3=val3
+			-just use an additional variable assignment along with ampersand
+		-string with spaces would be problematic in URL
+			-use urlencode()
+			-$url = 'page.php?name='.urlencode('Elliot Smith');
+			-only necessary when programmatically adding values to a URL
+				-GET method in form automatically encodes data
+-Using hidden form inputs:
+	-hidden on web browser but present in HTML source code -- keep completely hidden if true security is vital
+	-cookies and sessions are other ways to make data available to other PHP pages -- covered in chapter 12
+-editing existing records
+	-editing registered user records:
+		-process:
+			-create a sticky form -- always outputs user's information stored in database
+			-using hidden inputs
+			-validating registration data
+			-executing simple queries
+		-methodology:
+			-displays form with user's up to date information
+			-upon submitting, if data passes all validation routines, an UPDATE query will execute
+			-uses an array to track errors that are printed should all conditions be validated
+	-an added note to mysqli_affected_rows() -- change value to zero with custom exception created when using UPDATE
+-pagination
+	-when using search engines such as google, query results are displayed as a series instead of a long list
+	-makes use of the LIMIT executable command
+	-alternate color of each displayed row in the table -- uses ternary operator
+		condition ? valueT : valueF
+		-if condition is true valueT is used, otherwise valueF
+	
+		

@@ -1,0 +1,111 @@
+Chapter 5
+
+-Creating databases and tables
+	-CREATE DATABASE databasename
+	-CREATE TABLE tablename{
+		col1name description,
+		col2name description
+	}
+-SQL is case insensitive
+-within mysql client every statement must be terminated with a semicolon
+	CREATE DATABASE sitename;
+	USE sitename;
+	CREATE TABLE users{
+		user_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+		last_name VARCHAR(40) NOT NULL),
+		pass VARCHAR(40) NOT NULL,
+		PRIMARY KEY(user_id)
+	}
+	SHOW TABLES; -- reveals the tables in a database 
+	SHOW COLUMNS FROM users; -- reveals the columns in a table  == DESCRIBE users
+-best practice to list primary key then foreign keys the rest of columns
+-when creating column collation and character set can be specified to choose language constraint
+-inserting records:
+	1) INSERT INTO tablename (col1,col2,col3,col4,col7) VALUES (val1,val2,val3,val4,val7)
+	2) INSERT INTO tableame (val1,...val7) -- where every column is passed a value
+	3) INSERT INTO tablename (col1,..col7) VALUES (val1,val2),(val1a,val2a),... -- allows to insert multiple rows at one time
+-quotes in queries
+	-numeric values should not be quoted
+	-string values (string, text, varchar) must always be quoted
+	-date and time values must always be quoted
+	-functions cannot be quoted
+	-NULL must not be quoted
+	-single or double quotes don't matter as long as they are paired consistently
+	
+	-if quotation is necessary in value passed by record use a backslash as in PHP
+-SQL functions
+	-SHA1() -- one-way encryption technique that creates encrypted 40-character string (technically a hashing function)
+		-because it can't be decrypted -- not a good choice for sensitve data that needs to be seen at a later time
+		-useful to store sensitive data that does not need to be viewed again
+		-MD5() is equivalent in earlier versions of SQL but uses only 32 characters
+	-NOW() -- used to populate time stamps -- returns current date and time on the server
+-backtick SQL command -- located on same key as the tilde, different than a single quotation
+	-used to safely reference a table or column name that might be the saem as an existing keyword
+-REPLACE -- can update a value that already has a primary key assigned or insert if value does not already exist as a primary key
+-selecting data
+	-SELECT columns FROM table
+	-* references all
+	-can be used without naming tables or rows -- SELECT NOW()
+	-order of selection determines order of return value
+	-can retrieve the same column multiple times
+-conditionals -- where
+	-SELECT columns FROM table WHERE condition
+		-can begin to use boolean logic constraints
+	-WHERE (val1 == 1) OR (val1 == 2) is equivalent to WHERE val1 IN (1,2)
+	-see pg 140 to reference all operators
+-mathematical calculations can be performed in queries
+-supports TRUE and FALSE as case-sensitive (1 or 0) that can be added as TRUE+TRUE=2
+-Using LIKE and NOT LIKE
+	underscore checks to match a single character -- (_)
+	percent sign checks to match one or more characters -- (%)
+	ex)
+	SELECT * FROM users WHERE last_name LIKE 'Smith%' -- returns all rows whose last_name value begins with Smith 
+		-case-sensitive search by default -- also applies to names that begin with Smith
+	SELECT * FROM users WHERE email NOT LIKE '%@authors.com' -- returns all rows whose email does not have an @authors extension
+-LIKE and NOT LIKE are generally slower because they cannot reference by index -- use only when necessary
+-wildcard characters (% or _) can be used at beginning or end of string
+-L/NL can be applied to numerical columns 
+-underscore can be used with itself in combination -- LIKE '__' would return any two-letter combination
+-Sorting Query results:
+	-ORDER BY
+		SELECT * FROM table ORDER BY column ASC
+	-can be ASC or DESC
+	-return value can order by multiple columns
+	-strings are automaticlly ordered in alphabetical sequence
+	-based on collation
+	-if column is an enum type the order will be based on the enum values specified
+-limiting query results:
+	-LIMIT X -- limits returned rows to the number X
+	-LIMIT X,Y -- returns Y records starting at X
+	ex)
+	SELECT * FROM table WHERE conditions ORDER BY column LIMIT X
+-updating data
+	-UPDATE table SET column=value
+	-UBDATE table SET col1 = val1, col2 = val2
+	-UPDATE table SET col1 = val1 WHERE conditions -- if where is not used changes will apply to every record
+	-ALWAYS use a where clause unless updates need to change every row
+	-applying limit clause will check that number of records to be updated are limited (one more than intended number is good to check for extras, then up from there)
+	-NEVER update a primary key column because primary key value is static
+-deleting data	
+	-DELETE FROM table
+	-DELETE FROM table WHERE condition
+	-preferred way to empty a table -- TRUNCATE
+		-TRUNCATE TABLE tablename
+	-delete data as well as the table
+		-DROP TABLE tablename
+	-delete an entire database and all tables
+		-DROP DATABASE databasename
+-aliases -- symbolic renaming of an item used in a query applied to tables, columns, or function calls
+	-SELECT register_date AS reg  -- creates reg alias 
+	-case-sensitive strings composed of numbers, letters, and the underscore but are normally kept to a very short length
+	-standard SQL does not support aliases in where condition
+-using functions
+	-SELECT *, FUNCTION(column) FROM table
+	-SELECT UPPER(first_name) -- would select first_name and convert to uppercase
+	-NO SPACES ALLOWED between function name and opening parentheses
+	-reference -- page 154
+	-REGEX() and NOT REGEX() -- regular expression functions
+	-numeric functions -- page 157
+	-date and time functions -- page 159 -- corresponds to server -- formatting - page 162
+	
+	

@@ -1,0 +1,98 @@
+Chapter 3
+
+Including multiple files:
+-PHP has different functions to include multiple scripts or html layouts:
+	-include()
+	-include_once()
+	-require()
+	-require_once()
+-example use:
+	-include('filename')
+	-require('/path/to/filename')
+-absolue vs. relative file path -- absolute includes root directory, relative includes parent directory
+-difference between include and require
+	-include prints a warning message to browser when file can't be included
+	-require actually creates an error that is printed to the screen and the script is halted
+-add ine the *_once()  requires extra work but is good to use when redundant includes/requires are likely (complex websites)
+-template system is the best way to not have to write scripts conitnuously
+-website structuring:
+	-two primary considerations of using multiple files
+		-ease of maintenance
+		-security
+	-create directories to store templates/included files apart from main scripts (those accessed directly via browser)
+	-where security is not an issue use the .inc -- header.inc.html
+	-common structure of almost every website:
+		-header
+		-navigation
+		-advertising
+		-footer
+		-1+ page-specific section
+-helpful functions:
+	-include_path() -- can specify where PHP is and is not allowed to retrieve included files
+	-when using credentials to access database credentials should be stored outside of web directory so that they won't be visible in browser
+	-require() is recommended for mission-critical includes because it won't execute if an error arises
+	-if PHP block contains single executable it's common to place both it and the PHP tages on a single line to conserve white space
+-revisiting handling forms
+	-to have one page both display and handle forms a conditional must check which action should be taken
+		if(/* form has been submitted*/)
+		{//handle form}
+		else
+		{//display form}
+	-when a form uses the post method and is then submitted back to the page:
+		Request 1) loads the form with a GET request
+		Request 2) submits fomr with POST request
+		-test a form submission with a POST request:
+			if($_SERVER['REQUEST_METHOD']=='POST'){//handle form}
+			else{//display form}
+	-when a form is submitted to database and additional one needs to be handled drop the else clause in prevoius definition
+-sticky form -- HTML form that remembers the information
+	-to preset text input use value attribute
+		<input type="text" name="city" value="New York"/>
+		-in PHP print reference variable:
+			<input type="text" name="one hair" value="<?php echo $city; ?>" />
+	-to preset radio buttons:
+		<input type="radio" name="one" value="T" <?php if($one == "T"){ echo 'checked="checked"';} ?>/>
+	-to preset text area:
+		<textarea name="comments" rows="10" cols="49"><?php echo $comments;?></textarea>
+	-to preset pull-down menu
+		echo '<select name="year"?';
+		for($y = 49; $y<=98; $y++)
+		{
+			echo "<option value=\"y\"";
+			if($year == $y)
+				echo 'selected="selected"';
+			echo ">$y</option>\n";
+		)
+		echo '</select>';
+	-see pages 92-93 on additions to calculator
+-always double-quote HTML attributes
+-creating functions:
+	function example_name()
+	{
+		//code
+	}
+	-all names are case sensitve
+	-common areas of creating custom functions:
+		-associate repeated code to single call
+		-separate out sensitve or complicated processes
+		-to make common bits easier to reuse
+	-call to undefined function error -- check spelling of call
+	-be prudent about use of functions due to memory cost
+	-those that take arguments:
+		function print_hello($input1,$input2)
+		{//code}
+	-See page 98 on example of user created functions with arguments
+	-setting default argument values
+		function greet($name, $msg = 'Good Morning") {//code}
+		-good practice to arrange default values at the end of the definition
+		-to pass an empty value to a function use empty string (''), NULL or FALSE
+		-square brackets used to indicate a function's optional parameters
+	-returning a value:
+		function sign($input){/* code */ return $input;}
+		-returning multiple values -- always assign these to an array that is created to take number of returned values
+			return array($val1,$val2);
+		-any code past return will not run
+-variable scope:
+	-use global keyword to modify local variable's scope
+	-use superglobal functions (get,post,request)
+	-try not to include global variables in functions -- increase context-dependence

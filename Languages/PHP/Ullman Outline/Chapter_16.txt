@@ -1,0 +1,79 @@
+Chapter 16
+
+OOP Primer
+
+-PHP is both procedurally used and can implement OOP
+-OOP Summary:
+	-begins with definition of a class -- a template used on a particular type of data
+		-contains both variables and methods
+		ex) Person class --- vars{name,age} methods{prays,helps,loves}
+		-variable in a class definition is called an attribute or property
+		-attributes and methods are the class members
+	-parts of OOP:
+		-overriding methods, scope resolution
+		-inheritance, access control, abstraction
+	-classes:
+		instantiation -- $instance_name = new ClassName(potential parameters);
+		-contructors invoked to enable attribute values upon initial object creation
+	-accessing members and methods in PHP's syntax
+		$object->attribute = 'value';
+		$object->method_call('potential','argument');
+		ClassName::method_name()
+		echo ClassName::CONSTANT_NAME -- classes can echo their own constants
+	-namespaces: group multiple class definitions under a single title
+MySQLi classes:
+	-MySQLi -- primary class, provides a database connection, a querying method, and more
+	-MySQLi_Result -- used to handle results of SELECT queries
+	-MySQLi_STMT -- used to perform prepared statements
+	-creating a connection:
+		$mysqli = new MySQLi(hostname,username,password,DB)
+		if($mysqli->connect_error) -- checks status of condition that can be displayed
+		$mysqli->set_charset('charset #utf-8');
+		$mysqli->close();  -- closes connection 
+		unset($mysqli);	   -- deletes object
+Creating an OOP DB connection:
+		define all constants (database login information) then create a database object using the MySQLi class to instantiate with the constants in use
+		print_r($object, 1) -- shows debut objects in code
+		-mysqli argument takes two additional arguments -- port to use and the sockets
+		MySQLi::character_set_name() -- returns the current character set_charset
+		MySQLi::get_charset() -- returns character set, collation, and more
+		$mysqli->select_db(dbname) -- changes the database used by the current connection
+		$mysqli->query(example_query) -- takes SQL argument to be run
+		$id = $mysqli->insert_id == retrieves generated primary key upon an INSERT query
+		$mysqli->affected_rows -- returns number of rows affected by query
+		$mysqli->real_escape_string($var) -- prevents apostrophes and other problematic characters from breaking the syntax of the SQL command
+			-equivalent of mysqli_real_escape_string() but uses OOP
+		when running a query that has result set -- $result = $mysqli->$query($q)
+			-only one row returned -- call the $result->fetch_array()
+				-takes optional parameters indicating MYSQLI_ASSOC (associative) MYSQLI_NUM (indexed) or MYSQLI_BOTH
+		whenever storing a result always free required resource -- $result->$free
+		fetch_object() can be called on a query result that returns a value to declare it as an object with a type
+			$row = $r->fetch_object()
+Prepared Statements
+	-multi-use query objects
+	$q = 'INSERT INTO tablename(this,that) VALUES (?,?)
+	$stmt = $mysqli->prepare($q);
+	$stmt->bind_param('$i",$this,$that);
+	//this = ... that =
+	$stmt->execute()
+	MySQLi::prepare() -- returns an object of type MySQLi_STMT with key properties:
+	affected_rows -- stores number of changed rows
+	num_rows -- number of records in the reuslt set for a SELECT query
+	insert_id -- stores automatically generated ID value of previous INSERT query
+	error -- represents any error that could have occurred
+	$stmt->close(); -- always de-allocate memory
+DateTime Class
+	create object with call -- $dt = new DateTime(); 
+		-can take argument to set in YYYY-MM-DD, and additionally HH:MM
+		$dt->setDate(year,month,day); -- manually sets
+		$dt->setTime(11,15); -- manually sets
+		can be modified with -- $dt->modify('+7 day');
+	DateTimeZone class -- can only be passed to setTimezone() 
+		$tz = new DateTimeZone('timezone');
+		$dt->setTimezone($tz);
+	sub and add methods can subtract or add the time period
+	DateTime::getTimestamp() -- returns unix timestamp
+	DateTime class represents data as a 64-bit number -- +/- 292 billion years
+	DateTime::COOKIE -- represents common date time format
+	
+	

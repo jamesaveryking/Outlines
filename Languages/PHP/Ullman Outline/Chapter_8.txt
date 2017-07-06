@@ -1,0 +1,103 @@
+Chapter 8
+
+Errors occur in one of 4 ways:
+	-HTML, PHP, SQL errors, MySQL mistakes
+-step one of error handling -- locate source
+	-HTML is obvious -- layout will be cattywampus
+	-three categories of PHP errors:
+		-sytnactical -- stops script and error message is displayed]
+		-run-time -- usually causes PHP to display an error as well] both assume display_errors is on
+		-logical -- no report makes this category the most difficult to solve 
+	-SQL errors -- usually result out of syntax
+	-MySQL will usually print error concerning SQL errors
+		-other MySQL errors:
+			-inability to access database
+			-misuse of a function
+			-ambiguous reference to a join column data type
+			-can be logical
+-best debugging advice -- step away from the computer, be courteous when asking for help, don't randomly guess
+-usage errors -- how a site can respond to combinations of user errors -- build code that won't break even if user does nothing right
+-basic debuggin process:
+	-make sure page is correctly being run -- correct page
+	-make sure that all changes have been saved -- www.macromates.com
+	-make sure that all PHP is run through URL
+	-check version of PHP and SQL in use
+	-know what web server is being run
+	-try executing pages in a different browser
+	-if possible use different combination of web server, browser, PHP, SQL
+-debugging HTML
+	-check source code
+	-use validation tool
+	-use firefox and add-on widgets
+	-test in another browser
+-displaying PHP errors
+	-turn on display_errors -- ini_set('display_errors', 1);
+		-check manual on ini_set()
+		-only works when script runs by default -- check changing PHP configuration file to always view
+-adjusting error reporting in PHP
+	-notices -- do not stop execution of script and may not be a problem
+	-warnings -- indicate a problem but don't stop execution of script
+	-errors -- stop a script's ability to continue
+	-page 250 -- some PHP errors
+	--suppress errors with @
+	--adjust on script by script terms with error_reporting()
+		-error_reporting(E_ALL) -- reports ever error
+		-error_reporting(0) -- reports no errors
+		-check manual to see additional error_reporting configurations
+-because different errors will be reported on different scripts or web pages it is best practice to include error_reporting and display_errors in separate script and include in web pages
+	-trigger_error() programmatically generates PHP error 
+-using custom error handlers
+	function report_errors(arguments){//code}
+	set_error_handler('report_errors'); #can take up to 5 arguments and is defined as function above
+	-see page 254
+-logging PHP errors
+	error_log(message, type, destination, extra headers);
+	-used to log errors
+	-$message should be error
+	-type -- 0,1,3,4
+		-0 is local computer
+		-1 is email
+		-3 is text file
+		-4 is web server's logging handler
+	-destination can be a name of a file (3) or email address (1)
+	-extra header used only when sending emails (1)
+-PHP debugging techniques
+	-syntax -- error displayed to screen
+		-end every statement with semicolon
+		-balance all quotations, parentheses, culry braces, and square brackets
+		-be consistent with quotations
+		-excape, using backslash, all single and double quotations
+		-line in error message does not mean that error is on that line
+			-treat as starting point and not absolute
+		-error in last line is almost always unmatched parentheses, quotations, brace, brackets
+	-to debug scripts:
+		-turn on display_errors -- ini_set('display_errors',1);
+		-use comments
+		-use print and echo at different points to check values
+		-check what quotations are used to print variables -- double only
+		-track variables
+		-print array values 
+		-use die() and exit() -- terminates entire script
+			include('example.inc.php') OR die('Could not include this');
+		-begin by using /**/ and go through line-by-line
+		-to make results of print_r() more readable in the Web browser wrap within <pre></pre> HTML tags
+-SQL and MySQL debugging
+	-common errors:
+		-unbalanced quotations or parentheses
+		-unescaped apostrophes in column values
+		-mispelling a column name, table name, or function
+		-ambiguously referring to a oolumn in join -- check data type
+		-placing query clauses in wrong order
+		-unpredictable or inappropriate query results
+		-inability to access the database
+	-techniques:
+		-print out any applicable queries in PHP script
+		-run the query in the mysql client or other tool
+		-rewrite query into most basic form and build out
+	-access problems:
+		-reload MySQL after altering priveleges
+		-double check password
+		-error message 2002 indicates MySQL is not running or is not running on socket 3306
+		
+	
+	

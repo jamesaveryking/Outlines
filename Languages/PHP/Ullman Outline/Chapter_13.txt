@@ -1,0 +1,83 @@
+Chapter 13
+
+Topics:
+-preventing spam, typecasting variables, preventing cross-site scripting (XSS) and SQL injection attacks, 
+ the new Filter extension, and validating uploaded data types
+-preventing spam:
+	-there are many ways that different aspects concerning email input can be manipulated by people with bad intentions
+	-essentially anywhere a form exists there is a possibility of injecting malicious text
+	-to prevent:
+		-validate email, in example, and any input overall using regex equivalents in PHP
+		-any character set contained on pg. 403 should be excluded out of being able to be sent
+	-security isn't binary -- represent as a set of correlational variables and always program with these kept in mind:
+		-what can be done to be more secure?
+		-what has been done that isn't secure?
+		-always err on the side of being too secure
+	-if logging emails add in SQL keywords
+	-in emails.php when calling spam_scrubber any multi-dimensional array using $_POST will be cleared regardless
+		-spam_scrubber() will be applied to entire array even submit button -- not harmful but unnecessary
+	-CAPTCHA utility can be utilized 
+-validating data by type
+	-list of validations - pg. 409
+	-some input cannot be totally and completely validated
+		-addresses -- both numbers and text
+	-whitelist and blacklist approach -- values that pass or don't
+	-typecasting -- changing type after assignment
+		$seven = 70.77
+		echo (int) $seven; -- 70
+	-typecasting is good practice using SQL queries -- invalid data type will generate an SQL error
+	-in terms of processor speed it is quicker to use type validation than regex -- when possible use type validation
+-validating files by type
+	-$_FILE['upload']['type'] -- refers to MIME type by uploading browser
+		-good start but can be thwarted in browser
+		-better to use fileinfo extension
+		$info = finfo_open(kind); -- kind is typically using constant called FILEINFO_MIME_TYPE
+		-next call: finfo_file($info,$name);
+		-always close using: finfo_close($info)
+		-same resource can be used over multiple files
+	-review of 3 requirements concerning uploads:
+		-proper enctype attribute, MAX_FILE_SIZE recommendation, input using hidden form
+-preventing XSS attacks
+	-cross-site scripting: stealing cookies, could create pop-up windows using manipulation of plaintext submits
+	-in email example this is executed with adding keywords of PHP, HTML, or JavaScript
+		-some included in PHP -- htmlspecialchars() -- turns special characters into entity format, htmlentities() -- turns all applicable characters into HTML entity format, strip_tags() -- removes all HTML and PHP tags - least disruptive
+			-research nl2br()
+-using the filter extension
+	-can be used to validating or sanitizing data
+		-validating -- confirming - use FILTER_VALIDATE_DATATYPE:
+		-sanitizing -- removing - use FILTER_SANITIZE_SPECIAL_CHARS etc.. see page 422	
+			-can be used on all data sanitization
+	if(filter_var($var, FILTER_VALIDATE_INT)) -- returns true with integer data type
+	-filter_has_var() -- confirms a variable with a given name exists
+	-filter_input_array() -- apply a filter array to array of variables in one step
+-preventing SQL injection
+	-start by validating all data types in query
+	-use something like my_sqli_real_escape_string() -- lets data be safe to use in queries
+	-alternative to ^^^ is to use prepared statements -- used when applying same query multiple times
+		-syntax prepared to be able to pass multiple queries
+	-helpful built ins:
+		$q = "SELECT ..."
+		$stmt = mysqli_prepare($dbc, $q); -- prepares SQL statement 
+		mysqli_stmt_bind_param($stmt, 's', $id) -- s based on expected return type -- d is decimal, i is integer, b is blob, s is all other types
+		mysqli_stmt_execute($stmt) -- executes statement
+		mysqli_stmt_close($stmt) -- closes statement
+		mysqli_close($dbc) -- closes connection
+-two types of prepared statements -- bound parameters - PHP variables bounded to SQL queries | bound results -- results of a query are bound to PHP variables
+
+-best security practices:
+	-minimize information requested as well as information stored
+	-study and abide by the updated security recommendations
+	-don't retain user-supplied names for uploaded files
+	-be careful of all uses of database references
+	-limit error messages
+	-use cryptography -- AES and MD5
+	-don't store vital information
+	-use SSL
+	-reliably and consistently protect every page and directory
+	-prevent brute force attackes with constrained password character sets
+		-create incremental delay based on failed logins using sleep()
+	
+	
+		
+		
+		
