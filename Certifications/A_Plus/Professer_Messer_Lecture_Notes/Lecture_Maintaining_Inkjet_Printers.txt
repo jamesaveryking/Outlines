@@ -1,0 +1,20 @@
+Maintaining Inkjet Printers
+
+-cleaning print heads
+	-small droplets of ink
+	-clogging is common
+	-clogged heads is an issue -- automatic cleaning
+	-can be manually cleaned
+	-some print heads or cartridges can be removed
+	-can clean with isopropyl alcohol
+-replacing inkjet cartridges
+	-usually separate colors -- CMYK
+	-some cartridges combine
+	-cartridges are proprietary
+	-mostly plastic and need to be recycled
+-inkjet printer calibration
+	-align nozzles to paper
+	-may need to make minor adjustments to tune
+-clearing jams
+	-remove paper tray -- any paper that is loose
+	-check for any paper scraps

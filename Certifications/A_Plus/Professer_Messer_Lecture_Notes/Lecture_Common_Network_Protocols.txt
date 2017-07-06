@@ -1,0 +1,42 @@
+Common Network Protocols
+
+-dynamic host configuration protocol
+	-automated configuration of ip address, subnet mask, and other
+	-udp/67 and udp/68
+	-requires dhcp server
+	-dynamic -- ip addresses are assigned in real-time from a pool
+	-static -- addresses are assigned by MAC address in the DHCP server
+		-quickly readress servers from one remote location
+-domain name system
+	-converts names to IP addresses -- udp/53
+	-critical resources -- usually multiple servers on network
+-lightweight directory access protocol (LDAP)
+	-protocol for reading/writing directories over IP network
+		-organized set of records like phone directory
+	-X.500 specification was written by the international telecommunications union (ITU)
+	-LDAP ran on the OSI protocl stack
+		-LDAP is lightweight and uses TCP/IP -- tcp/389 and udp/389
+	-protocl used to query and update X.500 directory
+	-attribute = value pairs
+	-most specific attribute listed first
+-simple network management protocol
+	-gather statistic from network devices
+	-udp/161
+	-common -- management device to query number of bytes received to interface on router
+	-v1 -- original -- no encryption
+	-v2 -- data type enhancement, bulk transfers
+	-v3 -- message integrity, authentication, encryption
+-server message block
+	-protocol used by microsoft also called common internet file system (CIFS)
+	-using netbios over tcp/ip
+		-udp/137 -- netbios name services (nbname) -- locate devices on network by name
+		-udp/138 -- netbios datagram service (nbdatagram)
+		-udp/139 -- netbios session service (nbsession)
+	-direct over tcp/445
+-ssh -- encrypted terminal session
+	-encrypted communcation link -- tcp/22
+-apple filing protocol (AFP)
+	-tcp/548 -- transfer files to other mac over local network
+	-works with service location protocol (SLP) -- tcp/427 and udp/427
+		-populates list of available devices
+	-file managemet -- copy, move, delete files

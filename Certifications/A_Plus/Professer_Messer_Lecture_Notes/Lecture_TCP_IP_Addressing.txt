@@ -1,0 +1,33 @@
+TCP/IP Addressing
+
+-ingredients to address:
+	-IP address
+		-every device needs unique IP
+	-subnet mask -- same numbers
+		-lets local workstation know the network it belongs to
+		-usually not transmitted across network
+		-used locally instead of public IP to access network
+	-default gateway -- IP address associated with router on local network
+		-communicates with internet
+-domain name system:
+	-translates human-readable names into computer-readable IP addresses
+	-distributed database distributed worldwide
+		-13 root servers
+		-100s of top level domains
+		-over 275 country codes
+	-IP addresses of DNS servers provided by network admin
+		-usually given two for redundancy
+-static addressing -- configuring all addresses manually in computer
+-configuring DHCP:
+	-ip address configuration used to be status
+	-dynamic host configuration protocol automatically assigns this now
+		-IP address, subnet mask, default gateway
+		-usually configured separately from DNS
+-classless subnetting
+	-classless inter-domain routing (CIDR)
+		-created around 93
+		-removed restrictions created by classful subnet mask
+		-cider block notation
+	-subnet can be described as decimal (98.0.0.0) or CIDR notation (/14)
+	-usually provided IP, subnet, default gateway, and DNS by OS
+	

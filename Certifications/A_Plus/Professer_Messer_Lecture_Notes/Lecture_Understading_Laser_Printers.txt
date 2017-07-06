@@ -1,0 +1,44 @@
+Understanding Laser Printers
+
+-combine a laser, high voltage charged ions, powdered ink, heat and paper
+-very high quality
+-better speeds
+-very complex:
+	-requires on printer memory
+	-mess/heat on inside
+-imaging drum
+	-photosensitive drum painted by laser
+	-picks up toner and transfers to paper
+	-can be separate from the other toner cartridge or combined
+	-ex) imaging drum in middle, toner on top
+	-do not expose imaging drum to light
+-fuser assembly
+	-heat and pressure to melt plastic toner powder to attach to paper permaanently
+-transfer belt and roller
+	-color laser printers: cyan, yellow, black, magenta
+	-four separate toner cartridges
+		-separate photoreceptive drums
+	-image is transferred from all cartridges to the single belt and then to a single transfer roller
+-pickup rollers -- take single page at a time all the way through printer
+	-should be periodically cleaned or replaced
+	-problem occurs if no or multiple paper is picked up
+	-usually a rubbery substance with resistance on them to pick up paper
+-separation pad:
+	-pull just top sheet of paper from tray
+	-relatively small and inexpensive
+-duplexing assembly
+	-prints both sides of paper
+	-sends paper through, flips inside, prints paper
+	-can be built into printer or built on to printer
+-steps in print:
+	1)processing - constructs page in memory
+	2)charging - wire sets negative charge to photosensitive drum
+	3)exposing - laser puts image on photosensitive drum through contrast with negative ions
+	4)developing - toner applied to phosensitive drum and toner is negatively charged
+		-toner sticks to where laser created contrast
+	5)transferring - toner placed onto paper
+	6)fusing -- apply heat and pressure to mealt toner on page
+	7)cleaning -- removes toner from phosensitive drum
+		-drum could be needed multiple times depending on complexity of image
+
+	

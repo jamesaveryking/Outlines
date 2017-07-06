@@ -1,0 +1,52 @@
+Overview of Display Devices
+
+-Liquid Crystal Display
+	-light shines through crystals and color filter
+	-work at molecular level where liquid crystals are twisted show that they will shine light through polarized filters
+	-requires backlight to shine through light-emitting diodes
+	-two kinds:
+		-Twisted Nematic LCD
+			-most common
+			-fast response times 1-2 milliseconds
+			-low power draw
+			-small viewing angle
+			-gaming
+		-In Plane Switching LCD
+			-excellent color representation
+			-no tailing when touched -- mobile
+			-more expensive to produce than TN
+			-graphics development
+	-backlights:
+		-fluorescent vs. LED backlight
+			-CCFL -- cathode color fluorescent lamp
+				-high voltage and power needed
+				-used a power inverter for DC to AC power
+				-added thickness to display
+				-no longer a common backlight
+				-older technologies
+			-LED-backlit LCD display
+				-backlight is LEDs instead of fluorescent
+				-LEDS around edge of screen
+					-diffused to evenly light display
+				-an array of LEDs behind screen
+					-may be dimmed individually
+			-Plasma display
+				-display of tiny cells containing noble gas and mercury
+				-adding voltage forms plasma -- mercury sheds energy as UV light
+		
+		-UV light strikes color phosphor
+				-deep blacks, fast response time
+				-no longer in production
+	-Digital Projectors
+		-not always LCD but common to see LCD in name
+		-metal-halide lamp:
+			-very bright and very hot light
+			-relatively expensive
+			-always let bulb completely cool so fan can gradually cool down lamp
+	-Organic Light Emitting Diode -- OLED
+		-organic compound emits light when receiving an electric current
+		-thinner and lighter -- flexible/mobile - no glass needed
+		-no backlight -- organic compound provides the light - true black color
+		-lifespan may be shorter than LED because of organic materials
+		
+					

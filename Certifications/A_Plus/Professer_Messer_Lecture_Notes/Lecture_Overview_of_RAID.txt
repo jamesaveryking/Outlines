@@ -1,0 +1,45 @@
+Overview of Raid
+
+Redundant Array of Independent Disks
+-also inexpensive disks -- modern is independent
+-different RAID levels
+	-some redundant, some not
+-RAID 0 - striping
+-RAID 1 - Mirroring
+-RAID 5 - Striping with Parity
+-Nested RAID - RAID 1+0 (aka RAID 10)
+	-a stripe of mirror drives
+
+-software vs. hardware based
+	-software - built into OS, no special hardware or hardware controllers
+		-performance varies based on other OS tasks
+	-hardware - add piece of hardware to motherboard or adapter card
+		-handles all rate performance/management
+		-configured outside of OS, usually invisible to operating system
+		-high performance and designed for speed
+		-tends to be faster than software
+-RAID 0 - striping
+	-file blocks are split between two or more physical drives
+		-info layered between 2+ physical drives
+		-high performance - high writing speed
+		-no redundancy -- drive failure breaks the array because of layering
+-RAID 1 - mirroring because it is an EXACT duplicate of the data
+	-at least two drives are necessary
+	-instead of splitting drives the drives are duplicated
+	-high disk utilization -- every file is duplicated
+	-absolutely redundant between drives -- every drive has exact duplicate
+	-easier recovery because of exact duplication
+	-requires twice the space
+-RAID 5 - striping plus parity bit
+	-striping across multiple disks over at least 3 disks
+	-not an exact duplicate 
+	-parity disk allows data to be recreated even if one of the drives is lost
+	-parity calculation may affect performance when drive is lost due to limited state
+-RAID 1+0 - a stripe of mirrors
+	-speed of striping with redundancy of mirroring
+	-need at least 4 drives
+	-best of both worlds
+	-RAID 0 across every set of two drives written using RAID 1 as a pair
+
+	
+	

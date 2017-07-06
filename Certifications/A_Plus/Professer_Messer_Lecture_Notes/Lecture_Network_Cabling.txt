@@ -1,0 +1,35 @@
+Network Cablings
+
+Fiber communications -- transmitted by light instead of radio frequencies
+	-no radio frequency signal -- difficult to tap
+	-signal slow to degrade -- transmits long distances
+	-immune to radio or electrical interference potential
+	-cable layout:
+		-core, coating, orange cladding
+	-very fragile -- center of ferrule wrapped around core
+	-distancing:
+		-short range (up to 2km) -- multi-mode fiber
+		-long range (up to 100km without signal regeneration) -- single mode fiber
+			-expensive light source -- laser beams
+
+Twisted pair copper cabling:
+	-balanced pair operation -- two wires with equal and opposite signals
+	-interference can be filtered out
+	-constant twisting allows easier comparison to determine interference
+	-pairs in same cable are twisted at different rate
+Unshielded and shielded cable:
+	-unshielded twisted pair -- no additional shielding
+	-most common twisted pair cabling
+	-shielded twisted pair -- additiona shielding
+		-requires use of electrical ground
+		-common to see in place with radio interference or hard-hat work setting
+Plenum-rated cable:
+	-cable jacket -- fluorinated ethylene polymer (FEP) with low-smoke polyvinyl chloride (PVC)
+		-minimizes smoke in fire
+	-may not be as flexible
+	-consider in worst case planning
+Coaxial cable:
+	-wire conductor, dielectric insulator, metal shielding, plastic jacket
+	-two or more forms share common axis
+	-RG-6 used in television/digital cable and usually internet into building
+	-RG-59 used as patch inside bulding short distance

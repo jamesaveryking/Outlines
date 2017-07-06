@@ -1,0 +1,60 @@
+Configuring Small Office Home Office Devices
+
+-multifunction devices
+	-printer, scanner, fax, network connection, phone line connection, print from web
+	-there are a lot of potentials to go wrong
+-printer drivers -- specific to a printer model
+	-get this exactly right
+	-get the right operating system drivers
+		-Vista,7,8,8.1 could all be different
+		-check manufacturer website
+	-check OS version -- 32/64 drivers
+		-not backwards compatible to smaller number of bits
+-duplex
+	-printing on both sides of page at one time
+	-not duplex -- manual switch
+	-not all printers can do this
+	-collate
+		-print multiple copies in their proper order
+		-non-callated -- 1 1 1 2 2 2 3 3 3
+		-collated -- 1 2 3 1 2 3 1 2 3
+-orientation
+	-portrait vs landscape
+	-paper doesn't rotate -- printer compensates
+	-quality -- resolution, color, greyscale, color saving
+-wired device sharing
+	-USB type B most common
+	-USB B on printer, A on computer
+	-parallel -- legacy systems
+		-centronics interface on the printer
+		-DB-25 on the computer
+	-ethernet -- RJ45 connector
+-wireless device sharing
+	-bluetooth -- limited range
+	-802.11 a/b/g/n/ac infrastructure mode
+		-many devices using an access point
+	-802.11 Ad hoc mode
+		-no access point
+		-direct link between wireless devices
+-integrated print server
+	-print directly to printer
+	-jobs queued on printer
+	-jobs managed on the printer
+		-web based front end or client utility
+	-new support cloud printing -- access anywhere in world
+-TCP
+	-connect via TCP port number
+	-common on windows devices
+	-uses TCP and UDP ports 135-139
+-Bonjour
+	-discover apple devices on the LAN
+	-part of Mac OS
+	-can be added to windows (itunes etc.)
+-Airprint
+	-print from iOS devices to compatible printers
+-printer device privacy
+	-user authentication
+		-every, set rights/permissions, printing/managing device
+	-print and scan caching
+		-usually spool file is created on printer and deleted when done
+			-not always -- need to delete if sensitive

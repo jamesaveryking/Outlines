@@ -1,0 +1,18 @@
+Overview of PC Output Devices
+-printers
+	-color and B&W output
+	-paper documents, photos
+	-connectivity
+		-USB
+		-Ethernet
+		-802.11 wireless
+		-Bluetooth / Infrared -- personal area network
+-speaker
+	-analog output devices
+	-compatible with our ears
+	-connectivity
+		-TRS jacks
+		-speaker output/audio adapter label
+-display devices
+	-monitor -- human's display device
+	-different sizes, dimensions, displays, resolutions, connections

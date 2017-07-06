@@ -1,0 +1,10 @@
+Understanding Thermal Printers
+
+Thermal Printers
+-white paper -- turns black when heated with no ink
+-very quiet
+-sensitive to light and heat -- no archiving
+-feed assembly pulls paper through printer head
+-heating element is printing mechanism
+	-heats up to print onto thermal paper
+-thermal paper -- specifically covered with chemical to change color when heated

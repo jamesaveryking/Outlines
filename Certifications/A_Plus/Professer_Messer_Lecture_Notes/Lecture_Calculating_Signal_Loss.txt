@@ -1,0 +1,24 @@
+Calculating Signal Loss
+
+-usually gradual -- signal strength diminishes over distance
+-attenuation -- loss of intensity as signal moves through medium
+-electrical signals through copper, light through fiber, radio through air
+-Decibels -- one/tenth of a bell (alexander graham bell)
+	-logarithmic scale
+	-add/subtract losses and gains
+	-signal strength ratio measurements
+	ex) 3dB = 2x signal
+		10dB = 10x signal
+		20dB = 100x signal 
+		30dB = 1000x signal
+-calculating involves addition and subtraction
+	-add the loss through each section
+	
+	ex) manufacturer has specific dB loss of each section
+		-add loss as X per section used
+		-create ratios for smaller segments -- remember logarithmic relationship
+		-add patch panel loss at beginning and end
+
+-dB loss symptoms -- no connectivity, intermittent connectivity
+	-poor performance -- CRC data corrupted 
+	-test each connection -- test distance and signal loss

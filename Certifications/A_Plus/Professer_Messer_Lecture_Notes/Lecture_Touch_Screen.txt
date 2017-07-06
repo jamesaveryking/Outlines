@@ -1,0 +1,24 @@
+Overview of Input and Output Devices
+-touch screen
+	-no keyboard
+	-on-screen input and output
+	-many different examples
+-KVM -- keyboard, video, mouse
+	-use many computers with a single keyboard, video display, and mouse
+-Smart TV
+	-apps on a television
+	-streaming media, telecommunications
+	-input -- remote, keyboard, voice
+	-output -- display
+	-connectivity
+		-Wired Ethernet
+		-802.11 wireless
+-Set-top box
+	-add intelligence to less intelligent televisions
+	-potentially connect to computer to stream media
+	-wired ethernet, 802.11 wireless, HDMI
+-MIDI -- musical instrument ddigital interface
+	-industry standard since 1983
+	-traditional uses 5-pin DIN
+	-modern use USB, ethernet, firewire
+	

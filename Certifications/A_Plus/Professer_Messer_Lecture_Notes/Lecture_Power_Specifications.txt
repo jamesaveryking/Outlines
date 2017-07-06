@@ -1,0 +1,70 @@
+Computer Power Specifications
+
+-Amp and Volt and Watt
+
+-Amp -- ampere - rate of electron flow past a point in a second
+-Volt -- voltage - electrical "pressure" pushing electrons through connection
+	-water hose metaphor:
+		-size of hose increases amps
+		-increasing tap output increases water pressure
+-Watt - measurements of real power use
+	-volts * amps = watts
+	-120V * 0.5A = 60W
+
+-Current
+	-Alternating Current (AC) ~~~~~
+		-direction of current is constantly changing
+		-efficient on long distances
+		-frequency of this cycle is important
+			-US/Canada -- 110 to 120V of AC(VAC), 60 hertz (Hz)
+			-Europe -- 220 to 240 Volts Alternating Current, 50Hz
+	-Direct Current --------
+					_ _ _ _
+	
+		-power that is converted out of power lines into household appliances
+		-moves in one direction with a constant voltage
+-Voltage rails
+	-single rail
+		-single 12 volt rail power supply
+		-one output circuit generating 12 volts
+	-multiple rails
+		-multiple 12 volt rail power supply
+		-each 12 volt rail has separate circuitry inside of the power supply
+		-each 12 volt connector on the outside of the power supply is connected to one of the rails
+	-multiple rails provide additional protection
+		-higher power overload of a single rail means there's a lot of smoke
+		-overloading smaller capacity rails shuts down the power supply unit instead
+		
+-Sizing power supply
+	-bigger isn't necessarily better - more cost, no more speed
+	-physical size is relatively standard
+	-calculate and combine watts required for all components to see maximimum amount of power necessary
+		-many online calculators
+	-video adapters are usually the largest power draw
+		-many video card specifications list a recommended power supply wattage
+	-good rule of thumb -- get 2 times the maximum power needed
+-Power supply connectors:
+	-Fixed
+		-connected to the power supply
+		-may have too many connectors
+		-may not have enought
+	-Modular
+		-all cables as needed
+		-fewer leftover wires, better airflow
+		-a bit more expensive
+
+-Modern Power Supplies:
+	-ATX and microATX power supplies
+	-power supply dimensions are standardized
+		-most power supplies fit in ATX and microATX cases
+	-some older power supplies are physically larger - microATX may not be an option
+	-some microATX cases minimize size -- may require specific power supply
+
+-Dual-voltage options:
+	-voltages vary by country (US/Canada 110-120VAC 60Hz, Europe 220-240VAC 50Hz)
+	-manually switch between US/Canada and Europe standards
+	-check using voltage meter
+	-NEVER cross over power supplies that are not configured to voltage
+	-power supply will specify voltage range
+
+	

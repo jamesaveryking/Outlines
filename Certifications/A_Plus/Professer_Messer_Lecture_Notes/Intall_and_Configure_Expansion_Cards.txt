@@ -1,0 +1,23 @@
+Installing and Configuring Expansion Cards:
+
+-expansion slots are usually large and brightly colored
+-always power off computer
+-take expansion card and press over slot - should slide in and not have friction
+-if friction occurs, consult manual to see adapters
+-network interface cards can be upgraded to multiple network interface to connect to multiple network simultaneously
+-USB cards, Thunderbolt cards, or Firewire cards can increase number of available connections
+-Storage card can allow for RAID service connections
+-Modem cards allow for connection over phone lines
+-Wireless WAN cards allow access to mobile service providers (usually connected to MiniPCI)
+	-connect to interface slot and antenna connection to connect to WAN over internet using wireless service providers
+-Television tuners/video capture cards can save TV as digital signals on storage device
+-Data centers use small computers that are connected by Riser Cards - connects card larger than computer to smaller server computers by using riser card connected to bus of computer to turn card 90 degrees - not limited anymore by height
+-before any modifications always check motherboard documentation to check number and type of slots, necessary drivers, minimum software/hardware requirements, etc.
+-always check forums to see exact process (driver then card or card then driver - subjective to hardware)
+-driver installation is straightforward - install driver into OS to allow access to additional card
+		-check web for later installation
+		-new drivers may require uninstall of old drivers
+		-manufactureres usually provide setup program
+		-manual installatio could require windows device manager - RESEARCH
+		-check device manager for status - does it work?
+

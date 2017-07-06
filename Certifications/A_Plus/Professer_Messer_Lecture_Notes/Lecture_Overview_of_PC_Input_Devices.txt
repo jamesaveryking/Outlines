@@ -1,0 +1,64 @@
+Overview of PC Input Devices
+
+-Mouse
+	-USB connection or an adapter of PS/2
+	-optical mouse have few moving parts (no wires)
+		-glass can create problems - some mice designed to work with this
+-keyboard
+	-USB or adapter for PS/2
+	-additional features may require drivers and/or software
+-scanner
+	-connected via USB or 802.11 wireless
+	-different types of form factors
+		-all-in-one (printer included) or flatbed (sole purpose)
+-barcode reader
+	-serial or USB or 802.11 wireless
+	-or with mobile built-in camera
+-biometric device
+	-fingerprint scanner, facial recognition
+	-built-in or connected via USB
+-gaming input
+	-game pad and joystick
+	-USB connection
+	-associated with games
+-digitizer -- pad to design graphics
+	-USB connected
+	-pressure senstive, more accurate than mouse
+-motion sensor
+	-USB connected
+-touch pad 
+	-laptop/mobile mouse integrated into keyboard
+	-replaces mouse
+-smart card readers -- security mechanism
+	-card with embedded circuitry
+	-used in payment/identification
+	-used in authentication
+	-readers are built-in or external (connects via USB)
+-digital cameras
+	-file transfer
+	-USB connected or  802.11 wireless or memory cards
+	-media -- still images, video, audio
+-microphone
+	-integrated into most new laptops/multimedia devices
+	-connectivity
+		-analog -- TRS (tip,ring,sleeve)
+		-digital -- USB
+-webcam
+	-video capture
+	-built-in camera
+	-USB connected
+	-802.11 wireless
+	-usually includes both audio and video
+	-specialized drivers and software
+	-usually built into laptops/multimedia
+-camcorder
+	-video and audio content
+	-some still images
+	-all-digital -- hard drive, SSD, flash
+	-connectivity
+		-USB
+		-IEEE 1394/Firewire/i.Link
+		-802.11 wireless
+		-memory cards
+		-HDMI
+		

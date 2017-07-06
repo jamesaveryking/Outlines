@@ -1,0 +1,19 @@
+Understanding Impact Printers
+
+-dot-matrix is one of the more common
+	-presses against a ribbon to make a mark on a paper
+	-good for multiple carbon copies
+	-low cost per page
+	-print head with small matrix of pins
+	-cons: noisy with poor graphics
+	-niche use: car rentals, airports
+	-printer head
+		-one matrix must move across page to print
+	-printer ribbon -- fabric, one long ribbon, never ending circle
+		-easy to replace -- one single unit
+		-proprietary size -- check to optimize
+	-tractor feed
+		-paper pulled through with holes on side of paper
+		-continuous paper feed
+		-holes need to align exactly
+	-paper can be perforated on sides to remove after print

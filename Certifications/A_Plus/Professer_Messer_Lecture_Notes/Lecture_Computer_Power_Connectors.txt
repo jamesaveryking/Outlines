@@ -1,0 +1,46 @@
+Computer Power Connectors
+
+Normal power supplies have multiple available connectors
+
+-modern devices tend to be SATA connected devices (15 pin connection)
+	-15 pins -- 3.3V, 5V, 12V wires
+		-3.3V rarely used by most drives
+
+-Molex connectors
+	-4-pin peripheral power connectors
+		-Molex Connector Company
+		-AMP Mate-N-Lok
+		-provides 12V and 5V
+	-power for many devices in the computer case
+		-storage devices
+		-optical drives
+		-fans
+		-other peripherals
+
+-older motherboards: 4-pin ATX 12V
+	-additional 12V power for older motherboards
+	-may be labeled ATXV12, P4, or CPU
+	-keyed for the appropriate connector on motherboard
+		-pins specific
+
+-8 pin EPS 12V power
+	-entry level power supply specification EPS12V
+	-4+4 connector -- includes ATX 12V 4-pin
+	-created to provide 12V power to multiple CPUs -- mostly on servers
+	-NOT 8-pin PCI express power -- keyed different and will not work without breaking motherboard connection
+
+-PCI3 6-pin and 8-pin power
+	-used for expansion cards
+	-6-pin (75 watts), 8-pin (150 watts)
+	-provides 12V
+	-commonly seen on high-power components -- video adapters
+	-can be 6 OR 8 pin modular connections
+
+-20-pin or 24-pin motherboard power
+	-probably largest power connector on motherboard -- provides power to entire motherboard
+	-provides 3.3V, 5V, 12V
+	-20 pin was original ATX standard
+	-24 was added for PCI express power
+	-24 pin can be used on 20 pin -- designed to be backwards-compatible
+
+	

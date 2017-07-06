@@ -1,0 +1,123 @@
+Memory Types:
+
+-RAM - random access memory
+	-most common type of memory
+	-usually referred to when talking about memory upgrades
+	-volatile
+	-does not refer to hard drive or SSD storage
+	-data and programs can only be used when moved to RAM
+	
+-ROM - read only memory
+	-chips inside of computer that are static and never change
+	-good place for BIOS - nothing can ever delete bios
+	-types:
+		-PROM: programmable read only memory - write once
+		-EPROM: erasable programmable read only memory - write, erase, write again
+		-EEPROM: electrically EPROM - flash memory and SSD, upgradable BIOS
+
+-Static RAM (SRAM)
+	-very fast, large memory therefore very expensive
+	-takes up more room on motherboard than other memory types
+	-used around or off CPU as processor caches
+		-levels referred to L1, L2, and L3
+
+-Dynamic RAM (DRAM)
+	-RAM we know and love
+	-needs constant refreshing, without refreshing data in memory disappears
+	-random access - any storage location can be accessed directly
+		-unlike magnetic tape that has specified memory locations
+		-instant access to memory addresses
+		
+-Single Data Rate (SDR) Synchronous DRAM (SDRAM) - 168 pins
+	-synchronous with the common system clock
+	-queues up one process while waiting for another
+	-classic DRAM doesn't wait for a clock signal
+	-other computer components can anticipate what happens based on clock
+	-don't confuse SDRAM with SRAM
+		-SDRAM module
+	
+-Clock cycles:
+	-cycles rise and fall with each cycles
+	-each cycle can transfer one piece of data in single data rate
+	
+-Double Data Rate Memory (DDR SDRAM)
+	-sends data on rising and falling of clock - twice as much as SDR
+	-same clock speed
+	-184 pins
+	-memory can be total throughput available or total transfers per second
+	-DDR-200 = 200 million transfers/second
+		-multiple by 8 to get throughput in megabytes per second
+		-200*8 = PC1600 = DDR-200
+	-DDR transfers twice the amount of data as SDR by utilizing both polarities of clock cycle (rise and fall)
+	-DDR Speeds:
+		-memory clock speed: how fast clock inside of memory itself
+		-I/O bus clock speed: speed of bus outside of memory (what it is connected to)
+		-DDR speed: transfers per second (= 2* memory clock speed = 2*I/O bus speed)? could be just in example
+		-Transfer rate = DDR speed*8
+		-Module name = PC(transfer rate as a number)
+		
+-DDR2 SDRAM
+	-twice as fast as DDR
+	-240 pins
+	-not backwards compatible
+	-DDR2 won't work in DDR slots
+	-DDR Speed for DDR2 = 2*I/O Bus Clock Speed = 4*Memory Clock speed
+						-speed change occurs between I/O Bus Clock Speed = DDR Speed / 2 (DDR2 implies I/O Bus Clock Speed multiplied by 2)
+	-DDR Speed = million transfers/second
+	-Transfer Rate = DDR Speed * 8
+	-Module Name = PC2-(transfer rate number)
+	
+-DDR3 SDRAM
+	-twice as fast as DDR2 with same clock rate in memory chips
+	-larger memory capacity
+	-240 pins
+	-not backwards compatible with DDR2 - does not physically or programmatically fit
+	-I/O Bus Clock Speed = 4*memory clock speed
+	-DDR Speed = 2*I/O Bus Clock Speed
+	-transfer rate is still equal to DDR Speed *8
+	-Module Name = PC3-(transfer rate number)
+
+-DDR, DDR2, DDR3 comparisons:
+	-Memory Clock Speed = 100MHz
+	-DDR: I/O Bus Clock Speed = 100MHz, DDR Speed = DDR-200, transfers/second = 200, transfer rate = 1600, module name = PC1600
+	-DDR2: I/O Bus Clock Speed = 200MHz, DDR Speed = DDR-400, transfers/second = 400, transfer rate = 3200, module name = PC2-3200
+	-DDR3: I/O Bus Clock Speed = 400MHz, DDR Speed = DDR-800, transfers/second = 800, transfer rate = 6400, module name = PC3-6400
+	
+Understanding PC Memory:
+-memory that checks itself - used on critical computer systems (VM servers, database servers, any servers)
+	-parity memory - adds parity bit to byte
+		-how parity works:
+			-bit makes an even number across all bit in byte
+			-counts number of active bits - if even parity bit is 0, if odd parity bit is 1 to make parity even always
+			-determining valid or error - count number inside of bytes and determine if parity bit makes number of active bits even:
+				00100101 - PB:1 --> valid, 4 bits, even
+				00000011 - PB:0 --> valid, 2 bits, even
+				00010000 - PB:0 -->invalid, 1 bit, odd
+				00001110 - PB:0 -->invalid, 3 bits, odd
+		-won't always detect an error and can't correct error
+	-error correcting code (ECC)
+		-detects errors and corrects on the fly
+		-not all systems use ECC - used on larger enterprise systems
+		-looks identical to non-ECC memory
+-registered memory - includes buffer between memory itself and memory controller
+	-used on servers and systems with stable operating environment
+	-rare on laptops or desktops
+	-additional chips between RAM module and memory controller
+	-common to be coupled with ECC in high-end system
+-multi-channel memory - installed in pairs or trios to maximize throughput
+	-memory combinations should match, ideally by type
+	-often color coded - colors need to match
+	-maximize throughput by gouping in colors
+-single sided vs. double-sided memory:
+	-interpretations:
+		-chips on one side of module and not other or on both sides of module
+		-ranks (seperations on module) of memory - seperate ranks can be called sides
+			-memory module with two ranks can be described as double-sided
+		-clarify description of physical package or ranks
+-finding the right memory - tight tolerance, need exact number for motherboard
+	-refer to motherboard documentation
+		-ex. 4 x DIMM, max 32GB, DDR31600/1300MHz, non-ECC, un-buffered memory
+		-online guides go by make and model of computer - cross reference with motherboard documentation
+		-lots of options (in example DDR3 1600 OR DDR3 1333MHz)
+		
+		

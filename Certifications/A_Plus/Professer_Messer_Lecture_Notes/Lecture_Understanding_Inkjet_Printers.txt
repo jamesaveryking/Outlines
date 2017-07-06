@@ -1,0 +1,28 @@
+Understanding Inkjet Printers
+
+-inexpensive --> popular
+-quiet
+-high-resolution
+-con -- expensive ink, cartridges are proprietary
+-ink eventually dims over time
+	-no archiving
+-ink clogs easily -- some have daily maintenance
+-ink cartridge
+	-place drops of ink onto page pulled form set of cartridges
+	-CMYK - cyan, magenta, yellow, key
+-print head
+	-some consumer printers integrage head into the ink cartridge
+	-change cartridge, gets a new print head
+	-others separate cartridge from the print head
+-Feed rollers
+	-pick up and feed paper through printers
+	-duplexing capability -- included with some 
+-carriage and belt
+	-ink cartridges are moved onto paper that may include print head
+	-belt moves the carriage back and forth
+-inkjet printer calibration
+	-align nozzles to the paper
+	-lines should be crisp
+	-colors do not need to overlap
+	-printer includes a calibration option to have minor adjustments
+	

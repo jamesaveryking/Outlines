@@ -1,0 +1,39 @@
+Network Connectors
+
+Three kinds of fiber connectors:
+
+-ST connector -- straight tip connector
+	-bayonet connection
+-SC connector -- subscriber, standard or square connector 
+	-no bayonet
+-LC connector -- lucent, local, or little connector
+
+Copper:
+-RJ11 -- 6 position, 2 conductor (6P2C)
+	-RJ14 uses 6P4C with dual-line uses
+	-telephone connection
+	-two phone lines on single cable
+-RJ45 -- 8 positions  8 conductors (8P8C)
+	-modular connection
+	-similar in shape to RJ48C
+	-8P4C used with T1/WAN data lines
+
+-wiring standards:
+	-cables can foul up a good plan
+	-many connectors look alike
+	-always maintain consistency when managing different connections
+
+-T568A and T568B termination
+	-EIA/TIS-568-B standard
+		-eight conductor 100-ohn balanced twisted-pair cabling
+	-T568A and T568B are different pins assignments for 8P8C connectors
+	-assigns the T568A pin-out to horizontal cabling
+	-many organizations use 568B
+		-difficult to change in mid-stream
+	-you can't terminate one side with 568A and the other with 568B
+-BNC connector -- bayonet neill-councelman
+	-coaxial cable connector -- DS3 WAN links
+	-rigid and bulky -- can be difficult to work with
+-F-connector
+	-cable television, cable modem
+	-RG-6 cable -- threaded connected -- additional internet conenction

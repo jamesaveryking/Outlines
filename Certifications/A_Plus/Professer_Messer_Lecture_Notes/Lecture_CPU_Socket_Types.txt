@@ -1,0 +1,73 @@
+CPU Socket Types
+
+Intel and AMD architectures
+
+Intel:
+	-Intel LGA 775 -- 775 pins, land grid array package - all pins on motherboard
+		-Also called Socket T -- named for cancelled Tejas core
+		-circa 2004
+			-seen in later-version Pentium 4, Intel Core 2 Duo, Xeon, and Celeron
+	-Intel LGA 1366 -- 1366 pins, land grid array package - Also called Socket B
+		-replaced LGA 775
+		-Circa 2008 - used by intel core i7
+	-Intel LGA 1156 LGA -- Socket H or Socket H1
+		-also replaced LGA 775
+		-Released 2009
+		-integrates northbridge onto the chip
+	-Intel LGA 1155 -- Socket H2
+		-single pin difference from 1156
+		-built to replace 1156
+		-not compatible to 1156
+		-released in 2011
+		-supports Intel sandy bridge and ivy bridge CPU microprocessors
+	-Intel LGA 1150 -- Socket H3
+		-replacement for LGA 1155
+		-released in 2013
+		-used by Haswell and Broadwell micro-architecture
+	-Intel LGA 2011 -- Socket R
+		-replaced LGA 1366 and LGA 1567
+		-released November 2011
+		-designed for high-end desktop and server
+			-sandy bridge E/EP and Ivy Bridge E/EP
+				-Enthusiast and Xeon Class
+AMD -- all Pin Grid Array (PGA) and not identified numerically:
+	-AMD Socket AM3
+		-941 pins on socket
+		-PGA-ZIF package
+		-replaces the AM2/AM2+
+		-released 2009
+		-similar in size to AM2/AM2
+		-generally backwards compatible with BIOS upgrade
+	-AMD Socket AM3+
+		-942 pins on socket
+		-PGA-ZIF package
+		-one more pin than AM3
+		-released 2011
+		-use and AM3 processor in an AM3+ motherboard
+		-using AM3+ in AM3 boards is not supported by AMD
+	-AMD socket FM1
+		-905 pins
+		-released 2011
+			-supports AMD 10h CPU architecture
+			-supports AMD A-Series processors
+				-faster speeds
+				-DDR3 Support
+				-Integrated PCle 2.0 controller into CPU
+	-AMD Socket FM2
+		-904 pins
+		-PGA-ZIF package
+		-September 2012 release
+			-piledriver CPU architecture
+		-similar to FM1 -- one pin difference
+		-not backwards compatible to FM1
+	-AMD Socket FM2+
+		-906 pins -- two more than FM2
+		-Micro PGA-ZIF package
+		-also called socket FM2b
+		-two more pins than FM2
+		-not backwards compatible because of additional pins and pin configuration
+		-released January 2014
+			-steamroller CPU architecture
+		
+		
+		

@@ -1,0 +1,55 @@
+Storage Device Overview
+
+-Optical Formats:
+	-small bumps read with laser beam
+	-microscopic binary scan
+	-CD-ROM (compact disk ROM) - up to 700 MB
+	-DVD-ROM (digital versatile disc) - 4.7GB single layer, 8.5 GB dual layer
+	-Blu-ray Disc - 25 GB for single-layer, 50GB for dual-layer
+-Writing to optical media:
+	-burners don't creat bumps
+	-the darken photosensitive dye
+	-CD-RW (rewritable)
+	-DVD-R/RW (read and rewritable)
+	-BD-R
+	-BD-RE (blu-ray disk recordable erasable)
+-Hard disk drive
+	-rotations range 5400rpm-10000rpm
+	-faster drives, lower latency to grab data
+	-platter is spinning portion
+	-actuator connect to arm
+	-end of arm - read/write head to access/create information
+	-hard drive is large storage device, limited by speed of access to information
+-SSD - solid state drive
+	-flash memory coupled to computer for long-term storage
+	-no moving parts
+	
+-Hybrid Drive (Solid State Hybrid Drive (SSHD))
+	-both spinning drive and SSD in single device
+	-SSD caches info in reading/writing to hard drive
+	-increased performance and lower cost with smaller SSD in hybrid package
+	-SSD is attatched to same form factor as normal hard drive
+
+-Hot swappable drive:
+	-add or remove during run time
+	-example: USB
+	-FireWire drive connected using FireWire cable
+	-SATA, eSATA (external) - slide into or disconnect from array during run time
+	
+-USB flash drive - flash memory EEPROM
+	-nonvolatile memory - does not require constant power
+	-limited number of writes - can still read without writing after certain point
+	-easy to lose or damage - always have a backup
+	-Formats:
+		-USB flash drive
+		-CompactFlash (CF)
+		-Secure Digital (SD)
+		-xD-Picture Card (older digital cameras)
+		-EMMC - mobile device flash memory
+-Tape Drive:
+	-stores info sequentially
+	-stores large amount of data
+	-various sizes
+	-relatively inexpensive and easy to ship/stores
+	-LTO (linear tape open (Ultrium for factor)) format to store info on tapes
+	

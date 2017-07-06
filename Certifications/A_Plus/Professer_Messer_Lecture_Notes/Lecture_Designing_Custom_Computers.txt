@@ -1,0 +1,58 @@
+Desiging Custom Computer Systems
+
+-Graphics -- Computer aided design, computer aided manufacturing
+	-CAD/CAM
+	-multicore processor -- advanced calculations, 3D modeling
+	-High-end video card with complex graphics -- fan needed
+	-Maximum RAM with significant memory use
+	
+-Audio/Video editing 
+	-specialized audio and video card
+		-high quality audio
+		-powerful video
+	-require high-end video card
+	-large fast hard drive
+		-constant disk writes
+		-SSD
+		-lots of temporary files written constantly
+	-dual monitors - edit in one, view output in other
+
+-Virtualization workstation:
+	-Max RAM to support multiple OS
+		-every OS needs its own RAM
+	-Maximum CPU cores
+		-simultaneous processing
+		-most virtualization apps can use multiple cores
+
+-Gaming
+	-multicore processor -- huge computing requirements
+	-high-end video card, specialize GPU -- graphically complex
+	-high definition sound card
+	-high-end cooling -- high utilization for hours at a time
+	
+-Home Theater
+	-surround sound audio -- entertainment center audio standard
+	-HDMI output -- high definition support from video cards
+	-compact form factor (Roku) -- small case fits on a shelf
+	-TV tuner -- captures cable and over-the-air programming
+	
+-Standard thick client
+	-standard computer
+	-desktop applications
+	-meets OS requirements -- CPU, total RAM, needed HDD
+
+-Thin Client
+	-basic application use
+	-computing/CPU cycles done on remote device
+	-virtual desktop infrastructure
+	-local device does bear minimum
+	-networ connectivity -- big network requirement, everything over wired
+
+-Home server PC
+	-media streaming -- central location
+	-file sharing -- easy access
+	-print sharing -- one printer
+	-Gigabit Network Interface Card -- high speed transfers
+	-RAID array -- redundant storage - backs up hard drive
+	
+		

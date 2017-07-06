@@ -1,0 +1,29 @@
+Wireless Interface Speeds and Distances
+
+Many different ways to connect mobile devices/computers without wires
+
+-Infrared:
+	-standard from the IrDA (Infrared Data Association)
+	-4 megabit/second speed, line of sight
+	-1 meter distance limitation
+	-laptop, phone, camera
+
+-NFC (near field communications)
+	-106 kilobit/second, 212 kilobit/second, 424 kilobit/second
+	-range of 10cm (3.9 inches) or less
+	-mobile devices, payment devices, ticketing, gaming
+	
+-Bluetooth radios
+	-categorized into classes:
+		-class 1 - industrial use -- max power = 100 milliWatt -- range = 100 meters
+		-class 2 - used in many mobile devices -- 2.5 milliWatt -- 10 meters
+		-class 3 - short-range use  -- 1 milliWatt -- 1 meter
+-Bluetooth versions
+	-1.2 in 1995 -- faster connection and recovery -- data rate = 1 megabit/second
+	-2.0 + enhanced data rate (and 2.1 + EDR) -- 3 megabit/second
+	-3.0 + high speed --24 megabit/second
+		-used for negotiation and establishment
+		-802.11 used for the actual data transfer
+	-4.0 includes lower power specification -- 24 megabit/second
+
+	-802.11 networking common for wireless transmission -- see picture

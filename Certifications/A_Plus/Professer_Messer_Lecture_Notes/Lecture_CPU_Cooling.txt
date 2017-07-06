@@ -1,0 +1,38 @@
+CPU Cooling
+
+-Heat Sink
+	-dissipate heat through thermal conduction
+	-metal (aluminum || copper base) placed on top of hot part of motherboard
+	that cools part by increasing surface area with ridges on top and cooling
+	down when in contact with cool air
+	-thermal paste creates a good contact between the chip and the heat sink
+	-they get hot -- do not touch them
+	-right amount of thermal paste on CPU -- small dab in the middle
+	-often common to include fan right on top of hink sink -- fans usually plug into CPU fan on motherboard
+-On-board fans
+	-designed to cool an entire adapter card
+	-can be bulky -- may take additional adapter card space
+	-usually seen on high-end adapter cards
+	-seen usually on graphics cards with lots of cycles
+-Case Fans
+	-physically connected to case of computer to create air flow
+	-motherboard layout becomes important
+	-component location is key to allow air to best pass through and not be obstructed by devices, wiring, power
+-Fan specifications:
+	-80mm, 120mm, 200mm
+	-different speeds: variable speeds based on temp
+	-different noise levels
+-Liquid Coolant:
+	-coolant is circulated through a computer
+		-not a new concept - automobiles, mainframes
+	-high-end systems
+	-gaming, graphics systems
+	-useful with overclocking
+	-usually done in closed system connected to CPU
+		-usually two connections (in/out)
+		-usually fan close by
+-Modern devices use passive cooling
+	-no fans, silent operation
+	-specialized functions -- video servers, tv set box, satellite receiver
+	-functions are very controlled and carefully measured by thermal tests
+	-minimize power use, maximize heat sinks

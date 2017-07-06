@@ -1,0 +1,86 @@
+Computer Interface Speeds and Distances
+
+-three different versions of USB
+	-USB 1.1 - first release
+		-two speeds - low 1.5 megabits/s, 3 meters, high - 12 megabits/s, 5 meters
+	-USB 2.0 - 480 megabits/s, 5 meters
+	-USB 3.0 - (SuperSpeed) - 5 gigabits/second, 3 meters long
+	
+-USB 1.1/2.0 connectors:
+	-Standard A-Plug, Standard B-Plut (Square), Mini-B plug and Micro-B plug used on mobile devices
+-USB 3.0 connectors:
+	-Standard B-plug (square with additional layer), Standard A-Plug (added pins on inside), Micro B-Plug - different set of connectors than 1.1/2.0
+-IEEE 1394 standard: FireWire (apple trademark)
+	-most non-apple hardware uses IEEE 1394 standard with differeent names, i.LINK or Lynx
+	-daisy chain up to 63 devices
+	-4.5 meters (15 feet) distance limitation per link in daisy chain
+	-FireWire compatible with all IEEE 1394 interfaces
+-FirewWire 400 (Alpha mode) - IEEE 1394a standard	
+	-100, 200, or 400 Mbit/s half-duplex
+-FireWire 800 (Beta mode) - IEEE 1394b standard
+	-800 Mbit/s full-duplex
+	-Optical connections support 100 meter distance
+-FireWire Sizes:
+	-FW 400 - (same signal, only difference is power source) 4 pin (no power connecters) and 6 pin (allows sending power through cable)
+	-FW 800 - 9 pin power source included
+-S400 or S800 indicate firewire
+
+-SATA (seral AT attachments)
+	-SATA revision 1.0 - SATA 1.5 Gbit/s, 1 meter
+	-SATA revision 2.0 - SATA 3.0 Gbit/s, 1 meter
+	-SATA revision 3.0 - SATA 6.0 Gbit/s, 1 meter
+	-eSATA (external SATA) - matches SATA version (1.0,2.0,3.0) max cable = 2 meters
+	-example SATA connections:
+		-data - 7 pins
+		-power - 15 pins
+		-traditional power - Molex connection
+-VGA (Video Graphics Array connector):
+	-15 pins
+	-uses D shell connector - (DB-15 connector)
+	-blue color (international standard out of PC system design guide)
+	-analog signal - no digital, image degrades after 5 to 10 meters
+-HDMI - (high definition multimedia interface)
+	-digital connection
+	-video and audio over single length
+	-20ish meters of distance before signal loss
+	-19-pin (Type A) connector (proprietary connection type)
+	-miniHDMI (Type C) connector designed for cameras, mobiles, smaller devices
+-DVI (digital visual interface) connector
+	-two types
+		-single link - 3.7 gigabits/second (HDTV at 60 frames/second)
+		-dual link - 7.4 gigabits/second (HDTV at 85 frames/second)
+		-DVI-A -- analog signals
+		-DVI-D -- digital signals
+		-DVI-I -- integrated, combination of analog and digital on same connector
+		-SEE 10:28 in video for picture
+-Audio Ports:
+	-analog (TRS -- tip, ring, and sleeve) -- (1/4" plug 6.35mm),(1/8" plug 3.5mm)
+		-looks like the end of head phones
+	-digital -- (TOSLINK - toshiba link)
+		-optical fiber, created 1993, used in many consumer products
+		-max length - 10M
+	-TRS colored by which speaker to plug into
+-Networks:
+	-RJ11 - DSL line (Registred Jack 11) used with phones
+		-6P2C -- 6 position, 2 conductors used (2 conductors are visible on the inside
+	-Different RJ standards:
+		-same physical interface (same size) but different wiring
+			-6P4C, 6P6C, etc.
+	-RJ45 - Ethernet copper connectivity
+		-registered jack 45
+		-modular connection	
+		-8P8C - 8 positions, 8 connections
+	-RJ11 can unfortunately be plugged into RJ45 but RJ45 can't be plugged into RJ11
+-Thunderbolt:
+	-high speed serial connector
+	-data and power
+	-interface looks like mini-display port
+	-throughput is different than mini-display, many different types of data can be sent
+	-Thunderbolt v1 -- 10 gigabits/second per channel, 2 channels, 20 gigabits/second total
+	-Thunderbolt v2 -- 20 gigabits/second aggregated channels
+	-Thunderbolt v3 -- 40 gigabits/second
+	-Max copper length - 3M, optical length - 60 meters
+	-up to 6 devices on daisy chain
+
+			
+	

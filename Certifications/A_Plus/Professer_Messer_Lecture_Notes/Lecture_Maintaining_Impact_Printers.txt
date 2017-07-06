@@ -1,0 +1,16 @@
+Maintaining Impact Printers
+
+-printer ribbon replacement
+	-single ribbon, self-contained, one long circle
+	-replace when ink becomes too light -- ink eventually consumed
+	-designed to be modular
+-print head replacement
+	-known to be versatile
+	-gets hot
+	-another modular component
+	-replace print head and ribbon at same time
+-replacing paper
+	-not as easy as a laser printer
+	-paper must feed perfectly into available holes
+	-forms must be positioned correctly to use predefined space
+	

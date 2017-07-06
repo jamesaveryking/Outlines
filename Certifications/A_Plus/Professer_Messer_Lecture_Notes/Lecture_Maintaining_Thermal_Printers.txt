@@ -1,0 +1,14 @@
+Maintaining Thermal Printers
+
+-thermal paper replacement
+	-relatively inexpensive
+	-different sizes
+	-acutal replacement is easy -- simple paper feed
+-cleaning heating element
+	-liquid cleaner -- isopropyl alcohol on cleaning pen
+	-swab gently to avoid other electrical components
+	-potentially use cleaning card to clean path
+-removing debris
+	-relatively small amount -- take outside and blow it out
+	-avoid using a vacuum -- static buildup and discharge
+	-wipe it out with a damp cloth

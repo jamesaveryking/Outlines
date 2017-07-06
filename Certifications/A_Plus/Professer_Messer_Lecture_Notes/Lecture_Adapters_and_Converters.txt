@@ -1,0 +1,44 @@
+Adapters and Converters
+
+-Best laid plans need an adapter
+-convert between different connectors
+	-need electrical compatibility
+-convert one format to another
+	-you need ethernet but you only have USB
+-a good temporary solution or a good permanent one
+-DVI to HDMI -- common video conversion
+	-DVI on video card HDMI on monitor
+	-electrically compatible
+	-can be used permanently
+-USB A to USB B
+	-USB-A is usually downstream port (connects to computer or host)
+	-USB-A is usually upstream receptacle (printer or USB device)
+	-electrically compatible -- no conversion necessary
+-USB to ethernet
+	-some laptops don't have physical ethernet connection
+	-converts USB on laptop to RJ45 ethernet
+-DVI to VGA
+	-DVI-A includes analog
+	-backwards-compatibility with VGA only 640x480 is officially supported
+	-may only need an adapter -- analog to analog
+	-VGA to DVI digital will need a converter
+		-check instance specifications
+-Thunderbolt to DVI
+	-thunderbolt carries both DisplayPort and PCI express
+		-same interfaces as mini display port
+	-DVI-D single link
+		-digital to digital communication
+		-no conversion needed
+-PS/22 to USB
+	-PS/2 keyboard or mouse interface and a USB keyboard or mouse
+	-or vice-versa
+-HDMI to VGA
+	-HDMI is digital only
+		-no analog
+	-VGA is analog only
+		-no digital
+	-need a digital-to-analog converter
+		-sometimes called active converter cables
+		-simple cable won't work
+	-convert video and optionally audio sometimes with additional converter
+	

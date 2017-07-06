@@ -1,0 +1,34 @@
+Maintaining Laser Printers
+
+-replacing toner cartridge
+	-look to see warning message
+		-low is not empty
+	-toner can contain the OPC drum
+		-organic photoconductor drum
+		-sensitive to light -- keep it in bag
+	-power down the printer -- always use safety
+	-remove packing strips and replace old cartridge
+	-gets messy -- OPC can be covered by spring slide
+	-check manual -- some require removal of plastic
+-laser printer maintenance kit
+	-laser printers wear out -- all moving parts or temp critical
+	-standard maintenance kits -- replacement feed rollers, new fuser unit, etc.
+	-when to perform maintenance -- check the printer's page counter
+	-power down and replace temperature critical components
+		-some components get hot
+	-reset page counter back to 0 -- completed process
+-laser printer calibration
+	-different toner cartridge print with different densities
+	-laser printer calibration  can adjust the density
+	-can be automated or be manual
+-laser printer cleaning
+	-toner and dust build up
+	-check manufacturer's recommendations
+		-water, isopropyl alcohol
+		-don't use chemicals that are too harsh
+	-outside -- damp cloth
+	-inside
+		-wipe dust away -- no vacuum or compressed air
+		-wash dust off skin with cold water
+		-clean rollers with isopropyl alcohol unless specified
+	

@@ -1,0 +1,64 @@
+Common TCP and UDP ports
+
+TCP -- transmission control protocol
+-connection oriented -- set up formal connection, send data, delete connection
+-reliable delivery -- ACK
+-manage out-or-order messages or retransmissions
+-loads and unloads moving truck -- checklist verifies integrity
+
+UDP -- user datagram protocol
+-no connection or acknowledgement
+-unreliable communication
+	-originator never receives acknowledgement
+-no ordering of data or retransmissions upon failure
+Lots of Ports
+-ipv4 -- server IP, server port, client IP, client port
+	-server -- non-ephemeral ports (permanent port on server)
+	-client -- ephemeral ports (determined in real time, not constant)
+-port numbers -- [0:65535]
+	- most services use non-ephemeral numbers
+	- port numbers are for communication not security
+	-services tend to use well known numbers
+	-TCP 80 -- internet connected
+	-TCP 443 -- encrypted internet connection
+	-UDP 53 -- providing DNS services
+-file transfer protocol -- FTP
+	-tcp/20 -- active mode data
+	-tcp/21 -- control ftp sessions
+	-transfers files between systems
+		-authenticates with username and password
+		-list, add, delete, etc.
+	-can be on command line or GUI like filezilla
+-secure shell -- SSH
+	-tcp/22 -- encrypted communication link
+	-looks and acts the same as telnet
+-telnet -- telecommunications network
+	-tcp/23 -- login to devices remotely -- noo encryption
+-email protocols
+	-POP3 and IMAP4 -- retrieve email from server by local devices
+		-pop3 -- tcp/110
+		-imap4 -- tcp/143
+	-SMTP - simple mail transfer protocol
+		-sending email and server to server email transfer
+		-tcp/25
+-domain name system -- udp/53 -- converts domain name to IP
+-web browsing protocol
+	-http -- tcp/80 -- not encrypted
+	-https -- tcp/443 -- encrypted
+-remote desktop protocol
+	-tcp/3389 -- remote desktop clients 
+-server message block
+	-protocl used by windows
+	-common internet file system
+	-using netbios over tcp/ip
+	-udp/137 -- netbios name service (nbname)
+	-udp/138 -- netbios datagram service (nbdatagram)
+	-tcp/139 -- netbios session service (nbsession)
+	-directe over tcp/445 -- netbios-less
+-apple filing protocol
+	-tcp/548 -- connects apple device to printer etc.
+	-works with service location protocol	
+		-tcp/427 and udp/427
+		-populates list of available devices on network
+	
+	

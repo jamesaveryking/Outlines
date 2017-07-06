@@ -1,0 +1,23 @@
+Understanding Virtual Printers
+
+-no physical output -- output is printed to file
+-no ink, paper, printer, additional hardware to print
+-print to a file -- sets output to hard-drive to print later
+	-file will be in an output format
+	-must use "copy filename PrinterInterface:" on console
+-print to pdf
+	-adobe pdf
+		-portable document format
+		-one way path from application to pdf
+		-cross-platform compatibility
+	-proprietary adobe format
+		-requires specialized softwware to create/view
+		-viewers are now built into many browsers
+	-many third party tools available
+-print to XPS
+	-Microsoft XML paper specification
+	-XPS included in windows available back to XP
+-print to image
+	-output printed to graphics file -- not proprietary
+	-not integrated into OS -- part of application
+	

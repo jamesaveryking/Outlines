@@ -1,0 +1,152 @@
+Motherboard
+
+-distinguishing characteristics determine motherboards
+	-physical size can determine case sizing
+	-basic layout - room for small changes
+	-power interfaces - standard connectors regardless of type of motherboard
+	-airflow - increasingly important - chip sets and CPUS heat up over time
+	-40 different types of motherboards on wikipedia
+-A+ cert focuses on:
+	-Standard ATX
+	-Micro ATX
+	
+-Other types:
+	-Mini-ITX
+	-Nano-ITX
+	
+-ATX form factor (advanced technology extended):
+	-standardized by Intel in 1995
+	-power: 20 pin or 24 pin connector, additional 4/8 pin connector
+	-port types:
+		-optional I/O backplate
+		-add and remove as needed
+	-ATX motherboards still manufactures in 2015
+	-typically largest form factor
+	
+-Micro-ATX:
+	-limited expansion slots due to size
+	-backward compatability to ATX: similar mounting points/power
+	-very popular form factor - still manufactured in 2015
+
+-ITX:
+	-series of low-power motherboards created by VIA technologies in 2001
+	-Mini-ATX is screw-compatible to ATX and micro-ATX	
+	-single use motherboard (streaming media, security system, etc.)
+	-Nano, Pico, Mobile ITX is part of families
+	
+Expansion slots/bus speeds:
+-Bus architecture:
+	-communication path
+	-internal PC growth
+	-system expansion with additional capabilities
+	
+-Expansion Bus:
+	-"width" of expansion bus: changing to bandwidth (how much traffic can be pushed through connection)
+	-clock speed of the bus - every bus has its own clock
+		-speed: cycles/second measured in hertz - 1MHz = 1 million cycles per second
+	-clock speed does not necessarily equal transfer rate
+		-data transfer can be above memory clock speed
+		
+-Convential PCI (peripheral component interconnect):
+	-common expansion interface (32-bit and 64-bit bus width)
+	-communicates in parallel mode: all bits transferred simultaneously
+	-throughput varies by bus version
+	
+-Northbridge (Memory Controller hub)
+-Southbridge (I/O controller hub) -- USB, ethernet, IDE, SATA, etc.
+	-for 64-bit PCI parallel bus 64-bit PCI expansion slot is necessary
+
+-32 and 64 bit slots are different to fit different cards
+	-example support 3.3V connection or 5V connection, notch could specify number of bits in notch
+
+-PCI X - eXtended
+	-based on PCI, built for servers
+	-higher bandwidth - four-time the clock speed
+	-built to handler higher-speed network and storage
+	-1064 MB/s throughput
+	-parallel communication
+	-DO NOT confuse with PCI-Express
+	
+-PCI Express - PCIe
+	-also known as PCIe
+	-replaced PCI, PCI-X, and AGP (Accelerate Graphics Port)
+	-modern replacement
+	-more flexibility on motherboard communication
+	-communicates serially - sends one bit at a time from one side to the other
+	-unidirectional serial lanes
+	-x1,x4,x8,x16,x32 full-duplex (both directions simultaneously) lanes
+		-x is pronounced "by" - x1 is by 1
+	-all lanes bi-directional to allow data transmission in both directions
+	-different versions of PCIe:
+		-v1.x: 250MB/s / lane
+		-v2.x: 500MB/x / lane
+		-v3.x: ~1GB/s / lane
+		-v4.x: ~2GB/s / lane (2016)
+		
+-Mini PCI and PCI Express
+	-made for laptops and mobile devices
+	-expande features of laptops (wifi, mobile broadband, etc.)
+	-no access to the card - inside laptop and cannot be touched
+	
+-RAM Slots:
+	-changed greatly over time driven by standardization and technology
+	-different types of memory and memory connections
+	-one of the most important components of computer
+	-speed is key
+	-every motherboard is different in terms of memory access speed - always reference documentation
+-DIMM - dual inline memory module:
+	-electrical contacts are different on each side
+	-everything is in one single line of a chip set
+	-each side is different set of contacts
+	-64 bit data width
+	-different types:
+		-DDR SDRAM - 184 pines
+		-DDR2/3 SDRAM - 240 pins
+-SO-DIMM - small outline dual in-line memory module
+	-typically in laptops, mobile devices 68mm x 32mm
+	-DDR and DDR2 SDRAM - 200 pins
+	-DDR3 SDRAM - 204 pins
+	-notch designates type of memory 
+	
+-Micro-DIMM
+	-used for smaller mobile devices (54mm x 30mm)
+	-DDR - 172 pins
+	-DDR2/3 - 214 pins
+
+Motherboard Chipsets
+-everything begins or ends on the motherboard
+-sometimes referred to as mobo
+-standard sizes, constant change in chipsets, bus speeds, cooling methods
+-focus on Northbridge/Southbridge
+
+-Northbridge: memory controller hub
+	-connects CPU to memory and high speed graphics card
+	-high bandwidth communication
+	-modern computers include cooling sinks/fans
+
+-Southbridge: all other connection management
+	-PCI interface slots
+	-Other peripherals (USB, ethernet)
+	-Onboard graphics
+	-BIOS
+	-Allows northbridge to primarily control memory by controlling all other connections
+
+-Always refer to motherboard manual
+-Super I/O handles serial port, parallel port, floppy, mouse, lower bandwidth peripherals
+
+-Chipset Evolution:
+	-nothing stays the same, it's all about speed
+	-more functions moving into the CPU - eliminates extra busses by including in CPU and alleviating pressure on seperate northbridge
+	-modern processors: processor cores, memory controller, GPU
+	
+Jumpers and Connectors
+-wires go to buttons on case according to correct spot (speaker, reset button, etc.)
+-jumpers enable or disable certain features of motherboard - refer to documentation
+	-plastic pieces can placed over one pin in jumper to effectively disable
+	-when piece connects both pins of jumper it is enabled to disable portion of motherboard
+		-could disable port, set bus speed, reset BIOS, etc.
+-most motherboards have standard connections to wires for reset buttons, interfaces for peripherals or other parts of computer, etc.
+-always refer to motherboard documentation
+
+	
+	

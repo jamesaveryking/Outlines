@@ -1,0 +1,33 @@
+Overview of IPv4 and IPv6
+
+-internet protocol version 4
+	-OSI layer 3 address
+	-since one byte is 8 bits the maximum decimal value for each byte is 255
+	-8 bits = 1 byte = 1 octet
+	-max number is 255 in each octet
+internet protocol version 6
+	-340 undecillion potential addresses
+	-128-bit address
+	-represented in hexadecimal instead of decimal
+	-each address is 16 bits, total address is 16 bytes
+	-DNS will become important
+	-first 64 bits is usually network prefix
+	-last 64 bits is usually the host network addresses
+	-group of zeroes can be abbreviated with a double colon
+		-only one allowed per address
+	-steps to compess address:
+		1) remove leading zeroes
+		2) locate largest group of 2 or more zeros only and replace with double colon
+public vs. private addresses in ipv4
+	-RFC 1918 addresses used privately and not routed over internet
+automatic private IP addressing (APIPA)
+	-linked-local address -- communicating locally not outside of network
+	-used when private addresses are not assigned via DHCP
+	-uses ARP to confirm address isn't currently in use
+ipv6 link-local address
+	-non-routable local network address
+	-required on ever ipv6 enabled interface
+		-many addresses per interface
+	-fe80::/10 with only one subnet allocate (all zeroes)
+	-last 64 bits usually created with a modified EUI-64
+		-based on MAC address

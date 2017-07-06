@@ -1,0 +1,26 @@
+Device Connectors and Cables
+
+-SATA connectors
+	-7 pin data, 15 pin power
+	-L-shaped connectors for data and power
+	-notch limits connection to one way to connect to device
+	-SATA -- internal, L-shaped
+	-eSATA -- external, more symmetric
+-See pictures and past lessons -- just memorize what everything looks like
+-USB interface
+	-1.1/2.0 -- black on motherboard
+	-3.0 -- blue on motherboard
+-Firewire interface on motherboard
+	-s400 - not as symmetric as s800
+-PS/2 connectors
+	-6 pin
+	-keyboard - purple
+	-mouse - green
+	-became popular with IBM PS/2 computer
+	-modern -- USB
+	-connect to KVM switch -- keyboard, video, mouse
+-Audio ports
+	-3.5mm (1/8") TRS plugs
+	-tip/ring/sleeve
+	-color standard not always adhered to
+	-motherboard connection is usally rgb in color

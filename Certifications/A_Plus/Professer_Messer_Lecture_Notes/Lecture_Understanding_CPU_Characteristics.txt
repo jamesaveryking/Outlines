@@ -1,0 +1,65 @@
+Understanding CPU Characteristics
+
+Processor Speed
+-Real Speed: CPU clock
+	-historical qualification of speed
+	-older - MHz, or newer - GHz
+-Actual Speed
+	-combination of different factors
+		-clock speed, CPU architecure, bus speed, bus width, L1 cache size
+		L2 cache size, OS capabilities
+-emphasis in performance is no longer based on speed - subjective based on computing need (data science, security, etc.)
+-early processors:
+	-single CPU core with one set of calculations
+-modern processors:
+	-additional cores
+	-ex) quad-core with different caches attached to each core individually or collectively
+	-octa-core and 16-core CPUs exist
+-lots of components now included into CPU
+	-CPU die:
+		-processor graphics, multiple cores (Each with L1 or L2 cache) and shared L3 cache
+		memory controller I/O
+-CPU cache:
+	-extremely fast memory
+	-dramatically increase amount of throughput in CPUs	
+	-hold instructions, data results, etc.
+	-L1 cache - first storage area integrated to main CPU core
+	-L2 cache - secondary data 
+	-L3 cache - usually shared across multiple cores
+-Hyper-threading technology(HTT): takes single CPU and makes it work as two CPU to improve performance
+	-increases amount of information going through CPU
+	-15-30% improvement outside of HTT on OS
+	-supported by OS of Window XP and later typically
+-Virtualization
+	-run other operating systems within a single hardware platform
+	-multiple OS's shared by one physical hardware component
+	-software is typically limited by hardware shared
+	-when added to processor: hardware is faster and easier to manage, Intel - intel virtualization technology (IVT), AMD Virtualization - (AMD-V)
+-32 vs 64 bits
+	-data "width"
+	-total amount of available data to process at a given time
+	-64 
+		-larger data path, variable sizes, memory addresses
+		-larger bus moves more data
+	-data bus can be larger than CPU (64 bit buts, 32 bit CPU)
+	-software must be optimized to the number of available bits
+		-OS, drivers, applications
+-Integrated Graphics Processing Unit (GPU)
+	-can be integrated into CPU itself
+		-this optimizes graphics sub-systems
+		-requires a lot of work to process all graphics
+		-not as powerful as having seperate graphics adapter
+-NX bit 
+	-security function
+	-No-eXecute bit
+		-Intel - XD bit (eXecutable Disable)
+		-AMD cals it Enhanced Virus Protection
+	-Designate secitons of memor as executing code or data
+		-code can't run from protected memory locations
+		-prevents malware and viruses from executing
+	-OS must support this feature
+		-windows calls it Data Execution Prevention (DEP)
+		-Usually enabled automatically as default
+	-keeps all executable code running in its own space
+	
+	

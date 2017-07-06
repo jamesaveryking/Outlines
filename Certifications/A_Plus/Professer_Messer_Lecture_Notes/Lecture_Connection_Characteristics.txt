@@ -1,0 +1,53 @@
+Connection Characteristics
+
+-Analog and Digital Modulation:
+	-analog modulation -- send an analog signal over and analog channel (AM and FM audio over radio frequencies)
+		-distance leads to static
+	-digital modulation - send a digital bitstream over analog channel (digital audio over satellite radio frequencies)
+		-all or nothing in terms of success
+		-higher frequency is 1, lower frequency is 0
+-Distance limitations:
+	-regardless of copper, fiber, wireless all signals degraade
+	-often set of standards to describe device type and connection length
+		-you can sometimes go farther
+	-always need advaced testing to measure signal
+-Data transfer speeds
+	-data between A and B and how quickly transmission occurs
+	-rarely straightforward
+		-bytes used to measure local device storage
+		-bits used to measure transmission across medium
+	-SATA storage
+		-uses 8b/10b signaling - takes 10 bits across wire to make 8 bits
+		-SATA revision 3.0 wire communication is 6 gigabits/second or 750 megabytes/second
+		-actual data transfer is 600 megabytes/second because of 8b/10b signal (80% of 750)
+-Quality:
+	-signal strength (how loud)
+		-how much is getting to other side
+	-signal quality of the noise -- how much of it is any good?/
+		-there will always be a signal-to-noise ratio
+	-important for network communication
+		-there are many ways to affect quality
+		-important on wires, fibers, and wireless
+		-physical medium is exceptionally important
+-Digital Rights Management (DRM)
+	-control over digital media by owner
+	-associated with games, videos, movies, documents
+	-can be software or hardware
+		-USB key for software
+	-every application is different
+		-some DRM implementations better than others
+		-be aware when moving computers around or replacing hardware
+-Frequencies
+	-number of cycles in a second (hertz)
+		-faster speeds = faster frequencies
+	-Ex) Gigabit internet
+		-category 5 cables certified to 125 MHz
+		-1000Base-T gigabit ethernet codes two bits per signal
+		-uses four pair simultaneously
+		-125 MHz * 2 bits/signal * 4 pair = 1000 megabits/second
+	-802.11 wireless
+		-2.4 GHz and 5GHz frequencies
+	-Optical
+		-represented as wavelength (850 nanometers) (common way to describe frequencies)
+
+		

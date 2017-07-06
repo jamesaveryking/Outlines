@@ -1,0 +1,58 @@
+Display Specifications
+
+-old version -- Cathode Ray Tubes
+	-electron beam would charge phosphorous in tubes a certain number of times per second
+		-called refresh rate -- b/c phosphourous was constantly refreshed
+		-measure in Hertz because it is a frequency
+-LCD displays -- frame rate
+	-no electron beams
+	-refreshes entire screen - still measured in Hz
+		-60Hz 120Hz 144 Hz
+		-really a frame rate
+	-everything on screen changes instantly and uniformly
+-Resolution:
+	-number of available pixels to view in (W*H)
+	-aspect ratio -- looks at ratio of width to heighth
+		-standard monitor aspect ratio -- 4:3
+			-1600 x 1200 || 2048 x 1536
+		-wide screen monitor -- 16:10
+			-1920 x 1200 || 2560 x 1600
+		-HD -- 16:9
+			-1920 x 1080 || 2560 x 1440
+	-native resolution
+		-LCD display is fixed -- number of pixels does not change
+		-display looks best when the video settings match a display's native resolution
+			-mismatch can cause distortion
+		-if necessary to change try to use resolution to ratio of display
+-Brightness -
+	-Luminance
+		-measured Candela per square meter (cd/m**2)
+		-more is beter
+	-Lumens
+		-an ANSI test
+		-3000 lumens works in a dim room
+		-6000 lumens works in a sunlit room
+-analog vs. digital
+	-analog -- one continuous signal
+		-VGA video or DE-15 interface
+		-DVI-A
+	-digital -- transmitted as discrete values
+		-DVI-D (digital visual interface)
+		-HDMI (high-definition multimedia interface)
+-display filters
+	-privacy -- fades screen to black or gold used on laptops
+		-placed on front of display
+		-common to see on planes
+	-anti-glare
+		-reduce glare
+		-improve viewing
+		-useful in bright light
+-multiple displays
+	-optimizes work environment
+	-extends a desktop
+		-each display is independent
+		-location is determined by OS
+	-mirror a desktop 
+		-useful for presentations
+
+	
