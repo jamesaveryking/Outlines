@@ -1,0 +1,86 @@
+Table Doubling, Karp-Rabin
+
+-insert, delete, exact search -- theta constant time with hashing
+-recall hashing with chaining -- asume simple uniform or universal hashing
+
+-universe of keys k
+	-hash function to change to map to table
+	-slots then create linked-list of chaining concept -- expected chain length = n/m = alpha
+		-expected order of time = theta(1+alpha)
+	-division method -- h(k) = k mod m
+	-multiplication method -- h(k) = [(a*k) mod (2**w)] >> 2**(r-w)
+		-see previous lecture
+	-one limit is the length of the table and how to lengthen the table
+	-How to choose m so that it is big enough to be close to n but not wastefule in space?
+		-want m = theta(n) --> alpha = theta(1)
+	-Idea: start small: m = 8 -- "better" to be power of two
+		-grow and shrink as necessary
+		-also gives idea of how list is implemented
+		-if m>n: grow table
+			1) what does grow table mean?
+				grow: m --> m'
+				methodolgy of building new table size m'
+					-allocate memory and rehash
+						-build new table of size m'
+						-rehash everythink in old table to new
+						-foreach item in old_table: insert into new table
+						-how much time? -- as long as m and m' are order n -- theta(n+m+m')
+							-general -- theta(number of lists + number of slots + number of new slots)
+							-purpose of exercise -- theta(n)
+						-hash function is all about mapping keys to number of slots
+				-if n >  m: grow table
+					m' = m+1 -- cost of n inserts
+					   = theta(1+2+3+4...+n) = theta(n**2)
+					m' = 2*m
+					   = theta(1+2+4+8..+n) = geometric series = theta (n)
+					  --in large cases this is not constant time for lgn large operations
+					  --amortization - operation takes T(n) amortized if k operations take <= k*T(n) time
+						-spread out high cost so that it is cheap on average overall
+						-think of meaning -- T(n) on average where average is taken over all operations
+							-spreading out monthly rent to daily payment
+				-table doubling -- k inserts take theta(k) time 
+					-constant amortized/insert 
+					-also true on k inserts/deletes -- take order k time
+					-supposed n inserts and n deletes -- takes order k time
+				-in the case of m being much larger than n
+					solve deletion:
+						1) if m = n/2 then shrink to m/2
+							-slow -- linear time for every operation
+								2**k insert or delete to 2**(k+1)
+								results in theta(n) per operation
+						2) if m = n/(any number larger than 2 that is a power of 2) then shrink to m/2
+							-amortized time --> teta constant
+			-lists in python
+				-list.append, list.pop (delete last item) -- linear time -- constant amortized
+				-table doubling is better than linear time 
+					-begins to switch above a certain threshold, t, a number of items, n, into the new doubled table
+		-string matching:
+			-given two strings s and t: does s occur as a sutbstring of t?
+				--s = '7.007', t = 'All google searches'
+				-algorithm:
+					-check strings with the same length
+					-simple algorithm:
+						any(s==t[i:(i+len(s))] for i in range(len(t)-len(s)))
+						-- running time: theta(length(s) * length(t)-length(s))
+							--order theta(len(s)*len(t)) -- can be quadratic on large numbers
+						-- solve by checking a hash function of the given string to search
+						-- rolling hash automatic data type
+							- given a rolling hash value it would be optimal to append character
+								- r.append(c) -- adds character c to the end of x
+								- r.skip(c) -- deletes the first character of x
+								- r(0) -- hash value of x = h(x)
+-Karp-Rabon algorithm:
+	for c in s: rs.append(c) -- rs give hash value of s
+	for c in t[:len(s)] -- rt.append(c) -- rt is a rolling hash of the first s characters in t 
+	if rs()==rt(): for i in range(len(s),len(t)): rt.skip(t[i-len(s)])
+		rt.skip(t[i-len(s)])
+		rt.append(t[i])
+		if rs() == rt() -- potentially but some probability of innaccuracy
+			check whether s == t[i-len(s)+1:i+1]
+			if equal: match is good
+			else: -- happens probabilibity with at most 1/s -- expected time is constant
+		order(length s + length t + number match * length s)
+		
+				
+	
+				

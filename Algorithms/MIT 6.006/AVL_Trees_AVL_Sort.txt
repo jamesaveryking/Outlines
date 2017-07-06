@@ -1,0 +1,78 @@
+AVL Trees, AVL SORT
+
+-general BST:
+	-tree, binary structure, search property
+	-nodes, every node has a key
+	-in-order traversal -- recursively view children of root
+	-support insert, delete, min, max, next-larger/smaller (successor/predecessor)
+		-occurs in order height time
+	-balanced or not
+		-balanced -- height = log(n) -- definition of balanced tree
+		-unbalanced -- path -- height = n
+		-height: length of longest path from root to leaf
+		-depth of node in tree: distance from root
+		-height of node in tree: longest path from node to leaf
+			-max(height(left),height(right))+1
+	-goal: maintained balanced trees -- use AVL trees
+	-data structure augmentation -- computing additional variables (size)
+-AVL trees:
+	-require heights of left and right children of every node to differ by at most +/- 1
+		-could be subtree size but height is easier to work with
+	-example tree:
+		root, l_sub, r_sub
+		goal: l_sub and r_sub differ by at most one on every node
+			-0 would have to be perfect balanced tree
+	-claim:
+		1) AVL trees are balanced
+			-height = order log(n) or constant * lgn
+			-worst case is when right subtree has height one more than left on every node
+			-Nh = minimum number of nodes possible in an AVL tree of height h
+			-working top down in terms of height
+			-to create algorithm -- start with base case (does not matter on this because N constant = constant)
+			-recurrence algorithm -- Nh = 1+ N(h-1) + N(h-2)
+												left	right 
+			-Nh > Fibh = (golden ratio ** h)/sqrt(5)|or|
+												right	left
+			-worst case analysis:
+				Nh = 1 + N(h-1) + N(h-2)
+				   > 1 + 2N(h-2) -- because we are checking greater than (N(h-1) if less than)
+				   > 2N(h-2) -- disregard constants
+				   = theta 2**(h/2)
+				   h < 2*lgn
+	-AVL insert 1)
+		1) simple BEST insert
+		2) solve AVL property
+			-uses rotations to have balanced children instead of paths
+			-rotations
+				x		(left)-->		y
+			a		y	<--(right)	x		c
+					b	c		a	b		
+	in-order traversal:
+			a x b y c			a x b y c
+	-AVL insert 2)
+		1) , 2)
+		3) suppose x is lower node violoating AVC
+		4) suppose right is highest node 
+		-if x's right child is right heavy or balanced
+			x		right rotate x --> 		y
+		a		y						x		c
+			b		c				a		b
+		else -- two rotations (doubly right/left heavy)
+			x		RR(z)		y
+		a		z	LR(x)	x		z
+			y		d |	a	b		c	d
+		b		c		
+		
+	-can be used to sort:
+		-insert n items -- total time (n*log(n))
+		-in-order traversal -- linear time (order(n))
+	-additional property to heaps:
+		-find next larger/smaller
+	-Abstract Data Type -- interfaces in java that define what is supposed to happen
+		-insert and delete	] both are priority queue which translates to applicable data structure
+		-min/max			]
+		-successor/predecessor
+			-BST achieves all three
+			-heaps are in place and don't use extra space like BST
+			-if we don't care about constant factors AVL trees work best
+		

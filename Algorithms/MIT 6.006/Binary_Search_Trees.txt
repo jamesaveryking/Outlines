@@ -1,0 +1,64 @@
+Binary Search Trees, BST Sort
+
+Binary search -- fundamental divide and conquer paradigm
+-associated data structure -- BST
+-classic problem to solve -- airport reservation system
+	-airport with a single runway
+	-constraints have to be built into scheduling
+	-reservations to schedule future landings -- time is continuous, represented by real quantity
+	-objective: reserve requests for landings to specify landing time (T)
+		-add T to the set R of landing times if no other landings are scheduled within K minutes -- K is a parameter that could vary
+		-do not insert if constraint is violated
+	-remove from set R after plane lands
+	-optimal order is log(n) time
+	-known data structured that won't work
+		-unsorted array -- constraint is that traversal is linear
+			-inert in constant time without a check
+			-traverse in n time to complete the check
+		-sorted array -- allows binary search in logarithmic time
+			-locate insertion point (search) -- log(n)
+			-insertion (shifting of every object over) -- constant
+			-total -- log(n)
+		-binary search: locates smallest i such that R[i] >= t in order log(n) time
+			-compare R[i] and R[i-1] against T in constant time
+			-actual insertion -- order n time
+		-heap --- min/max
+			-to check that element is greater than equal or less than equal to k from t is order n time
+		-binary search trees 
+			-node x has a key(x) -- value in node
+			-slightly more complicated than a heap because it has pointers
+				-more memory per node than a heap
+			-each node has a parent, a right child, and a left child
+			-Invarient: for all nodes x, if y is in the left sub-tree of x --> key(y) <= key(x)
+							if y is in the right subtree key(y) >= key(x)
+				-accompished by ordering algorithm of keys
+-example of inserting into binary search tree:
+	-constraint -- k-time constraint, k = 3
+	0) start with null set
+	1) insert 49
+	2) insert 79 -- becomes right child of 79
+	3) insert 46 -- becomes left child of 49
+	4) insert 41 -- less than 49 - less thaan 46 - becomes left child of 46
+	5) insert 42 -- less than 49 - less than 46 - greater than 41 - violation of safety check does not insert
+	-h represents height of the tree
+	-insertion with or without check is done in order h time
+	-if 45 was inserted -- would pass 49 and fail at 46 because it is less than 3 away from 46
+-multi-set -- set with duplicate elements
+	-need a way to differenticate two elements with same value to have different key values
+- find_min()
+	-heap -- constant time returns root
+	-BST -- go left -- complexity is order h  (height)
+		-find-max() -- go right - complexity is still h
+	-next_layer() -- order h time also
+- augmented binary search trees
+	-have more data than just pointers
+	-additional requirement -- ability to compute rank
+		-rank being number of planes scheduled to land at times <= t
+	-adds information to node structure by augmenting BST structure
+		-whenever an insert or delete occurs modify 'size' -- subtree sizes
+		-reverse insertion path and increment (insert) or decrement (delete)
+	-algorithm to solve additional requirement:
+		1) walk down tree to find desired time
+		2) add in the nodes that are smaller
+		3) add in the subtree size to the left
+	

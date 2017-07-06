@@ -1,0 +1,93 @@
+Models of Computation, Document Distance
+Constant can be represented as O(1)
+
+al-Khwarizmi - father of algebra, algorithm
+	-wrote one of the original texts on linear and quadratic equations
+What is an algorithm?
+	-computational procedure for solving some problem
+	-input generates output to solve problem
+	-mathematical analog of a computer program
+		-computer program written in a programming language
+		-mathematical analog of programming language is pseudocode/structured english
+			-progrmaming language runs on a computer
+			-model of computation (what can be done in constant time) is analog of computer
+
+Model of computation specifies:
+	-what operations can be done with an algorithm
+	-cost of algorithm (running time typically used in this class)
+Styles of programming:
+	-objected oriented
+	-assembly
+	-analog
+	-functional
+
+1) Random Access Machine - (RAM) - almost same as random access memory but not quite
+	-no dynamic memory allocation in this model
+	-modeled as a giant array in a computer's random access memory
+	-all elements can be accessed in constant time
+	-elements in array usually organized by "words" in computing
+	-in constant time an algorithm can read in a constant number of words in memory, perform
+	a constant amount of computations on them, then write them out (store them)
+	-words are loaded into registers where computations can be performed on them
+	-word in computing is technically either 32 or 64 bits
+		-abstract definition -- word is "w" bits
+		-w should be at least log(size of memory)
+		-words are the input that calculations are performed on
+	-unless otherwise specified assume words occupy calculable space in memory
+2) Pointer Machine
+	-corresponds to OOP in a simple version
+	-dynamically allocated objects
+	-object has a constant number of fields
+	-field is either a word (int, string, etc.) or a pointer
+	-pointer is something that points to another object or has a special value (null, nil none (Python))
+	-pointers index into table of words -- not a concrete value but a reference to a memory address
+
+Python Model:
+	-python offers random access machine (arrays) and pointers with references
+	-necessary to know speed of built in python operations
+	-arrays are called lists in python
+	-objects with constant number of attributes can be used with pointer machine model
+		-accessing field in object of constant size takes constant time regardles off number of objects or size of list
+	-append uses table doubling (lecture 9) to put additional element on end of list in constant time
+	-concatenating two lists (python - non-destructive operation of concatenating copies of L1 and L2)
+		-for x in L1: -- in operator takes linear time -- worst case scan through unsorted list
+			L.append(x) -- O(1)	]
+		 for x in L2:			] O(1 + len(L1) + len(L2))
+			L.append(x) -- O(1)	]
+	-len of list takes O(1) time -- counter is built in in python to store length at beginning
+	-sort a list -- O(N*log(N)) -- the time to compare two items -- worst case is comparing every item (Lecture 3)
+	-dict: (dictonaries) D[key] -- hash table in Python -- O(1) with high probability, rarely more than constant time
+		-lectures 8 through 10
+	-long integers -- lecture 11
+		x+y = O(words x + words y)
+		x*y = O((words x + words y)**log(3)) -- little better than quadratics in python
+			-lecture 11
+	-heap -- lecture 4
+
+Document Distance Problem:
+	distance(D1,D2) -- useful to cut down on mirrors
+		-tests similarity of D1 and D2 by a "distance"
+	D1,D2 = document = sequence of words
+	word = string of alphanumberic characters ([a:z],[0,9])
+	distance looks at shared words to determine similarity
+	-think of a document as a vector
+		-D[w] = number of occurences of w in document D
+			-w is +/- integer, character, sequence of characters
+	-ex)
+		-D1 = "the cat"
+		-D2 = "the dog"
+		-distance is 4 -- "the "
+		-represent as vector with the, cat, and dog being three axes
+			-dot product(D1,D2) = sum of all words(D1[w]*D2[w])
+				-scaling problem (large vs. small comparisons)
+				-solution -- divide by length of vector then take cos**-1 (arccos)
+		-Algorithm:
+			1) split document into words
+			2) compute word frequencies
+			3) compute dot product
+		-Approaches to make improvements:
+			-sort the words in the document
+			-regex -- re.findall(r'\w+',doc) -- be careful of it not being linear time
+		
+		
+	

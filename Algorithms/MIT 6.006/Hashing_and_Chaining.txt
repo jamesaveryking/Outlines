@@ -1,0 +1,94 @@
+Hashing and Chaining
+
+Hashing
+
+"hashing is cool"
+-derived from german root instead of arabic
+	-deutsch -- cut into pieces
+-one of the most important data structures in computer science
+-sometimes called a dictionary: abstract data type
+	-set of items each having a key
+	-store, insert, delete, search items
+	-insert item with existing key overwrites any existing key
+	-search(key) -- return item with given key or report doesn't exist
+		-exact search -- item exists or does not exist based on key
+		-binary would return next lowest or highest if key does not exist
+		-dictionary reports item DNE is key is not located
+	-could use AVL tree to solve search in lgn time
+	-last class -- best sort is n*lgn and best search is lgn
+		-this class -- better search than lgn -- trying to get to constant time with high probability
+		-uses randomized data structure but will be easier to understand
+-python: dict data type
+	-D[key] -- search
+	-D[key] = val -- insert
+	-del D[key] -- delete
+	--item = (key,value)
+-Motivation to use:
+	-doclist
+	-count number of words
+	-computing inner products -- counting number of words 
+	-built into java, ruby, C++, C#, javascript, modern languages
+	-essentially every database -- two kinds:
+		-those that use hashing -- BerkelyDB
+		-those that use search trees
+	-compilers and interpreters
+	-network router -- key is IP address on local machine
+		-in network stack -- server routes to port by IP key
+	-sub-string search -- grep in linux
+	-string commonalities -- string comparison
+	-file and directory synchronization
+		-dropbox
+	-cryptography -- check against man in the middle attacks with cryptographic hash functions
+-simple approach:
+	-direct access table
+		-large array called a table where index into array is the key
+		-store items in an array indexedy by key
+			-drawbacks: 
+				-hard to associate value with an integer
+				-gigantic memory hog -- if key was 64 bit integer this would be a lot as well as runtime to initialize
+			-solve
+				-keys not integers -- prehashing (python calls it hash) 
+					-prehash maps keys to non-negative integers
+						-in theory keys are finite and discrete (string of bits)
+					-in python hash(x) is the prehash of x
+					-hash of ("\0B") == hash{"\0\0C")
+					-ideally hash(x) = hash(y)
+					__hash__ creates hash object -- if not used defaults to id which is the physical location of object in memory
+				-solution to memory hog
+					-reduce universe of all keys (integers) down to reasonable size m for table
+		-maps keyspace through hash function into hash table T
+			-at any moment some keys are present
+				h(k1)-->1
+				h(k3)-->3
+			-because of size limit pigeonhole principle is enacted
+				-pigeonhole principle occurs
+Chaining
+-multiple items that has to same position, store them as list
+	-solves the pigeonhole principle
+	-worst case -- theta(n)
+Simple Uniform Hashing
+-each key is equally likely to be hashed to any slot of the table independent of where other keys hashing
+-analysis -- hashing with chaining
+	-expected length of a chain with n keys and m slots
+		-- chance of key going to specific slot = n/m = load factor = alpha
+		-- if alpha = 1 -- n=m | if alpha = 7 -- n = m/7
+		-- theta(1) if m = theta(n)
+	-running time = theta(1+alpha)
+-Hash functions --
+	1) division method -- h(key) = k mod m -- yields number between 0 and m-1
+			-cons if m factors evenly into k
+	2) multiplication method -- h(k) = [(a*k)mod(2**w)] >> (m-r)
+			-k is a key w bits long
+			-a is an integer whose range is [0:k] where value is represented in binary
+				-however many true values are represented in a are copied then added using binary addition
+				-sum is twice as long in general
+				- >> takes the word on the right of the two generate and shift to get the leftmost r bits of the rightmost w bits
+				- m = 2**r 
+			-a needs to be odd and not close to a power of 2
+	3) universal hashing
+		-- h(k)=](ak+b)mod p] mod m
+			-a is random
+			-b is {0:(p-1)}
+			-p is prime greater than size of universe
+		-- worst case keys k1 and k2
+			-probability of collision (equality of k1 and k2) = 1/m

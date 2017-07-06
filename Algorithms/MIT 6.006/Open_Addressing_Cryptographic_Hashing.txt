@@ -1,0 +1,64 @@
+Open Addressing, Cryptographic Hashing
+
+-open addressing -- simplest implementation of hash table
+	-single array data structure in using hash table
+	-requires more detail than using chaining in hash table
+	-another approach to dealing with collisions
+		-ensure uniqueness of keys
+		-no chaining
+	-working has table needs m>=n (slots >= number of elements)
+	-probing: try to see if, on insert fail, algorithm is used to inject key value pair until successful insertion
+		-hash function that is different from standard hash functions previously mentioned to specify order of slots to probe for a key (for insert/search/delete)
+			-denoted "h"
+		--  h:U x {0,1,...,m-1) --> {0,1,...,m-1)
+			-U is universe of keys
+			-takes in two arguments -- key and trial
+			-produces number between 0 and m-1
+			-desired output -- h(k,1),h(k,2)...,h(k,m-1)
+				-arbitrary key "k"
+				-vector output to be a permutation of {0,1,...,m-1}
+		-Example
+		h(586,1) = 1 , h(133,1) = 2
+		0)
+		1) 586
+		2) 133
+		3)
+		4) 481
+		Insert h(497,4) = 4 -- Fails
+		If non-linear insertion, could be h(497,2) = 2 -- Fails
+		h(497,0) = 0 -- Success
+		-After insert, how would search work?
+			-none indicates empty slot 
+			 (flag)
+			-insert(k,v) -- keep probing until an empty slot is found and when found insert item
+			-search(k) -- keep probing as long as the slots encountered are occupied by keys not equal to "k"
+				-keep probing until you either encounter "k" or find an empty slot
+			-delete(k) -- same as search but has problems:
+				-situation: insert something succesfully then delete another element and replace with none
+					-immediately performing search has error because replace with none fails the search if it runs across key replaced with none before other keys or desired key
+					-solution: replace deleted item with DeleteMe flag (differs from none)
+						-insert would treat DeleteMe same as none but search keeps going and treats it differently than none
+		-probing strategies: similar to changing hash function to open addressing
+			-linear probing: h(k,i) = (h'(k)+i) mod m -- where h' is an ordinary hash function
+			-clustering: consecutive groups of occupied slots that keep growing
+				-large clusters get bigger -- reverse of load balancing and large clusters are not good
+					-can be deterred by changing hashing function to something that progresses non-linearly or accounts for reading cluster size somehow
+			-double hashing: run a couple of hashes
+				h(k,i) = (h1(k) + (i*h2(k) mod m)) where h1 and h2 are ordinary hash functions
+					-if h2(k) is relatively prime to m --> implies permutation
+						m=2**r, h2(k) for all k is odd
+-Uniform Hashing Assumption: not simple uniform hashing which concerns indepence of keys with respect to their slots
+	-each key is equally likely to have any one of the m factorial permutations as its probe sequence
+		-used with double hasing
+		-if x = number of items/number of slots
+			-cost of operations must be <= 1/(1-x) -- as x tends to one the number of probes needed and slots traversed grows
+				-x = 0.99 -- average is 100 probes
+				-when x is beyond .5 to .6 -- resize open addressing table
+				-open addressing is easy and uses less memory without using pointers but make sure "x" stays around 0.5
+				-resizing by open addressing or chaining
+-Cryptographic Hashes:
+	-example) password storage
+		-ensure sysadmin does not even know passwords in system
+		-solution: one-way -- given h(x) = Q it is very hard to find x such that h(x) = Q
+		-- /etc/passwd: actual_password: cryptographic hash
+		-- on login -- h(x') where x' is typed in password = h(x) where x is hashed password

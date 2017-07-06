@@ -1,0 +1,73 @@
+
+
+#All logs are based 2 unless otherwise specified
+
+Peak finder:
+	123456789
+	abcdefghi
+
+position 2 is a peak iff b>=a and b<=c
+position 9 (edte) is a peak iff i>=h
+
+Straightforward algorithm example:
+-start at left
+-one traversal
+
+ 1 2 3 ... n/2 ... n-1 n
+
+-derive straightforward algorithm and determine complexity relative to n
+-worst case complexity -- theta(n) -- all elements [1:n] would have to be viewed
+	-this would mean the complexity is constant*n
+
+-how could we lower asymptotic complexity of search algorithm?
+	-change type of search from linear to binary, quaternary, hexanary... etc.
+	-binary definition:
+		array = a
+		if a[n/2] < a[n/2 -1] than only look at left half and opposite with right side (>)
+	-quaternary definition (general definition of even higher than binary):
+		array = a
+		1) get max, second max a[n/4],a[n/2],a[3n/4]
+		2) determine binary of max, second max
+
+-T(n) is work of algorithm on input of size n
+	-"work" algorithm does on input of size n
+	-T(n) = T(n/2) + theta(1) -- on binary
+		-extends to the base case which is T(1) = theta(1) -- one-element array
+			-expanded -- T(n) = theta(1) + .... theta(1) (used on each element) = theta(log(n))
+									log(n) times
+-2D version -- 4*4 matrix, n rows, m cols
+	-element inside (not on outer edges) is a 2D-peak iff element > left, element > right, element > top, element > bottom
+	-greedy ascent algorithm:
+		-start at arbitrary midpoint
+		-chooses default traversal direction
+			-example: choose left element and if greater go that way, less go opposite -- then top/bottom?
+			-in any given strategy many elements could be examined to determine optimal path based on constraints
+		-complexity in worst case -- theta(mn) -- all elements of rows/columns viewed
+			-if m=n -- theta(n**2)
+	-binary version example that does not work:
+		-pick middle column j = m/2
+		-find a 1D peak of (i,j) on row i with single dimesion binary search
+		-iterate through columns and use same algorithm on each row
+		-problem -- limited by dimensions -- getting peaks of each row then comparing
+		creates limit on search comparisons
+		-solution -- modify algorithm to include binary search of two dimensions
+			- arbitrary element with coordinates (i,j) not on matrix edges
+				-pick middle column -- j = m/2
+				-find global max on column j
+				-compare (i,j-1),(i,j),(i,j+1)
+					-pick left if (i,j-1)>(i,j)
+					-pick right if (i,j+1)>(i,j)
+				-if (i,j)>=(i,j-1),(i,j+1) -- (i,j) is a 2D peak
+				-solve the new problem with half the number of columns (binary search)
+				-base case -- single column - solution - determine global maximum
+			- T(n,m) = T(n,m/2) + theta(n)
+				-work of matrix is the work of chosen half based on binary plus going through every element of row
+			- Base Case -- T(n,1) = theta(n)
+							-T(n,m) = theta(n) + ... + theta(n) = theta(n*log(m))
+										^^^^^^^log(m)^^^^^^^ 
+			
+-homework:
+	-argue that any array will always have a peak 
+		-peak definition concerns >= and not just > -- this would create multiple peaks
+		-contradiction would have to create algorithm that peak does not exist or determine a 
+		peak if it exists

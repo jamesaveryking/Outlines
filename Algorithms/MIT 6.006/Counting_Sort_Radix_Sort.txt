@@ -1,0 +1,61 @@
+Counting Sort, Radix Sort, Lower Bounds for Sorting
+
+-possibility of linear time sorting
+theorem:
+searching -- lgn
+sorting -- n*lgn
+
+Comparison model -- restrict operations to be able to compare
+	-all input items are abstract data types
+		-each ADT has a single operation which is compared to another ADT
+	-only operation allowed are comparisons -- (<,<=,>,>=,=)
+	-time cost = number of comparisons
+Decision Tree:
+	-any comparison algorithm is seen as a tree of all possible comparisons, their outcomes, and result
+	-idea is to look at particular value of n among values of n
+	-binary decision structure using yes or no answers based on comparisons
+	-leaf represents a definite answer based on path to answer with starting point being the root and nodes being comparisons
+	-running time -- length of the path to leaf
+	-worst-case running time -- height of the tree
+Searching lower bound:
+	-n preprocessed items finding a given item among them in comparison model requires lgn in the worst case
+Tree height has to be lgn because:
+	-binary nature of tree
+	-at least n leaves one for each answer
+	--height is the worst case running time
+Sorting Lower Bound:
+-claim lower bound of n*lgn
+	-decision tree is binary
+	-how many leaves?
+	-decision tree is binary and number of leaves is greater than or equal to the number of answers (n! permutations)
+	-height>=log(n!)
+	-count number of leaves and it is a lower bound of that 
+
+Using Random Access Machine to sort in linear time -- items stored in array that can be accessed linearly in constant time
+-assume keys are sorted are integers in some range {0:k}
+	-each can be included in a word
+-can do a lot more than comparisons
+-k or reasonable size can be sorted in linear time
+-counting sort: counts all the items in an array
+	-create counter to account each individual index
+	-increment counter when non-unique value is present
+	-L= array of k empty lists -- order k time
+	-for j in range(n): 
+		L[key(A[j].append(A[j])) -- constant time
+		output=[]
+		for i in range(k):
+			output.extend(L[i]) -- length of L time
+		-order of algorithm: n+k
+-radix sort: uses counting sort as subroutine
+	-imagine each unique integer as base b 
+		--number of digits = d = log base b (k)
+	-sort all integers by least significant digit
+	|			|		|
+	-sort all integers by most significant digit
+	--sort each using counting sort by digit
+		-order n+b time
+	-total time = ((n+b)*d) = ((n+b)*log base b (k))
+		-when minimizing a sum it is better when they are equal, set b to n to minimize
+		=n*log base n(k)
+		-if k = n**c then it is order n*c
+	
