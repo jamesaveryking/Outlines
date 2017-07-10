@@ -1,0 +1,206 @@
+Chapter 1
+
+-iPhone and iPad release and sales history
+	-1G iPhone -- June 2007 -- 6.1 million models in first five quarters
+	-3G -- included GPS -- July 2008 -- 6.9 million in first quarter
+	-3GS -- included compass -- June 2009 -- 5.2 million copies in first month
+	-4 -- June 2010 -- 3 million in first 3 weeks
+	-4S -- October 2011 -- 4 million in first 3 days
+	-5 -- September 2012 -- 5 million in first 3 days
+	-5S and 5c -- September 2013 -- 9 million combined in first 3 days -- added china mobile to carrier list
+	-6 and 6 Plus -- September 2014 -- pre-sold 4 million in one day, 10 million in first weekend
+	-1G iPad -- April 2010 -- 3 million in first 80 days
+	-2G -- March 2011 -- 1 million in first weekend
+	-3G -- March 2012 -- 3 million in 3 days
+	-4G and mini -- November 2012 -- combined 3 million in first weekend
+	-2G mini and air -- November 2013 -- 26 million in quarter 1
+-Gestures: involve one touch or multiple simultaneous touches
+	-one tap, double tap, touch and hold (long press), drag, swipe, flick (quick direction), pinch (together or apart), shaking device
+-Sensors: 
+	-accelerometer: allows device to respond to up,down,left,right,forward,backward acceleration
+		-rotations, shaking, etc.
+	-three-axis gyro: gyroscope introduced in 4G iPhone -- higher precision of response to motion that allows apps to detect rotation about the x, y and z axes
+		-stabilizes camera, etc.
+	-compass: orient maps in direction of device
+	-ambient light sensor: determines amount of light around the device and adjusts the screen's brightness to preserve battery
+	-proximity sensor: turns off light when phone is close to face (iPhone only)
+	-magnetic sensor: iPad detects iPad smart cover
+	-GPS sensor: supplies location for maps and location-based apps
+	-Touch ID sensor: finger print authentication feature built into home button -- can be used for in-app security as of iOS 8
+	-NFC sensor: used in 6 and 6 plus for mobile pay
+-Accessibility:
+	-help vision, hearing, and physically impaired users
+	-VoiceOver: gesture-based screen reader program -- touch and drag to hear description of content
+	-vision impairment: large text, whwate on black for contrast, or zoom to magnify
+		-settings>general>accessibility
+	-physical impairment: AssistiveTouch enables entry of multi-touch of multi-touch gestures with one finger or a stylus and Siri
+	-autism, ADD, sensory disorders: Guided Access -- allows restriction to one app, disable touch input on specific areas or all of the screen 
+		-settings>general>accessibility>guided access
+-Iphone 6 and 6 Plus
+	-A8 64-bit chip -- provides 25% faster processing and 50% faster graphics performance
+	-Retina HD display
+	-memory -- 16GB, 64GB, 128GB
+	-barometer -- determines elevation based on air pressure
+	-camera
+	-near-field communications -- short-range wireless connectivity for Apple Pay
+	-Apple Pay -- uses NFC and touch ID
+-iOS
+	-iPhone, iPad, Apple TV, Apple Watch, iPod Touch
+	-does use open source libraries -- http://opensource.apple.com
+	-for iPhone -- released June 2007 initially included iPod, messages, calendar, camera, photos, maps, few others
+	-iOS 2 -- released 2008 -- introduced third-party apps 
+		-iPhone SDK -- allowed to create apps for iPhone and iPod Touch
+		-launch of app store
+	-iOS 3 -- released 2009 and introduced:
+		-ability to x,c,v text within and between apps
+		-landscape keyboard
+		-recording audio memos with built-in microphone
+		-mms to send photos and videos via messaging app
+		-spotlight search for locating email, contacts, calendars, notes, music
+		-direct iTunes access
+		-broader language support -- 30 spoken languages
+		-p2p bluetooth connectivity
+	-iOS 4 -- release 2010
+		-multi-tasking: apps run in background feature
+		-developer frameworks to integrate core functionality of device into your apps
+			-Event Kit -- access to calendar, Core Motion -- replaced/enhanced getting motion data
+		-Grand Central Dispatch (GCD) -- provided a new asynchronous programming model that was more efficient than the multithreading model in earlier iOS versions
+		-FaceTime, iAd, Apple Push notification, high dynamic range (HDR) photos, game center, iTunes TV show rentals, folders, improved email, iBooks, create playlists, spell check, wireless keyboard support
+	-iOS 5 -- more than 1000 new APIs
+		-iCloud, game center, notification network, reminders, newsstand, twitter integration, safari, PC free (wireless activation, updates), Airprint, Siri
+	-iOS 6 -- approximately 200 new features
+		-game center and game kit frameworks
+		-social frameworks (facebook, twitter, weibo)
+		-maps -- routing apps to available directions in maps
+		-pass kit -- digital replacement for tickets
+		-in-app purchase
+		-collection views
+		-auto layout
+		-state preservation
+		-facebook integration
+		-passbook
+		-photo sharing
+		-do not distrub in phone portion
+	-iOS 7 -- september 2013
+		-Sprite Kit framework -- hardware-accelearted animation systems that allows you to create games more easily
+		-game controller frameworks -- enables apps to use game controllers -- hardware devices connected to iPhone
+		-3D maps
+		-AirDrop
+		-Inter-App Audio -- share between multiple apps on the same device
+		-multipeer connectivity framework -- connect with nearby devices using bluetooth, LAN wireless, p2p wifi
+		-media accessibility framework, enhanced store kit framework, enhanced message UI framework
+		-CarPlay on cars
+	-iOS 8 -- september 2014
+		-app extensions -- make custom functionality and content available to other apps
+		-document picker -- enable users to share, read, edit documents across multiple apps
+		-Cloud Kit -- share data between your app and iCloud even if the app user does not have an iCloud account
+		-Handoff -- allows activity to start on one iOS device and continue on another
+		-Health Kit framework -- keeps track of users health information and shar with connected devices (fitness trackers, BP moniters, etc.)
+		-Home Kit framework -- connect to home devices (security systems, thermostats, appliances, lighting, etc.)
+		-Photos framework -- APIs for retrieving, displaying, and editing photos and videos
+		-PhotosUI framework -- create extensions to photos app
+		-Touch ID Authentication -- in-app touch ID
+		-SceneKit -- enhance 3D games and UI
+		-SpriteKit -- advanced game effects (pixel-perfect collision detection)
+		-Unified Storyboard -- create one storyboard for universal apps rather than separate versions on iPads, iPhones
+-Apple Watch -- september 2014
+	-time accuracy within 50 milliseconds
+	-iPhone 5 or higher running iOS 8
+	-digital crown -- dial on right side fo the watch can be rotated to zoom in and out 
+	-glances -- can be accessed by swiping upwards - customized weather, music, stock prices, etc.
+	-taptic engine -- lightly vibrates watch when notification is received
+	-digital touch -- button below digital crown on right side -- displays contacts
+	-watchkit -- enables extension of iOS 8 apps to apple watch
+-App Store -- as of writing over 1.3 million available apps and over 75 billion iOS downloads
+	-developers receive 70% of revenue
+-Objective-C 
+	-C developed in early 1970's by Dennis Ritchie at Bell Labs
+		-UNIX OS development language
+	-objective-C created by Brad Cox and Tom Love at StepStone in early 1980's
+		-added OOP design to C
+		-1988 -- NeXT licensed Objective-C from StepStone and developed an Objective-C compiler and libraries which were used to build NeXTSTEP OS's user interface
+			-NeXT also created interface builder for creating UI through a drag/drop GUI
+-Swift -- announced 2014, began development 2010
+	-similar syntax to Objective-C
+	-some features not present in objective-C:
+		-type interface -- in many cases variable types do not need to be specified though it is a strongly typed language
+		-switch statement enhancements -- can test values of any type and cases are much more flexible
+		-closures -- supported functional programming techniques
+			-can be treated as data, assigned to variables, passed to functions, returned as arguments
+		-tuples -- collections of values that can be of the same or different types
+			-syntax for composing and decomposing (creating and extracting values)
+		-optionals -- define variables and constraints that might not have a value
+			-corresponding pointer to object as nil in objective-C only works for reference types
+		-Dictionary type -- built in key-value structure
+		-array,string, and dictionary value types are value types implemented as structs
+		-array bounds checking -- runtime error for access outside of range
+		-class-like struct and enum value types -- more robust than objective-C because of class-like features
+			-struct and enum are value types
+		-functions with multiple return values via tuples
+		-generics -- allow versatility of data types -- instead of having to write one code set multiple times for one set of multiple types this is not necessary any longer
+		-operator overloading -- define functions that overload existing operators to work with new types or even ENTIRELY NEW OPERATORS
+		-overflow checking in integer calculations -- default check of arithmetic overflow results in runtime error if overflow is present
+		-string interpolation -- enables you to build strings by inserting variable, constant, and expression values into placeholders directly in string literals
+		-nested types -- enums or utility classes and structs that are hidden in the scope of another type
+		-neted functions -- nest function definitions inside other function definitions
+	-designed for better performance on multi-core systems
+		-performs value-type copies only when necessary
+	-error prevention eliminates many common programming errors 
+		-curly braces required around every control statement's body
+		-no pointers
+		-assignment operator does not return a value
+		-semicolons are optional unless separating multiple statements on same line
+		-parentheses around conditions in control statements are optional
+		-variables and constants must be initialized before use
+		-integer calculations are checked for overflow on default
+		-swift does not allow implicit conversions between numeric types
+		-array indices are bounds checked at execution time
+		-automatic memory management eliminates most leaks
+	-swift standard library -- built in types (String, Array, Dictionary, various integer and floating point numeric types), protocols (Equatable, Comparable, Printable), global functions (printing and sorting, etc.)
+	-uses cocoa frameworks of OSX and cocoa touch framework of iOS
+	-can be combined with objective-C in the same application
+		-uses mechanism called briding which is transparent to programmer
+-entire apps can be created in Swift and integrated with cocoa frameworks through automatic bridging with objective-C
+	-rapid evolution expected -- apple has stated binary compatability with future releases as well as prior Swift and Objective-C libraries
+-Cocoa Touch iOS framework
+	-resource constrained compared to Cocoa used on desktops
+	-key frameworks: Foundation, AppKit, and UIKit
+		-Foundation: in both cocoa and cocoar touch includes class NSObject for defining object's behavior
+			-also has basid types for storing data, text and strings, filesystem access, calculating differences in dates and times, inter-app notifications, and more
+		-AppKit: UIs of OSX applications
+			-controls (windows, menus, buttons, panels, text fields, dialogs)
+			-event-handling capabilities
+			-gesture support
+			-content sharing (iCloud integration)
+			-printing, accessibility, push notifications, graphics, etc.
+		-UIKit: similar to AppKit but specific to development on mobile devices
+			-multi-touch interface controls appropriate for mobile applications
+	-see pg. 26-29 for other frameworks
+-Web services: software components stored on one computer that can be accessed by an app or software on another computer over the Internet
+	-mashup: allow for rapid development of applications by combining complementary web services
+		-http://www.programmableweb.com/
+-Xcode 6 -- Swift, Objective-C, C++, C support
+	-playgrounds -- window where you can enter swift code executes as you type it allowing to fix errors immediately
+	-read-eval-print-loop -- debugging tool for interacting with a running app
+	-interface builder, storyboarding and auto-layout adaptive design -- drag/drop UI creation
+		-auto layout -- change UI based on screen orientation, screen size, user's location
+	-iOS 8 simulator
+-OOP review
+	-objects -- classes objects come from -- reusable software components 
+		-date, time, audio, video, automobile, people, almost any noun can be represented with this
+	-behaviors -- calculating, moving, communicating, functions of objects
+	-methods -- actual implementation of behaviors as tangible functions in a class
+	-instantiation -- create instance of unique reference to object class
+	-reuse -- can be implemented to create multiple instances of objects
+	-method call -- used on object instance to implement behavior of class
+	-encapsulation and information hiding -- encapsulation is encasing properties in methods of a class
+		-information hiding deals with visibility of inner properties of class instances with respect to other classes or class instances
+	-inheritance -- convenient way of creating new classes in a sub-class of a super-class with predefined methods of general representation in object
+	-protocols -- describes a set of methods that can be called on an object -- similar to the concept of an interface
+	-design patterns -- most common in iOS is Model-View-Controller which separates app data, UI, and processing logic
+	
+			
+		
+	
+		
+	
