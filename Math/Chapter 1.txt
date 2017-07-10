@@ -1,0 +1,65 @@
+Chapter 1: Theory of Sets
+-topology consists of collections of objects with some given, derivable, and relatively coherent structure
+	-ex) set of positive integers or natural numbers -- collection of objects N defined on a function S called the successor function
+		-conditions:
+			-one-to-one mapping between domain and range of values of N mapped into range of values by function S
+			-given objects x and y in S such that s(x) = s(y), then x = y -- reverse compatability
+			-there is a single object in N denoted by 1 such that no successor exists for it -- 1!=s(x) for each x in N
+			-given a collection of objects T that is a subset of N such that 1 is in T and for each x in T, s(x) is also in T, then T=N
+		-aforementioned conditions are called Peano's axioms for the natural numbers
+		-fourth condition is called the principle of mathematical induction
+	-topological space: collection of objects with a given structure
+		-objects referred to as points and structure gives coherence to collection
+		-open sets: collections of subsets of topological space
+	-sets: collections of objects
+		-assume prior knowledge of object, set and relation as "is a member of"
+			-if object belongs to set -- "object in set" -- and opposite for opposite -- "object is not in set'
+		-in terms of logic it is good to distinguish {object} from object -- (single value set from single object)
+			--- Object is subset of {Object} == true && (Object = {Object})==false
+		-null or empty set {0} is necessary concept -- set with no members
+		-Let A and B be sets
+			-if x is a subset of both A and B then A is contained in B and B is contained in A
+		-in definition of subset:
+			-improper subset: two special cases -- {A} subset {A} and 0 subset {A}
+			-proper subset: any other subset besides the two special cases
+			-common sets in calculus:
+				-for each pair of real numbers a,b with a<b, set of numbers (x) such that a<=x<=b is called the closed interval
+					-a<x<b is called the open interval
+			-two sets are identical if they have precisely the same members
+		-sets can be considered objects -- {{a,b,c,d,e},{f,g}} -- set of two objects which are sets
+		-for each set A there is a set we denote 2**A whose members are the subsets of A
+			-therefore B is a subset of (is in) 2**A iff B is contained in A
+-set operations
+	-if x is an object A is a set, and x is a subset of (is in) A we shall say that x is an element, member, or point of A
+	-intersection: set x which satisfies both x being a subset of A and x being a subset of B
+		-between A and B (denoted with A (upside down U) B) 
+	-union: set x which satisfies x being a subset of A OR x being a subset of B -- all objects within domain of A OR B
+		-between A and B denoted A U B
+	-complement: set of elements that belong to S but not to A
+		-denoted A C S , Cs(A), S/A, or S - A
+		-C(C(A)) == A -- complement of complement is A -- (-)*(-) == +
+	-Theorem -- DeMorgan's
+		Let  A C S and B C S
+			C(A U B) = C(A) !U C(B)
+			C(A !U B) = C(A) U C(B)
+-indexed families of sets
+	-let I be a set and for each a in I let Aa be a subset of a given set S 
+		-I is an indexing set and the collection of subsets of S indexed by the elements of I is called an indexed family of subsets of S
+			-denoted A sub a, a in I
+	-can be represented as both an intersection or a union 
+		-read Union over a in I of A sub a -- set of all elements x in S such that x is in A sub b for at least one index b in I
+		-read Intersection over alpha in I of A sub alpha -- set of all elements x in S such that x in A sub beta for each beta in I 
+	-example -- I={a,b,c,d} where a,b,c,d represent class levels of a college as an indexing set, and Union over a in I of A sub a is undergraduates and Intersection over alpha in I of A sub a is a null set (no college student can be in two class levels simultaneously)
+	-can be built out with two sets:
+		-Union alpha sub {i,j} of A sub alpha = A sub i U A sub j
+			-same with intersection just change Union and U to Intersection and !U
+		-special case: empty set || null set
+			-Intersection alpha sub {i,j} of A sub alpha = S
+			-Union alpha sub {null} of A sub alpha = null 
+	-DeMorgan's laws are applicable to unions and intersections of indexed families of subsets of a set S
+	-for larger indexed sets with a finite value of objects the iteration of a union or intersection over the subsets of an entirety of the set can be written using the U or !U in parallel with sigma notation
+-products of sets
+	-let x and y be objects -- ordered pair (x,y)* is a sequence of two objects, the first object of the first sequence being x and the second object of the second sequence being y
+	-let A and B be sets - The Cartesian Product of A and B (read A cross B) is the set whose elements are all the ordered pairs (x,y) such that x is in A and y is in B
+		-coordinate plane of analytic geometry is the cartesian product of two lines.
+	
