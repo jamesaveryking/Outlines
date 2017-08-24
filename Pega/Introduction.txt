@@ -45,4 +45,19 @@ CRM Applications:
 		-industry-tailored onboarding applications included in Pega
 		-KYC: know your customer is an industry-specific onboarding application
 		-Pega empowers companies in the financial industry by facilitating due diligence activities
-	
+	-customer service features include: integraction with a telephony system (computer telephony integration or CTI), web self-service, mobile, 
+		chat, cobrowse, social network integration, and federated case management
+		-uses lifetime customer data
+		-can run on cloud, data centers, or any combination of two
+		-uses STP (straight through processing): describes automated processes that streamline customer interactions
+			requiring contact with service reps in different company divisions -- reduces customer wait time
+		-automation over divisions through STP reduced customer wait time
+	-offers industry-specific products in various industries
+		-healthcare: (customer service, sales automation, product composer system) for healthcare, pega care management
+		-enables efficient reuse of clinical content, common policies, and procedures, and applies them across multiple business units, channels, geographies at run time
+		-two UIs on different platforms can be different but have same back-end (mobile, website)
+		-mobile functionality: offers offline access, push notifications, and geofencing
+			-built-in functionality eliminates need for programming effort or special skill
+		-Pega's unified architecture enables effortless deployment of an application across a variety of devices
+		-Pega's visual modeling tool enables care management business-IT collaboration for rapidly developing and customizing care management plans and workflows
+			-collaboration between front and back of offices
