@@ -1,0 +1,48 @@
+Pega Introductory Course:
+BPM: business process management
+CRM: customer relationship management
+-Forrester report concluded -- 321% return on investment and 75% reduction in enterprise development costs when Pega was implemented
+-Benefits of situational layer cake: supports reuse of enterprise applications enabling quick adaptations to different markets, customer populations, and product variants
+-Benefits of Built for Change platform: businesses can build applications while accounting for dynamic nature of evolution of products, markets, customers, etc.
+-Pega 7 platform is unified: all functionality is synchronized without separate languages, IDE's, platforms of general development
+	-website, mobile application, and customer relationship management application are all written with same "language"
+	-set of components are modular in development across different areas of business
+-Pega Case Management: automates higher level tasks across varying business and system environments
+	-service level agreements can keep track of each case's level of completion and alert owner to impediments of completion
+		-ensure work and notifications concerning work go to the necessary workers at the time that is best
+-Pega enable productivity improvements by:
+	-case management automating larger and complex situations across varying platforms of business
+	-service level agreements alert management of potential delays
+-case life-cycle management:
+	-case: individual transactions that produce a business outcome
+		-have a life cycle defined through processes
+			-at least one associated process
+	-process: path case follows -- defines path of case
+	-two sides of single coin
+-A case is a business transaction you want to complete...A process defines how you do what you do
+-Pega has many built in reports categorized by the report type and use
+	Type:					Output:
+	monitor assignments		assignments for open cases in an application
+	analyze performance		resolved cases at level of process components
+	analyze quality			resolved cases in an application
+	monitor processes		assignments for open cases in an application
+-Four examples of report types in Pega?
+	-monitor assignments, analyze performance, analyze quality, monitor processes
+-report browser allows creation of user reports and search by categorized report types
+	-can show information about design of the application by developers
+	-expand reports and click report definition to create report
+		-creates description, category and columns
+			-create charts, report viewer, etc. via tabs
+			
+CRM Applications:
+	-help manage customer interactions
+	-pega marketing, pega sales automation, pega customer service
+		-marketing:
+			-created for marketers that are responsible for managing inbound and outbound customer communications and experiences
+			-provides combination in real time of aforementioned marketer responsibilities
+			-the marketing campaign feature enables configuring, running, and monitoring a marketing campaign
+	-onboarding tasks: due-diligence activities such as reviews of credit reports for government affiliations or regulations
+		-industry-tailored onboarding applications included in Pega
+		-KYC: know your customer is an industry-specific onboarding application
+		-Pega empowers companies in the financial industry by facilitating due diligence activities
+	
