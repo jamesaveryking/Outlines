@@ -248,8 +248,45 @@ Correlation Coefficient: numerical measure used to judge the linear relation bet
 		-biased sample method: result in values that are systematically different from the population values or systematically favor certain outcomes
 			-judgemental sampling -- non-random approach, samples of convenience, volunteer samples
 	-simple random sampling -- process of obtaining a sample from a population in which each member has an equal chance of being selected
-		-sampling with OR without replacement form a finite population
-		
-	
-		
-	
+		-sampling with replacement from a finite population -- drawing cards after returning them to deck
+		-sampling without replacement from an infinite (or large compared to sample size) population -- selecting voters from a voter registry in a city
+		-selected with a single blind method -- population does not know who is selected but surveyor knows algorithm of survey
+	-other methods of random sampling:
+		-systematic sampling-- first item is selected at random from teh first k items in a set and then every kth item is included in the sample
+		-stratified random sampling -- population is divided into groups called strata (singular is stratum) and a simple random sample is selected from each stratum 
+			-stratum are homogenous parts of population units
+		-proportional sampling -- population is divided into strat and a simple random sample of size proportional to stratum size is selected from each stratum 
+		-cluster sampling -- a population is divided into nonhomogenous groups called clusters and a simple ranodm sample is obtained from some clusters, but not necessarily all
+
+-Bias in surveys
+	-sampling error -- variation inherent in any survey -- outcome is never uniform in sampling due to dynamic nature of majority of populations
+	-response bias -- caused by behavior of interveiwer or respondent -- personal bias violates objectivity (someone not wanting to admit to smoking in high school)
+	-nonresponse bias -- no contact or answer refusal
+	-undercoverage bias -- part of population is left out of selection
+	-wording effect bias -- potential subjective wording could distort survey objectivity
+
+-Planning and Conducting experiments
+	-response (dependent) variable is the variable to be measured
+	-explanatory (independent) variable explains difference in responses (usually known variable that changes over time to elicit a response's response)
+	-experimental unit -- smallest unit of population to which treatment is applied
+	-confounding variable -- variable whose effect on the response cannot be separated from the explanatory variable
+	-factor -- variable whose effect on the response is of interest in the experiment
+		-qualitative or quantitative (categorical or numeric in value)
+		-levels -- values of factors in an experiment
+		-treatments -- factor-level combinations used in the experiment
+	-control group -- group of experimental units similar to all other experimental units except that it is not given any treatment
+	-placebo group -- group given fake treatment involving medication
+	-single and double blind:
+		-blinding technique -- used in medical experiments to prevent such a bias
+		-single-blind -- either surveyed OR surveyor do not know which treatment is given
+		-double-blind -- surveyed AND surveyor do not know which treatment is given
+	-randomization should be implemented in both treatment on groups of population and order of treatments 
+	-blocking -- control effects of unknown factors
+		-block -- group of homogenous experimental units
+	-replication -- process of giving a certain treatment numerous times in an experiment or of applying it to a number of different experimental units and getting similar results
+	-completely randomized design -- treatments are assigned to all experimental units or expermental units are assigned randomly to all treatments
+	-randomized block design: grouping yields better results
+		-randomized paired comparison design -- used when only two treatments are present
+			-can be implemented in two ways:
+				-matched pair design -- groups are assigned by tossing a coin
+				-experimental units are used as their own blocks
