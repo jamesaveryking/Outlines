@@ -290,3 +290,43 @@ Correlation Coefficient: numerical measure used to judge the linear relation bet
 			-can be implemented in two ways:
 				-matched pair design -- groups are assigned by tossing a coin
 				-experimental units are used as their own blocks
+
+-Anticipating Patterns
+	-probability -- measure of likelihood of an event
+		-percent -- special probability expressed as a decimal value with at least hundredths precision multiplied by 100 to have a number between 0 and 100
+	-sample space -- set of all possible outcomes of an experiment (tossing coin = heads/tails, rolling dice = [1:6]
+		-tree diagrams are useful in determining sample space of an experiement with layers of tree representing different applications of new modular sample spaces
+	-probability(a) = number of outcomes that lead to "a" / total number of possible outcomes
+	-basic probability rules and terms:
+		-for any event the probability is always: 0<=P<=1
+		-sum of all probabilities contained in a sample space is always one
+		-impossible event -- probability is 0
+		-sure event -- probability is 1
+		-odds in favor of an event = probability of event / probability event does not occur
+			-complement -- set of all possible outcomes in a sample space that does not lead to event -- (1-P(X))
+		-disjoint or mutually exclusive events -- no outcome in common -- P(X AND Y) = 0
+		-union of two events -- set of all possible outcomes that lead to at least one of the two events -- X OR Y -- P(X) + P(Y) - P(X AND Y)
+		-intersection of two events -- set of all possible outcomes that lead to both events -- X AND Y -- P(X) * P(X|Y) = P(Y) * P(X|Y)
+		-conditional event -- set of outcomes for one event if another has occurred -- X GIVEN Y -- P(X|Y) = P(X AND Y) / P(Y)
+			-independent events -- occurrence of one event does not depend on the occurrence of the other -- P(X|Y) = P(X) AND P(Y|X) = P(Y) -- IFF P(X AND Y) = P(X) * P(Y)
+			-dependent events -- occurrence of one event does depend on the occurence of another event
+	-random variables:
+		-variable -- any quantity whose value varies from subject to subject
+		-probability experiment -- possible outcomes may be known but exact outcome is a random event and cannot be predicted with accuracy in advance
+			-if outcome is numerical, outcome is a quantitative variable
+			-random variable -- outcome of probability experiment, usually denoted with capital letters
+				-two types:
+					-discrete -- quantitative variable that takes a countable number of values 
+					-continuous -- quantitative variable that can take all possible values in a given range (weight, rainfall, etc.)
+		-probability distributions of random variables:
+			-discrete probability distribution -- table list graph, or formula giving all possible values taken by a random variable
+			-mean of a random discrete variable is known as expected value -- denoted with E(X) and greek letter mu 
+				-computed by multiplying every value of the random variable by its respective probability and then adding over the sample space
+				-mu = E(X) = sum(i=1:n) of ith x * P(ith x)
+			-variance -- sum of the product of squared deviations of the values of the variable from the mean and the corresponding probabilities
+				-standard deviation is the square root of variance
+				-omega**2 = sum(i=1:n) of (ith x - mu)**2 * P(ith x)
+	-combinations -- number of ways X can be selected out of Y items if the order of selection is NOT important
+		-denoted {X}		X! / (Y!)*(X-Y)! -- remember 0! = 1! = 1
+			 {Y}	 = 
+				
