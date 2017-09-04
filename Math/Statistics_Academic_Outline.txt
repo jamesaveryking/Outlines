@@ -328,5 +328,105 @@ Correlation Coefficient: numerical measure used to judge the linear relation bet
 				-omega**2 = sum(i=1:n) of (ith x - mu)**2 * P(ith x)
 	-combinations -- number of ways X can be selected out of Y items if the order of selection is NOT important
 		-denoted {X}		X! / (Y!)*(X-Y)! -- remember 0! = 1! = 1
-			 {Y}	 = 
-				
+				 {Y}	 = 
+	-binomial distributions: distribution of discrete random variables with "n" repeated trials, all trials are identical and independent, each trial has two possible outcomes generally known as a success or a failure
+		X = number of successes in "n" trials
+		P(x successes in n trials) = {n} = (p**x)*(1-p)**(n-x) 
+									 {x}
+			where P(...) is the success of a given trial
+			the mean (mu) of a binomial random variable = E(x) = n*p
+			the variance of a binomial random variable = (sigma**2) = n*p*(1-p)
+		-always use when determining success or failure of outcomes and translate information given into a success or failure
+		-fixed number of trials but varying number of successes
+	-geometric distribution: occurs when repeated trials are repeated until first success is observed, all trials are identical and independent, each trial has success or failure outcomes
+		P(x trials needed until the first success is observed) = (1-p)**(x-1)
+			the mean (mu) = E(x) = (1-p)/p
+			variance = sigma**2 = ((1-p)**2)/p
+		-example: rewrites on a program until a successful output, number of bugs in debugging until successful program output
+		-fixed number of successes but varying number of trials (like a while loop checking for a condition)
+	-probability distributions of continuous random variables: graph giving all possible values taken by a random variable and the corresponding probabilities
+		-total probability under curve = 1
+		-area under curve is equal to the probability
+		-probability that x takes a specific value = 0
+		-also known as density function
+		-standard normal: normal distribution with a mean of 0 and a standard deviation of 1
+			-z-score: Z = (X-mu)/sigma = (X-mean)/standard deviation
+		-normal distribution properties:
+			-continuous, symmetric around the mean, bell-shaped, mean = median = mode, approaches horizontal axis on both sides of mean, 99.73% lie within three standard deviations of mean
+				fully determined by mean and variance or standard deviation, location distribution on the number line depends on the mena of the distribution, single sigmas from mean = 68%,
+				two sigmas from mean = 95%
+	-combining independent random variables:
+		-specific cases of random variables X, Y, means mu sub x and mu sub y, and variances (sigma sub x)**2 and (sigma sub y)**2
+			Random Variable			Mean							Variance
+			aX						a*(mu sub x)					(a**2)*((sigma sub x)**2)
+			X + b					(mu sub x) + b					(sigma sub x)**2
+			aX + b					a*(mu sub x) + b				(a**2)*((sigma sub x)**2)
+			X + Y					(mu sub x) + (mu sub y)			(sigma sub x)**2  +   (sigma sub y)**2
+			X - Y					(mu sub x) - (mu sub y)			(sigma sub x)**2  -   (sigma sub y)**2
+			aX + bY					(a*(mu sub x)) - (a*(mu sub y)	((a**2)*(sigma sub x)**2) + ((b**2)*(sigma sub y)**2)
+	-sampling distributions:
+		-parameter: a numerical measure of a population -- example is a student's GPA
+		-statistic: numerical measure of a sample -- example is the percentage of votes recieved by a President (not everyone votes, if so, it would be a parameter)
+		-sampling distribution: the probability distribution of  statistic -- different samples of the same size from the same population will result in different statistic values
+		-standard error: standard deviation of a statistic
+		-central limit theorem: with a large enough number of population samples the distribution will be approximately normal 
+			-mu sub x = mu and standard deviation sigma sub x  = sigma / sqrt(n)
+			-as sample size n increases:
+				-shape of distribution becomes more symmetric and bell shaped
+				-center of distribution remains at mu
+				-spread decreases and distribution becomes more peaked
+		-sampling distribution of a sample proportion -- mu sub p = p and standard deviation sigma p = sqrt((p*(1-p))/n)
+		-sampling distribution of a sample mean -- mu sub x = mu and standard deviation sigma sub x = sigma/sqrt(n)
+		-sampling distribution of a difference between two independent sample proportions -- sigma sub(p1-p2) = sqrt(((p1*(1-p1))/n1)+((p2*(1-p2))/n2))
+		
+Statistical Inference: estimate unknown population characteristics, make inferences about unknown population characteristics
+	-parameter: characteristic of a population
+	-statistics: number computed from the sample
+	-estimation: specific guess or value computed from a sample 
+		-estimation process: procedure of guessing an unknown parameter value using hte observed values from samples
+			-two types: point and interval
+				-point estimation: gives a single value as an estimate of the unknown parameter and makes no allowance for uncertainty
+				-interval estimation: recognizes uncertainty and specifies range of uncertainty
+					-margin of error
+	-point estimation continued
+		-if A is the unknown population mean then the sample estimate is X so X is the estimate of mu (population mean)
+			X = (X1 + X2 + ... + XN) / N
+		-if A is the unknown population proportion P, then the point estimate is P:
+			P = number of favorable occurrences / sample size
+		-if A is the unknown popluation variance sigma**2 the the point estimate is S**2
+			S**2 = sum(1 to N)(X sub N - X bar)**2 / (n-1)
+	-sampling distribution: distribution of estimates from all possible samples of the same size from the same population
+	-properties of a statistic
+		-unbiasedness -- statistic is expected to give values centered on the unknown parameter value
+			-bias(p) = E(p) - p where E(p) it the mean of sampling distribution (X bar)
+		-variability -- degree of variation in a statistic's values 
+			-statistics with small variability are said to be more effective
+		-bias indicates that a guess is systematically wrong
+		-inefficiency indicates that our guess is unsystematically wrong
+		-confidence interval: goodness of estimate that gives two numbers within which the statistic is reasonably likely to be between
+	-testing a hypothesis: decision making process about the value of a population parameter using information collected from a random sample
+		-statistical hypothesis: claim or statement about a parameter value with two types (null and alternative)
+			-null: statment that is assured to be true until proven otherwise
+			-alternative hypothesis: statement about the aprameter that must be true if the null hypothesis is false
+		-goal is to determine whether sample provides enough evidence for us to reject the null hypothesis
+		-test statistic: computed from sampled data and used in process of testing hypothesis -- example in a normal model is the z-score
+		-p-value: probability that we would observe a test statistic value at least as extreme as one computed from the sample if the null hypothesis were true 
+			-large -- result is common if null hypothesis is true
+			-small -- resutl would be rare if null hypothesis were true
+		-one of the following decisions are made:
+			-rejection of null hypothesis if p-value is less than alpha
+			-because of lack of evidence we don't reject if p-value is greater than alpha (alpha is the probability of a type one error)
+	-possible errors: (both decreased by increasing population size)
+		-type I error: error of rejecting the null hypothesis when it is true, denoted by alpha
+		-type II error: error of failing to reject the null hypothesis when it is false denoted by beta 
+	-power of a test: probability that the null hypothesis will be rejected when a particular alternative value of the parameter is true -- a good test has high power
+	-rejection region: set of test statistic values for which we should reject the null hypothesis, also called the critical region 
+	-non-rejection region: set of test statistic values for which the null hypothesis should not be rejected 
+		-critical value: boundary between rejection and non-rejection region, denoted z* or t*
+		-left-tailed test: small values lead to rejection of null hypothesis
+		-right-tailed test: large values lead to rejection of null hypothesis
+		-two-tailed test: large or small values lead to rejection of null hypothesis
+		-determining critical value example: investigator is willing to take 5% risk
+			right-tailed -- above 95% or 0.95
+			left-tailed -- below 5% or 0.5
+			two-tailed -- outside of .025 and .975
