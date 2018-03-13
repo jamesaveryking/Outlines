@@ -1,0 +1,58 @@
+31 Databases 101
+-5 different services available for databases in AWS
+what is a relational database? -- read FAQs
+	-traditional spreadsheet metaphor: file name is db name, tables are columns, primary key is represented by a unique valued column
+	-relational db types:
+		-sql server, oracle, mysql server, postgresql, aurora, mariadb
+non-relational databases:
+	-mongoDB, couchDB, dynamoDB (document oriented DB)
+	-database: collection (table), document (row), key-value pairs (value)
+		-can be address with a key-value pair
+data warehousing:
+	-used for business intelligence
+	-used to pull in large/complex data sets used by management to see current performance vs. targets, etc.
+	-uses different architecture
+online transaction processing vs. online analytics processing
+	-transaction: pulls up record set by primary key
+	-analytics: pulls in large number of records 
+		-example: figure out net profit of product
+			-pulls in different sums, sales prices, etc. from different regions
+elasticache:
+	-allows faster output for caching in cloud memory
+	-asked to improve DB performance speed in questions
+	-caches most consistently queried parts of database
+database migration services:
+	-allows migration of production database to AWS, AWS manages complexities of migration process (data typing, replication during migration process)
+	-allows sources database to be migrated to different target database
+		-switch from oracle to something else that is open source
+Summary:
+	-RDS -- online transaction processing, SQL, MySQL, Oracle, PostgreSQL, Aurora, MariaDB
+		-multi a-z
+			-ELBs point to same RDS instance using DNS name
+			-automatically replicated to another AZ
+			-automatic failover between replications in different AZ's
+			-simulated failover by stopping instance
+		-read-replica
+			-if application is frequently reading, can read from read-replicas and write to main DB
+			-can have up to 5 read replicas and read replicas of read replicas
+		-aurora autoscaling
+			-2 copies of your data store in each AZ
+			-minimum of 3 AZs
+			-self-healing
+			-2 types of replicas
+				-aurora (up to 15)
+				-mysql (up to 5)
+	-DynamoDB - No SQL
+		-push-button scaling, easier than provision instances in RDS
+		-stored on SSD storage
+		-spread across 3 geographically distinct data centers
+		-eventual consistency for reads (default)
+		-strongly consistent reads -- under 1 second
+	-Redshift - online analytics processing
+		-data warehousing
+		-single node or multi node
+			-multi: leader and compute nodes (up to 120)
+	-elasticache - in memory caching, caching common queries
+		-memcached
+		-reddis
+-read RDS FAQs

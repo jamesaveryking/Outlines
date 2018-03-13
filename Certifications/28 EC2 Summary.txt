@@ -1,0 +1,84 @@
+28 EC2 Summary
+-read FAQ
+-know difference between:
+	-on-demand, spot, reserved, dedicated hosts
+	-remember with spot instances if you terminate instance you will pay for the entire rest of the hour but if AWS terminates the hour is free
+-know EC2 instance types:
+	-dr mcgift pix
+		-d for dense storage
+		-r for RAM
+		-m for general purpose
+		-c for compute optimized (CPU)
+		-g for graphics -- video encoding
+		-i for IOPS -- high speed storage (NOSQL dbs)
+		-f for field programmable -- hardware acceleration
+		-t for testing, lowest cost
+		-p for pictures, GPUs machine learning, bitcoin mining
+		-x for xtreme RAM
+-EBS
+	-SSD general purpose up to 10000 IOPS
+	-SSD provisioned IOPS up to 20000 and greater than 10
+	-HDD throughput optimized -- sequential writes frequently accessed workloads
+	-HDD cold -- less frequently accessed data for file servers
+	-HDD magnetic standard -- same as cold except it CAN be a boot volume
+	-cannot mount 1 EBS volume to multiple EBS instances, for this use EFS
+-EC2
+	-termination protection turned off by default
+	-default action of EBS root volume where OS is installed is deletion upon termination but can be turned off
+	-root volumes can't be encrypted by default except with third party software but additional volumes can
+-volumes and snapshots
+	-volumes exist on EBS as virtual harddisks
+	-snapshots exist on S3
+		-you can take a snapshot of a volume, this will store that volume on S3
+	-snapshots are point in time copies of volumes
+	-snapshots are incremental, only save changes to previous snapshots not the entire snapshot, to S3
+	-first snapshot takes time
+-security
+	-snapshots of encrypted volumes encrypted automatically
+	-volumes restored from encrypted snapshots are encrypted automatically
+	-you can share snapshots but only if they are no encrypted
+		-these snapshots can be shared with AWS accounts or marketplace
+-root device volumes
+	-stop instance before taking snapshot
+	-instance store volumes -- ephemeral -- if underlying host fails data is lost, can be rebooted not stopped
+	-EBS volumes can be stopped without data loss 
+		-can also be rebooted
+	-by default, both root volumes will be deleted upon termination, however with EBS volumes you can tell aws to keep the root device volume
+-raid array snapshot
+	-excludes data held by cache -- problem with interdepency in multiple volume array
+	-stop application from writing to disk and flush cache on disk
+		-3 ways to flush:
+			-freeze file system
+			-unmount raid array
+			-shut down associated EC2 instance
+-AMI tips:
+	-amis are regional, only launch from region where it is stored
+	-can be copied using dashboard tools or EC2 API as well as command line
+-cloudwatch:
+	-standard: 5 minutes
+	-detailed: 1 minutes
+	-for performance monitoring, cloudtrail is for auditing
+	-dashboards, alarms for thresholds and autoscaling, events, logs
+-roles:
+	-more secure than access keys on individual ec2 instances
+	-roles are easier to manage
+	-can be assigned to ec2 instance after it is provisioned
+	-role policy can be updated anytime
+	-roles are universal
+-instance metadata
+	-used to get info on instance (public/private IP)
+	-curl http://169.254.169.254/latest/metadata
+-EFS
+	-supports NFSv4
+	-only pay for storage, no pre-provisioning
+	-30 cents/gig
+	-scales to peta
+	-supports thousands of NFSv4 connections
+	-read after write consistency
+	-stored across multiple AZ's within region
+-lambda
+	-serverless
+	-compute service to upload code and create function, aws takes care of provisioning and services
+	-put code into cloud without servers/OS
+	-event driven (changes to data is S3 through upload, etc.) or compute service response to HTTP requests using API Gateway or API calls to SDK's
+	

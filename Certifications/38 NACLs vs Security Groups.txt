@@ -1,0 +1,23 @@
+38 Network Access Control Lists vs Security Groups
+-one subnet per network ACL
+-by default a private NACL denies everything
+-start rules at increments of 100
+	-rules are evaluated in numerical order
+	-rules are affected immediately
+-security groups allow inbound and outbound automatically, NACLs do not
+-ACLs take precedent over security groups
+tips:
+	-your VPC automatically comes with a default network ACL and by default it allows all inbound and outbound traffic
+	-you can create custom network ACLs. by default each custom network ACL denies all inbound and outbound traffic until you add rules
+	-each subnet in your VPC must be associated with a network ACL. If you don't explicitly associate a subnet with a network ACL, the subnet is automatically associated with the default ACL
+	-you can associate a network ACL with multiple subnets; however a subnet can be associated with only one network ACL at a time. When you associate a network ACL with a subnet, the previous association is removed
+	-VPC comes with default NACL and allows all traffic inbound/outbound
+	-custom NACLs deny inbound and outbound traffic
+	-each subnet in your VPC must be associated with a network ACL. If you don't explicitly associate a subnet with a network ACL, the subnet is automatically associated with the default ACL
+	-you can associate a network ACL with multiple subnets; however, a subnet can be associated with only one network ACL at a time. When you associate a network ACL with a subnet, the previous association is removed
+	-network ACLs contain a numbered list of rules that is evaluate in order, starting with the lowest numbered rule
+	-network ACLs have separate inbound and outbound rules, and each rule can either allow or deny traffic
+	-network ACLs are stateless, responses to allowed inbound traffic are subject to the rules for outbound traffic
+	-allow ephemeral port on outbound rules only
+	-block IP addresses using NACLs, not security groups
+	

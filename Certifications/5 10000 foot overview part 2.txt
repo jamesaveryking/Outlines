@@ -1,0 +1,46 @@
+Services:
+
+Compute:
+EC2: elastic compute cloud - virtual machines in the AWS platform
+EC2 container services: run/manage docker for EC2's at scale
+Elastic Beanstalk: upload code with autoscaling groups, EC2 instances, etc. for people who don't understand AWS
+Lambda: code uploaded to cloud that is scheduled to execute without operating systems
+Lightsail: provision server with fixed IP with RDP or SSH access, for people who can't use security groups
+Batch: used for batch computing in the cloud
+
+Storage:
+S3: simple storage service, upload flat files to buckets in the cloud
+EFS: elastic file system with network attached storage for mounting to machines
+Glacier: data archival
+Snowball: bringing in terabytes to AWS center instead of bandwidth
+Storage Gateway: virtual machines installed in data center to replicate information into and S3
+
+Databases:
+RDS: relational database service - SQL, Aurora, PostGre, Oracle, any relational database
+DynamoDB: for non-relational databases
+Elasticache: caching commonly queried things to free up DB servers for more unique queries
+Redshift: data warehousing or business analytics
+
+Migration:
+AWS Migration Hub: track applications as they are migrated into AWS
+Application discovery service: detects applications and dependencies
+Database migration service: migrate from local to AWS
+Server migration service: migrate from local to AWS
+Snowball: used for migrating large amounts of data into the cloud
+
+Networking and Content Delivery:
+VPC: virtual private cloud - configure firewalls, networking ACLs, etc. Need to understand inside out and build by memory
+	-fundamental part of exams
+Cloudfront: amazon's content delivery network - media assets (images, videos) for delivery by storing closer to user's geographic location
+Route53: amazon's DNS service - looking up websites by name to resolve IPv4/IPv6 addresses
+APIGateway: creates unique API's for other services to talk to
+Direct Connect: running dedicated line from office's local servers/databases into amazon 
+
+Developer Tools:
+Codestar: project management for code -- way to collaborate with other developers
+Codecommit: place to store code -- source control service
+Codebuild: compile and test code in the cloud to produce software packages
+Codedeploy: deploy code to on premise, cloud, and lambda platform
+Codepipeline: used to go through software development life cycle
+X-Ray: used to debug code to find service bottlenecks
+Cloud9: IDE inside the cloud purchased by amazon, used to be a private company

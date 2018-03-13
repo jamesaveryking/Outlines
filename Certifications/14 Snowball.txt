@@ -1,0 +1,15 @@
+Snowball
+-predecessor: import/export disk
+-3 types:
+	-standard
+		-petabyte scale data transport solutions using secure appliances
+		-streamline bypassing the internet
+		-80TB available in all regions
+		-tamper-resistant enclosure, 256 bit AES encryption, industry standard trusted platform module
+	-snowball edge
+		-100TB data, onboard storage AND compute capacity (lambda functions)
+	-snowmobile
+		-petabyte and exabyte levels, transfer truck
+		-100PB worth of capacity
+		-exabyte will take around 6 months
+-can import and export to S3

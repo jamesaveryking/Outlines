@@ -1,0 +1,15 @@
+35 Elasticache
+-two different engines
+	-memcached
+		-widely adopted memory object caching system, protocol compliant
+	-redis
+		-open-source, in-memory in key value store supporting sorted sets and lists, supports master/slave replication, multi a-z across availability zones for redundancy
+-elasticache: web service that makes easy deploying, scaling, and keeping in-memory cache in the cloud
+	-stores most popular queries to cut down on database latency and improve throughput
+	-can be used for compute-intensive workloads
+	-can include results of computational intensity or large IO DB workloads
+tips:
+	-given scenario where DB is under stress, which services can alleviate?
+		-read-heavy and not prone to changing -- elasticache
+		-mgmt using analytics? -- redshift
+		-read-replicas? RDS

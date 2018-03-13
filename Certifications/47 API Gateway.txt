@@ -1,0 +1,21 @@
+47 API Gateway
+-fully managed service to publish, maintain, and monitor APIs at any scale
+-acts as front door for applications to access data from back-end service such as applications on EC2
+-user calls API gateway, triggers lambda function or functions in EC2
+-features:
+	-API caching: speeds up response rate, reduced number of calls to endpoint, lower latency
+		-caches responses for endpoint for a specified TTL
+	-low cost and efficient
+	-scales effortlessly
+		-you can throttle requests to prevent DDOS
+	-connect to cloudwatch to log requests
+-troubleshooting: same origin policy
+	-important policy so that web browser in first webpage to access second webpage if they have the same domain name (origin)
+	-cross origin resource sharing policy allows one webpage to access second webpage even if they don't have the same origin
+-exam tips:
+	-remember api gateway at high level
+	-api gateway has caching capabilities
+	-api gateway is low cost and scales automatically
+		-throttle to prevent attacks
+	-log to cloudwatch
+	-ensure you have CORS enabled for multiple domains

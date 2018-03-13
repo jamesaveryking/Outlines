@@ -1,0 +1,11 @@
+25 EC2 Placement Groups
+placement groups: logical grouping of instances within a single AZ
+	-using them enables applications to participate in low latency, 10 Gb/s networks
+	-benefits in low latency, high network throughput or both
+	-used in grid computing (hadoop cluster)
+-placement groups can't span multiple AZ's
+	-one AZ goes down it all goes down
+-the name of a placement group must be unique within an AWS account
+-only certain types of instances can be launched in a placement group compute optimized, gpu memory optimized, storage instances
+	-recommended to only launch homogenously (same size and family of instances)
+-cannot be merged, can create AMI from existing instances and launch new instance from AMI into placement group

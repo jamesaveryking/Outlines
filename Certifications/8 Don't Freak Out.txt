@@ -1,0 +1,15 @@
+Don't Freak Out
+
+Large number of services, smaller number tested
+Many questions are cover what service to use in a particular situation
+
+Solutions Architect Associate:
+global infrastructure, databases, storage, compute, migration, networking and content delivery, management tools, analytics, security and identity and compliance, application integration, desktop and app streaming
+
+Developer Associate:
+global infrastructure, databases, storage, compute, networking and content delivery, management tools, analytics, security and identity and compliance
+S3 covered heavily
+
+SysOps Associate:
+cloudwatch, cloudtrail
+global infrastructure, application integration, security and identity and compliance, managemnet tools, networking and content delivery , global infrastructure, compute, storage, databases

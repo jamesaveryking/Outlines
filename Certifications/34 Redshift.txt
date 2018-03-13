@@ -1,0 +1,23 @@
+34 Redshift
+-data warehousing at the petabyte level, can start at .25 cents per hour with no commitments upfront costs and scale to a petabyte or more for 1000 per terabyte per year
+-used for business intelligence
+-uses different architecture
+	-instead of using rows, it organizes by columns for aggregation
+	-stores sequentially based on a particular column, requires less IO 
+	-advanced compression
+	-doesn't require indexes or materialized views
+	-samples data and automatically analyzes for compression scheme
+	-massive parallel processing -- distributes data across all nodes
+-starts out with single node of 160 GB
+	-multinode configuration for scale
+		-leader node and compute nodes, up to 128 compute nodes, stores and does computation on data
+-pricing:
+	-compute node hours - 1 unit per node per hour, doesn't include leader only compute nodes
+	-backup
+	-data transfer (only within VPC)
+-security:
+	-every communication encrypted by SSL and at rest using AES
+	-default key management, but can be changed to user via console
+	-only available in one AZ, not about production or customer access, usually for management
+	-can restore snapshots to new AZ's in the event of an outage
+	

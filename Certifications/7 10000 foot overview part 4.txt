@@ -1,0 +1,57 @@
+Security identity and compliance
+
+Identity access management:
+cognito: device authentication using facebook, twitter, gmail, etc. on mobile
+guardduty: monitors for malicious activies on amazon web service accounts
+inspector: agent installed on VM's or EC2 instances to check for security vulnerabilities. can be scheduled
+macie: scan s3 buckets for personally identifiable information
+certificate manager: free ssl certificates for route53 registered domains
+cloudHSM: hardware security module - dedicated hardware for key (public and private) storage, can be used to encrypt objects on AWS
+	-pay $1.20 per hour, was $5000 setup fee in past
+directory services: way of integrating microsoft active directory services with aws services
+WAF: layer 7 firewall (application level firewall), stops sql injection and other attacks
+Shield: DDOS prevention - advanced shield is $3000 per month for 24/7 and AWS does not charge for attacks
+Artifact: portal for compliance reports for security and compliance, download SOC controls, PCI (Payment card industry) reports
+IAM, inspector, cloudHSM, directory services, waf, shield, artifact
+
+Mobile services:
+mobile hub: used aws mobile SDK to SDK backend
+pinpoint: using targeted push notifications to drive engagements
+aws appsync: automatically updates data in web and mobile applications in real time and syncs offline users when they come online, all in real time
+device farm: testing apps on real devices in real platforms (android,iOS)
+mobile analytics: analytics service for mobile platforms
+
+Augmented reality and virtual reality:
+Sumerian: first language for ar/vr
+	-used for 3d application design
+	-uses openGL
+
+Application integrations:
+step functions: managing and integrating lambda functions
+amazon MQ: message queues 
+SNS: simple notification service (oldest service) 
+SQS: decoupling infrastructure. example: image upload site holds individual upload so that overall site speed is not slow
+SWF: simple workflow service - used in amazon warehouses with people as components
+
+Customer Engagement:
+connect: contact center as a service. dynamic, personal, natural customer engagement. call center in the cloud
+simple email service: scalable and cost effective way to send email campaigns and mass emails
+
+Business Productivity:
+Alexa for Business: new service for meetings, notifying IT, etc.
+Chime: used for video conferencing 
+Work Docs: dropbox
+Workmail: like office suite, parallels gmail and outlook
+
+Desktop and App Streaming:
+Workspaces: where operating system is running in the cloud
+AppStream 2.0: where applications are running in the cloud, only service with a version
+
+Internet of Things:
+iOT: sending back sensor information (temperature, audio, video, etc.)
+iOT Device Management: managing different iOT's devices
+Amazon FreeRTOS: operating system for microcontrollers
+Greengrass: software where you can run local compute messaging, data caching, sync, and machine learning interface capabilities for connected devices in a safe and secure way
+
+Game Development:
+GameLift: services for game development

@@ -1,0 +1,14 @@
+Platforms:
+
+Global Infrastructure:
+16 regions, 44 availability zones - december 2017
+6 more regions and 17 more availability zones by 2018
+-never tested on numbers on tests
+regions: geographical area with two or more availability zones
+	-US east/west/east Ohio/govcloud/canada/west norcal
+	-Europe/Middle East/Afric
+	-APAC (Asia Pacific)
+edge locations: endpoints for AWS used for caching content, more edge locations than regions, 96 edge locations
+	-used in cloudfront in amazon's content delivery networks
+availability zones: data centers that can survive natural disasters 
+	-always place resources across multiple availability zones

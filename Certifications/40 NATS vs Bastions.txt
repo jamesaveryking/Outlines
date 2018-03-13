@@ -1,0 +1,7 @@
+40 NATS vs Bastions
+NATs used to route internet traffic in a private subnet to connect out to internet, but public cannot SSH or connect into server
+Bastions (jump boxes) allows private connection to instance to administer via SSH or RDP
+-allow access of private subnets and VPCs, lock ports down to connect via SSH or RDP
+-multiple subnets, one subnet per availability zone, minimum of one bastion, have route53 run health checks on bastion server
+-a NAT is used to proved internet traffic to EC2 instances in private subnets
+-bastion is used to securely administer EC2 instances in private subnets

@@ -1,0 +1,19 @@
+44 SWF
+simple workflow service
+-could come up in exam as SQS vs SWF or ask what SWF stands for
+-makes easier to coordinate work between distributed application components
+-tasks represent processing steps that can be code, web service calls, human action, etc.
+-media processing, web application back end, etc.
+-key difference: SQS retention period is 14 days
+	-SWF retention period up to 1 year
+		-always answer for over 14 days
+	-SWF is task oriented API, SQS is message oriented API
+	-SWF ensures task is assigned only once and never duplicated
+	-SWF keeps track of all tasks/events in application, SQS needs tracking for multiple queues custom made
+-SWF actors:
+	-starters: application initiating workflow (ecommerce site, mobile app, etc.)
+	-deciders: control series of tasks in workflow execution (if this then that)
+	-activity workers: carry out tasks
+	-can involve humans or outside processes
+
+

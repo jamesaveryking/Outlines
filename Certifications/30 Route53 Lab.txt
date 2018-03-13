@@ -1,0 +1,42 @@
+30 Route53 Lab
+-Route53 is a global service like IAM
+-provision two instances in region closest to me
+-provision an ELB
+	-port 80, classic setup
+	-use the same security group as EC2 instances
+	-interval of 10 seconds -- unhealthy threshold 2, healthy threshold 3
+-pass in bootstrap script 
+	-declare bin/bash, update OS, install/start apache, chkconfig httpd on, insert a small html script to verify
+-create an EC2 instance and ELB in a region that is farthest away from my current location (Seoul)
+	-ELB: port 80, classic default setup -- new security group for different region for both EC2 and ELB
+-simple routing policies:
+-different routing policies available in AWS:
+	-simple, weighted, latency, failover, geolocation
+	-simple is default for a new record set, most commonly used for one web server
+		-user clicks, route53 forwards to EC2 instance
+		-uses round robin between multiple instances
+	-two record sets created by default: SOA and name servers
+		-name servers use multiple top level domains for redundancy
+	-linking record to instances requires a record set
+	-create a naked domain name to begin with as an alias zone apex
+		-aliases supported are address records and triple "A" records
+	-weighted routing policies
+		-20% can be sent to one region, 80% to another
+			-can be two ELBs in the same region
+		-used most commonly in testing
+		-applies over the length of a day
+		-probability can be set from 1 to 255
+	-latency routing policies
+		-allows traffic routing based on lowest network latency/fastest response time for user
+		-when amazon receives query for site it responds in route53 with ELB with fastest response time
+	-failover routing policies
+		-used when you want to create an active/passive setup (primary and secondary health check monitoring)
+		-needs a health check to be configured
+			-go to EC2 -- elastic load balancer -- copy DNS name -- go to Route53 -- create health check with copied domain name
+		-test by stopping EC2 instances of primary site to test secondary site failover policy
+	-geolocation routing policies
+		-uses geographic location for routing traffic on DNS queries
+			-European users could use EC2 instances hosted in London with European languages, displays in pounds/euros
+			-USA can go by states
+-set policies by going to route53, hosted zones, create record set
+-you can only resolve an ELB by DNS name

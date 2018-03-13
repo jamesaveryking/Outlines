@@ -1,0 +1,5 @@
+24 Launch Configurations and Auto Scaling
+
+-access S3 bootstrap bucket created in last lab and upload health check file
+-EC2 launch configurations, use standard configurations
+	continue later

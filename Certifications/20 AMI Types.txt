@@ -1,0 +1,28 @@
+20 AMI types (EBS vs Instance Store Backed)
+-select based on:
+	-region, OS, Architecture, launch permissions,
+	storage for the root device:
+		-instance store (Ephemeral Store)
+		-EBS backed volumes
+
+-Application:
+	-launch EC2 instance, community AMIs, root device types at bottom, select instance store
+		-additional Instance store volumes can be attached initially but not after launch
+			-cannot even be encrypted
+		-additional EBS volumes can be attached after launch
+		-after launch, instance store volumes cannot be stopped, EBS can be stopped 
+			-stopping is necessary for moving AMI around AWS
+			-failed host would lose the instance because it can't be stopped in instance store
+		-root device volume can be detached and reattached to different AMIs in EBS, not in instance store
+
+-Summary:
+	-all AMIs are categorized as either backed by amazon EBS or backed by instance store
+	-EBS volumes: root device for an instance launched from the AMI is an EBS volume created from an EBS snapshot
+		-can be stopped, if host fails, data can be recovered
+		-can be rebooted without data loss
+	-Instance store volumes: root device is launched from the AMI is an instance store volume created form a template stored in s3
+		-called ephemeral storage
+		-cannot be stopped, if host fails, data is lost
+		-can be rebooted without data loss
+	-by default, both ROOT volumes will be deleted upon termination, however with EBS volumes, you can tell AWS to keep the root device volume
+	

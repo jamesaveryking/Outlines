@@ -1,0 +1,18 @@
+41 VPC Endpoints
+-allows traffic to go through internal gateway to connect to S3 instead of a NAT gateway
+-implementation:
+	-create role in IAM for EC2 allowing call to AWS services -- S3 administrator full access
+	-go to EC2 and attach the new role created by selecting actions, instance settings, attache/replace IAM role
+	-go to VPC and to to Network ACL's 
+		-go to default ACL and associate public subnet in subnet association by selecting and saving
+	-ssh into instance and run "aws s3 ls"
+	-go to VPC dashboard -- endpoints
+		-two varieties: interface and gateways
+		-change VPC, select the main private route table
+		-set the policy 
+		-can be verified by selecting route table and checking details at bottom of the screen
+	-now s3 puts/gets can be done over private network
+VPC cleanup
+-terminate instances before deleting VPC 
+-delete internet gateways after detaching and deleting NAT gateways
+-delete endpoints

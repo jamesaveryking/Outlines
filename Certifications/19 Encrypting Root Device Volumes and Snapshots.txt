@@ -1,0 +1,24 @@
+19 Encrypting root device volumes and snapshots
+
+-look at EC2 instances
+-stop desired instances
+-go to volumes
+-take a snapshot of the volume through action - create snapshot
+-couple of things can be done:
+	-copy snapshot to another region or AZ, option to encrypt snapshot appears
+		-change region to view
+		-actions -- create image of snapshot, create 
+			-upon creation, can be used to boot servers from, root device is now encrypted
+		-launch
+		-root device volume will now be encrypted upon viewing
+
+		
+-AWS marketplace in launching EC2 shows available third party AMIs that can be bought (Firewalls, etc. rented by hour)
+
+
+-Review:
+	-to create snapshot of EBS always stop the instances
+	-snapshots of encrypted volumes are encrypted automatically
+	-volumes restored from encrypted snapshots are encrypted automatically
+	-only unencrypted snapshots can be shared
+		-snapshots can be shared with AWS accounts or made public

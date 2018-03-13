@@ -1,0 +1,25 @@
+17 EBS Volumes
+-always have EBS volume and EC2 instance in the same AZ
+-standard volume can't be modified, it's the oldest and magnetic
+	-everything else can be modified on the fly
+-to create in another AZ:
+	-create a snapshot of EC2 instance volume in volumes portion of EC2 instance to later launch as a new AMI
+	-actions under snapshots after creation from volumes:
+		-change AZ, attach new EC2 instance, **copy AMI to another region in the world**, etc.
+-exam tips:
+-EBS volumes are a virtual hard disk drive
+-root disk volume is where the OS is installed
+-snapshots exist on S3
+-snapshots are point in time copies of the volume
+-snapshots are incremental, only blocks that have changed are moved to S3
+-first snapshots take time
+-best practice to stop instance before snapshot, however it is possible while running
+-you can create AMI's from both volumes and snapshots
+-you can change EBS sizes on the fly, as well as changing the size and storage type
+-volumes will ALWAYS be in the same availability zone as the EC2 instance
+	-never in different AZ's due to latency
+-to move EC2 volume from one AZ/region to another take a snapshot then copy it to the new AZ/region
+-snapshots of encrypted volumes are encrypted automatically
+-volumes restored from encrypted snapshots are automatically encrypted
+-only unencrypted snapshots can be shared or made public
+-GO OVER THIS LAB AGAIN

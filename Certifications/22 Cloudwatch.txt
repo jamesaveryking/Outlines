@@ -1,0 +1,30 @@
+22 Cloudwatch
+-dashboards on cloudwatch allow in depth view of hardware metrics
+-default available metrics:
+	-CPU related, Disk related, Network related, Status check at instance level for VM and machine level for hyper-viser of VM
+	-CPU -- credit balance, usage, CPU utilization
+	-Disk -- inbytes, outbytes, readOps, writeOps
+	-Network -- network in/out, packets in/out
+	-NO RAM by default
+-CPU utilization -- create widget will create graph by specified widget (line in this case)
+	-widgets can be added
+	-CPU credit usage and balance can be added with different color schemes
+-AWS events help you respond to state changes in AWS resources
+	-events are sent to event stream and connected to rules for targets to take action
+-Logs: go into application layer to log events, dashboards are at the host layer
+	-monitor EC2 instances at application level
+		-HTTP response code at application level
+		-Kernel Logging
+-Metrics:
+	-EC2 instance CPU utilization, etc. 
+Summary:
+	-standard monitoring: 5 minutes
+	-detailed monitoring: 1 minute
+	-dashboards: create widgets to see what happens in AWS environment
+	-alarms: allow you to set alarm that notify you when particular thresholds are hit
+	-events: helps you respond to state changes in your AWS resources -- lambda function updates DNS
+	-logs: aggregate, monitor, and store logs in cloud watch using agent installed in EC2 server
+difference between cloudwatch and cloudtrail
+cloudwatch -- performance monitoring of resources in AWS, logs
+cloudtrail -- auditing, monitor entire AWS environment (creating S3 buckets, etc.) within AWS account
+	

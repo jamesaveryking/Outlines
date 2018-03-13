@@ -1,0 +1,18 @@
+39 VPC Flow Logs
+VPCFL: allows to capture info about the IP traffic going to and from network interfaces in your VPC
+	-stored using cloudwatch logs
+	-upon creation, can be retrieved in amazon cloudwatch logs
+	-way to track all network traffic within VPC
+can be created at three levels:
+	-VPC, subnet, and network interface levels
+-implementation:
+	-go to VPC, select one, actions, create flow logs
+		-filters can be created to view all, accepted, or rejected traffic
+		-IAM role may need to be additionally added
+		-go to cloudwatch in management tools to create a new log group
+		-can additionally be exported to s3
+	-flow logs must be in same account for VPCs
+	-cannot tag a flow log
+	-after creation, configuration cannot be changed (can't associate a different IAM with the flow log)
+	-not all IP traffic is monitored
+		-DNS contact, windows instances looking for instance authentication, DHCP, reserved IP for default VPC router, 169.254.169.254

@@ -1,0 +1,48 @@
+27 Lambda
+lambda: invention of server-less
+-several questions on Lambda in exam
+lambda encapsulates data centers, hardware, assembly code/protocol, high level
+languages, operating systems, application layer/AWS API's, AWS Lambda
+-all that you worry about is your code
+-compute service where you upload code and create lambda function
+	-event driven compute source
+	-compute service to run code in response to HTTP request using API gateway
+-event driven compute service as well as used for HTTP requests
+	
+methodology:
+-upload meme to S3 triggers lambda function to store in s3 triggering additional lambda event returning
+file location, triggering another lambda event copying file to another S3 around the world
+
+-each instance of a lambda function is one instance of lambda running - multiple uploads invoke multiple instances
+-lambda scales out automatically so you don't have to worry about ELB's
+	-scaling out adds more and more instances
+-main thing to remember: different types of lambda triggers
+	-SNS, alexa, IoT, api gateway, etc see northern virginia lambda functions
+
+-methodology:
+	-navigate to lambda in AWS, create new function
+	-select a blank one and choose N. Virginia (first rollout region)
+
+-additional method:
+	-user triggers HTTP request via site visit triggering API gateway triggering lambda function
+		-three users connecting simultaneously trigger three lambda functions
+		-one code responds with multiple instances to multiple requests
+-one million free invocations per month
+-languages supported: java, python, C#, node.js, with different versions respectively
+-lambda is priced based on number of requests, 20 cents per million 
+	-pay when someone requests, not by hour
+	-also pay with memory allocated per function 
+-duration has a maximum threshold of 5 minutes in lambda
+-use case: speaking to alexa 
+-summary:
+	-scales out automatically
+	-functions are independent ( 1 to 1 )
+	-lambda is serverless
+	-know what services are serverless
+	-lambda functions can trigger other lambda functions (1 to x)
+	-architecture can get complex -- use AWS x-ray
+	-max duration 5 minutes
+	-different languages
+	-lambda is globally available
+	
+	https://iw2ar2tf1f.execute-api.us-east-1.amazonaws.com/dev

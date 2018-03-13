@@ -1,0 +1,15 @@
+21 Load Balancers
+load balancer: virtual appliance spreading load of traffic across different web servers
+-application load balancers level 7 preferred
+-classic load balancer: layer 4 load balancer
+	-does rooting decisions at TCP layer, can do level 7 sometimes
+-cost money if left on
+-once EC2 is out of service ELB will not send traffic to it
+-always use DNS name for ELB lookup, IPs change DNS names do not
+-one subnet = one availability zone
+-read FAQs of classic load balancer for exam as well as application load balancer
+
+summary:
+-instances monitored by ELBs reported as in service or out of service determined by healthy threshold pass/fails
+	-health checks check health of instance via HTTP or HTTPS and check index.html default landing page
+-ELBs have their own DNS name, never IP address

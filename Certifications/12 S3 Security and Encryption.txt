@@ -1,0 +1,17 @@
+S3 encrytion & security
+-by default all newly created buckets are private
+-you can set up access using:
+	-ACLs
+	-Bucket Policies
+-S3 buckets can be configured to create access logs which log all requests made to S3 bucket
+-methods of encryption for S3:
+	-in transit: SSL/TLS, when information is being sent to/from
+	-at rest:
+		-server side
+			-S3 managed keys: each object encrypted with unique key for strong multifactor encryption, keys encrypted with master keys
+				-Advanced Encryption Standard 256 (AES 256)
+			-AWS KMS managed keys: key management service, additional charges, separate permissions for envelope key to access keys
+				-provides audit trail of when/who used keys
+				-option to create and manage keys yourself or default key 
+			-server side encryption with customer encryption keys: SSE - C, management of key is done by the client
+		-client side: encrypt before upload

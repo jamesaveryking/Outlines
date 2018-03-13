@@ -1,0 +1,34 @@
+18 Raid, volumes, and snapshots
+RAID: redundant array of independent disks
+-multiple disks for OS and functions
+-RAID 0: striped, no redundancy, good performance, single volume created across all disks, if one disk fails all disk fails
+-RAID 1: mirrored, redundancy, if one disk fails others do not
+-RAID 5: 3+ disks writing parity to another disk, aws does not ever recommend putting RAID 5's on EBS
+-RAID 10: combo of 1 and 0, striping as well as mirroring, good redundancy, good performance
+-use RAID when single volume is provisioned to max size, add multiple volumes and create RAID arrays, usually 0 or 10 on AWS
+-ex question) third party large DB: configure multiple volumes in a RAID array
+
+to create:
+-add RDP in security groups (3389) from anywhere or just My IP
+-go to EC2 dashboard
+-launch instance in the free tier windows server 2012 R2 t2 micro all default
+-add multiple additional volumes
+-RDPs will be added access via security group in step one
+-view instance after it loads, windows takes longer than Linux to load
+-login to EC2 instance via RDP using username administrator and password from platform
+	-click on instance, actions, get windows password, cut and paste private key, decrypt password, copy and paste into RDP 
+-after RDP into server, look at the file explorer to verify additional volumes
+-go to disk management in windows
+-delete all volumes 
+-right click on available volumes, right click and select select as striped volume 
+	-next next, assign derive letter, performer quick format, NTFS, next, finished
+
+to take snapshot:
+-problem: excludes data held in cache, can be problem of interdepence in RAID array
+-take an application consistent snapshot, flush all caches on the disk
+	-how?
+		-freeze the file system
+		-unmount the RAID array
+		-shutting down the associated EC2 instance -- easiest
+
+-****improve IOs by creating RAID through additional EBS volumes ****

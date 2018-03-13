@@ -1,0 +1,29 @@
+storage gateway: connects on premise software appliance with cloud based storage to provide seamless and secure integration between organization's on premise
+environment and AWS storage infrastructure
+	-securely store data to cloud
+-virtual appliance installed to hyper-visor in data center
+-asynchronously replicates local data to the cloud to S3 tiers
+-supported by VMWare ESXi or microsoft hyper-v
+-4 different types:
+	-file gateway: NFS, store flat files in S3 (word, pdf, pictures, videos, etc.)
+	-volume gateway: ISCSI, store operating systems or databases, etc. , on virtual hard disks
+		-two types:
+			-stored: entire copy stored on site
+			-cached: only store most recently accessed on premises
+	-tape gateway: VTL, backup archiving solution with virtual tapes an life cycle policies
+-file gateway: files stored in S3 buckets via network file system mount point, for flat files directly stored in S3 
+	-ownership, permissions, and timestamps are durably stored in S3 in the user-metadata of the object associated with the file
+	-once objects are transferred to S3 they can be managed as native S3 objects
+		-can use bucket policies such as versioning, lifecycle management, and cross-region replication
+-volume gateway: interface that presents applications with disk volumes using ISCSI block storage
+	-virtual hard disk
+	-asynchronously backed up as point in time snapshots in elastic block store
+	-snapshots are incremental backups that capture only changed blocks, all snapshots storage is compressed to minimize storage charges
+		-stored volumes: entire data set stored locally and asynchronously backed up to AWS in incremental EBS snapshots
+			-1GB to 16TB in size
+		-cached volumes: S3 is primary data storage and most frequently accessed objects are backed up locally
+			-store up to 32TB in size, recently read data on premises
+			-don't have to rely on large storage arrays
+	-tape gateway: VTL interface lets you leverage tape-based backup application structure to store data on virtual tape cartridges that you create on
+	your tape gateway, each gateway is preconfigured with a media changer and tape drives, add cartridges as you need to archive your data, supported by
+	netbackup, backup exec, veeam, etc. 

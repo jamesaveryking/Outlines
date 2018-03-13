@@ -1,0 +1,21 @@
+48 Kinesis 101
+-streaming data: data generated continuously, sent simultaneously as small packets
+	-purchases from online stores
+	-stock prices
+	-game data
+	-social network data
+	-geospatial data (uber)
+	-iOT sensors
+-kinesis: platform for loading, analyzing streaming data
+	-services: streams, firehose, and analytics
+	-streams - stores data from 24 hours to 7 days in shards, then data consumers (fleet of EC2 intances) run algorithms on data (predictions, etc), calculations stored on database services
+		-shards: 5 transactions per second for reads, up to 2 MB per second
+			-up to 1000 record writes per second
+		-data capacity: number of shards for a stream 
+	-firehose - no manual addition of shards, all automated, can be analyzed by lambda in real time 
+		-no automatic data retention window - analyzed then sent to S3, redshift, etc. 
+		-automated version of kinesis, no shard management
+	-analytics - allows SQL queries as it exists in firehose or streams, then store into S3, redshift, or elastic search cluster
+tips:
+	-know difference between streams and firehose (shards is the core difference, analyzing data automatically using lambda without data consumers is firehose)
+lab implementation:

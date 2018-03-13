@@ -1,0 +1,14 @@
+16 Security Groups
+
+security groups: virtual firewall controlling access to virtual ec2 instances
+-when instance is launched, it is associated with one or more security groups
+-first line of defense against hackers by limiting IP address access range
+-immediate update upon deletion of security groups
+-security groups are stateful
+	-when rule is added, the rule is automatically allowed back out
+		-as soon as inbound is aloud, outbound is created
+-traffic cannot be denied, only allowed
+-everything is blocked by default and then allowed using rules -- blocking is network access control lists in VPC
+-actions - networking - change security groups to add a security group
+-cannot deny in one security group and add in another, rules are aggregated
+-security groups are stateful, network access control lists are stateless

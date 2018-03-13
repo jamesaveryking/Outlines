@@ -1,0 +1,63 @@
+EC2 101
+
+elastic compute cloud
+-provides re sizable compute capacity in the cloud
+-reduces the time required to obtain and boot new server instances to minutes, allowing quick scalability capacity, both up and down, as requirements change
+-options:
+	-on demand: pay by the hour (or by the second) with no commitment - answer by the second (most updated version)
+	-reserved: provide with capacity discount on hourly charge, 1 to 3 year terms
+	-spot: enable you to bid price you want for instance, providing even greater savings if application has flexible start and stop times
+		-provide a bid price to bid on spot price
+	-dedicated hosts: physical EC2 servers, used for licensing
+On demand:
+	-lowest cost without upfront payment
+	-applications with short term workloads without interruption or with 
+Reserved:
+	-steady state or predictable usage
+	-always need X CPUs, RAM, etc.
+	-upfront payments
+	-3 types:
+		-standard: up to 75% discount on demand
+		-convertible: up to 54% discount on demand
+			-change OS (windows to linux), hardware, etc. 
+				-always need to spend same or more based on changes
+		-scheduled: match capacity reservation to a predictable recurring schedule that only requires a fraction of a day week or month
+Spot:
+	-applications only feasible with low compute prices
+	-insurance and genomics
+Dedicated Host:
+	-regulatory requirements that may not support multi-tenant virtualization
+	-can be purchased on-demand (hourly)
+	-can be purchased as a reservation for up to 70% off the on-demand prices
+10 different EC2 families
+	-ex) D2 dense storage: d for density, 2 for generation
+	-understand different family types
+	-d for density, r for RAM (memory optimized for DBs), m4 for general purpose (main choice), c4 for CPU intensive, g for graphics, 
+	i for iOPs (High speed storage), f1 for field programmable gate arrays (change hardware acceleration), t for low cost general purpose (t2 micro), p2 for graphics and general purpose GPUs and machine learning, bitcoin mining,
+	x1s for memory optimized (Extreme memory optimized) 
+	-DIRTMCGFPX
+		dr mc gift px
+		-scottish doctor giving out pictures of homeland in scotland
+			-d density, r ram, m main, c cpu, g graphics, i iOPs, f fpga, t general purpose, p graphics, x extreme memory
+EBS - elastic block storage, disks attached to virtual machines
+-block-based storage, OS, DBs, applications can be stored on this
+-once EC2 is created, pair to EBS
+-automatically replicated to protect failure of single components
+	-not replicated to different AZs
+-different EBS volume types:
+	-general purpose SSD EC2, balance price and performance
+		-10 iOPs per gig, up to 10,000 iOPs, ability to burst 3000 iOPs
+	-provisional iOPs SSD, used for over 10000 iOPs
+		-can provision up to 20000 per volume
+	-throughput optimized HDD, magnetic storage, big data, warehousing, log processing, large amounts of sequential data (ST1)
+		-cannot be a boot volume, can't boot from drives
+	-cold HDD, magnetic storage, lowest cost for infrequently accessed workloads
+		-file servers
+	-magnetic standard, lowest cost per gig, used for infrequently accessed and applications where lowest cost is important
+-you cannot mount one EBS volume to multiple EC2 instances
+Encryption Question:
+-default AMI images can't be encrypted, however can be encrypted using third party software after creation
+-copy of AMI image can be encrypted
+-additional volumes can be encrypted
+-default is for EBS backed instance to be terminated upon deletion
+	-termination protection is turned off by default

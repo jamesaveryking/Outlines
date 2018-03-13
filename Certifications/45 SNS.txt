@@ -1,0 +1,37 @@
+45 SNS
+simple notification services
+-used in mobile section
+-web service making notification sending from cloud possible
+-highly available way to send messages to applications
+-can be used in autoscaling event -- EC2 instances growing
+-push notifications to apple, google, fireOS, windows devices, windows devices in PRC
+	-can be notified via text, email, SQS queues
+	-can trigger lambda functions
+		-payload of message as input parameter
+-push messaging system for connections
+	-way to push info through AWS, integral in production systems
+-seen in exams in autoscaling or notification when something happens
+-groups multiple recipients using topics
+-group together iOS android SNS recipients
+-to prevent loss, stored redundantly across multiple AZs
+-implementation:
+	-create topic
+	-create subscription (HTTP, email, SQS, lambda, etc.)
+		-sends subscription request via various mediums to customers
+	-publish to subscribers
+		-set TTL
+-used mostly in autoscaling, cloudwatch for alarms or billing
+-benefits:
+	-instantaneous pushed based delivery (no polling like SQS)
+	-simple APIs, easy integration
+	-flexible delivery over multiple protocols
+	-inexpensive pay as you go
+		-.50$ per million SNS requests
+		-.06 per 100000 over HTTP
+		-.75 per 100 notifications over SMS
+		-2.00 per 100000 emails
+	-point and click interface
+-SNS vs. SQS
+	-both messaging services
+	-SNS -- push
+	-SQS -- pull (polls)

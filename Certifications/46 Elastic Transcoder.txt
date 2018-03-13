@@ -1,0 +1,3 @@
+46 Elastic Transcoder
+-convert media files from source format to different formats (mobile, etc.)
+-pay for minutes and resolution

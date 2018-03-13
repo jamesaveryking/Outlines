@@ -1,0 +1,104 @@
+simple storage service
+-secure, durable, highly scalable object storage
+-place to store files in the cloud
+-used by the founder of dropbox
+-storage terms:
+	-object is a flat file
+	-block is used in databases
+-stored over multiple facilities
+-allows you to upload files
+-0 to 5 terabytes
+-unlimited storage
+-files are stored in buckets (folder in amazon)
+-s3 is a universal namespace, names must be unique globally
+-bucket name format: http://s3-eu-west-1.amazonaws.com/acloudguru
+-http 200 code indicates a successful file upload to an s3
+-data consistency:
+	-read after write consistency for PUTS of new objects
+		-read immediately after new upload
+	-eventual consistency for overwrite PUTS and DELETES (can take some time to propagate)
+		-takes time to read after update or delete of objects
+		-updates are atomic: either read is new data or old data, not corrupted
+-simple key value store:
+	-key is object name
+		-designed to sort objects in alphabetical order
+			-can add a random SALT to sort objects
+	-value is the data within the object made up of a sequence of bytes
+	-version ID
+	-metadata -- data about the data -- when it was last updated, etc.
+	-subresources:
+		-access control lists - who can access object
+		-torrent - bittorrent protocol is supported
+-built for 99.9% availability, guaranteeed 99.99999999999% (11) durability for S3 information
+-tiered storage options
+	-normal s3 -- 99.9 availability and 11 9's durability
+		-designed to sustain loss of two facilities
+	-s3 infrequently accessed - for data accessed less frequently but requries rapid access when needed (lower fee)
+		-minimum object size - 128KB
+		-minimum storage duration - 30 days
+		-retrieval charge per gigabyte
+	-reduced redundancy storage - 99.99 durability and 99.99 availability over a given year, used for objects that can be regenerated
+		-designed to sustain loss of one facility
+	-glacier - very cheap, but archival only, takes 3-5 hours to restore from Glacier
+		-as little as 1 cent per gigabyte per month
+		-minimum storage duration - 90 days
+		-retrieval charge per gigabyte
+-lifecycle management
+-versioning
+-encryption
+-secure your data using ACLs and Bucket Policies
+-charged by:
+	-storage
+	-requests
+	-storage management pricing
+	-data transfer pricing
+	-transfer acceleration: enables fast, easy, and secure transfer of file between end user and s3 bucket utilizing cloudfront
+-summary:
+	-object based, no operating systems or DBs
+	-files range fro 0 to 5 TB
+	-unlimited storage
+	-files are stored in buckets
+	-s3 is a universal namespace, that is, names must be unique globally
+	-new uploads immediately available, overwrites eventually available
+	-tiers:
+		-normal, IA, RRS, Glacier
+	-fundamentals of s3 object:
+		-key, value, version ID, metadata, subresources (ACLs and Bittorrent protocol)
+	-successful upload generates http 200 status code
+	-READ S3 FAQ
+	-minimum upload size is 0 bytes
+-versioning exam tips:
+	-stores all versions of an object
+	-MFA delete capability for additional layer of security
+	-great backup tool
+	-once enabled it cannot be disabled, only suspended
+	-integrates with lifecycle rules
+-cross-region replication:
+	-requires versioning on both the source and destination buckets
+	-regions must be unique
+	-files in an existing bucket are not replicated automatically
+		-all subsequent updates will be replicated automatically
+	-you cannot replicate to multiple buckets or use daisy chaining
+	-delete markers are replicated
+	-deleting the delete markers to restore an object is not replicated
+	-have an understanding of cross-region replication at a high level
+-lifecycle management lab:
+	-can be used in conjunction with versioning
+	-can be applied to current versions and previous versions
+	-following actions can now be done:
+		-transition to the standard IA storage class
+			-128 KB and 30 days after the creation date
+		-archive to the glacier storage class
+			-30 days after IA if relevant
+	-permanently delete objects using lifecycle management policies
+S3 transfer acceleration:
+	-uses cloudfront edge location network to accelerate upload to S3
+		-uses unique URL for upload
+	-enable in S3 - services - new bucket - properties - enable transfer acceleration
+		-url: s3-accelerate.stuff
+		-enables testing direct upload speed between regions
+			-further away tends to be better
+S3 static website:
+	-bucketname.s3-region.amazonaws.com
+	-grant public read access to website
+	-upload public and error documents

@@ -1,0 +1,36 @@
+29 DNS 101
+DNS: converts human friendly domain names to IP addresses
+-2 types of IP: 4 and 6
+	-IPv4: 32 bit fields, not enough anymore
+	-IPv6: 128 bit fields
+-VPCs are IPv6 compatible
+-top level domain names: com,gov,edu,
+-second level domain: co.uk, gov.uk, etc. 
+-DNS has a database of all available top level domain names
+-domain registrars: makes sure names are not duplicated
+	-registrar: authority that can assign domain names under one or more top level domain names
+	-registered in the whois database
+-start of authority record stores records on:
+	-server name, administrator of the zone, current version of data file,
+	max TTL's and default TTL's on different aspects of site data
+-name server records: used by top level domain servers to direct traffic to content dns server which contains
+the authoritative DNS records
+-address records: IP address of DNS lookup, most fundamental type of DNS lookup, used to transfer name to IP address
+-elastic load balancers always use DNS name, it uses an alias record not an "A" record (Address Record)
+-TTL: length that a dns record is cached on either the resolving server or the users own local PC, equal to the time to live, lower teh time to live, the faster changes to dns records take to propagate throughout the internet
+	-dropped down low when migrating, usually 2 days by default dropped to 300 ms upon migration
+-CNAMES: canonical names used to resolve one domain to another
+	-instead of 2 A records with the same IP, you can have one domain point to another
+-alias records: used only in AWS and route53, similar to CNAMES, used to map record sets in your host sights to ELBs, cloudfront distros, or s3 buckets that are configured to websites
+	-automatically maps naked domain name to an elastic load balancer etc.
+	-recognizes changes in alias record set
+-naked domain name must be a zone apex record (acloudguru,google,etc.)
+-tips:
+	-ELBs don't have predefined public IP, instead resolves to DNS endpoint with DNS name
+		-alias records allow for resolving naked domain names to an ELBs address
+	-difference between alias record and CNAMES
+		-alias record requests are not charged - resolve individual AWS resources
+		-CNAMES will be charged
+	-given the choice, always choose alias record over a CNAME
+
+	

@@ -1,0 +1,36 @@
+32 Launching an RDS instance lab and backing up
+-edit security groups to allow traffic from existing security groups on port 3306
+-see zipped files to upload bootstrap script
+-always allow 3306 in RDS security group and allow database traffic in security group that it is contained in
+-backups in RDS: automated and snapshots
+	-automated backups allow for backup at any point in time during a retention period - default is 7 days
+		-take a full daily snapshots and transaction logs throughout the day
+		-allows point in time recovery down to a second
+		-one to one storage space in s3
+		-do this backup when there is not heavy traffic
+		-stored even after original backup is deleted
+	-with both auto and snapshots, restored version of database is always a new RDS instance with a new endpoint
+	-encryption supported for mysql, oracle, mysql server, postgresql, and mariadb done via key management service
+	-restorations can be full or point in time
+-multi a-z: RDS instances uses synchronous replication into different availabilty zones
+	-same DNS endpoint using failover policy
+	-for disaster recovery only, not improving performance (used in read replica)
+-read replica: used for improving performance
+	-uses asynchronous replication to have an exact copy of database that can be read from
+	-used when there is a read-heavy workload
+	-change connection strings on EC2 instances to different read-replicas or read-replicas of read-replicas (up to 5 copies in scaling out)
+	-read-only copy of production database
+	-syncing delays and higher latency with more read-replicas
+	-to create, select desired DB, click instance actions, select create read replica
+-know read-replica vs. multi a-z
+	-rr is for scaling and read-intensive workloads
+	-a-z is for disaster recovery
+	-rr can be created from multi a-z
+	-rr can be promoted to a db instance
+	-rr is read only
+	-rr can be in a second region
+-difference between dynamodb and rds
+	-scaling
+		-in rds it isn't automatic, requires manual intervention, can only really scale up
+			-use a difference instance size or read-replica
+		-automatic scaling -- dynamodb

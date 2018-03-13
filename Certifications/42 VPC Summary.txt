@@ -1,0 +1,39 @@
+42 VPC Summary
+-start by building private VPC with public and private subnets
+	-NAT gateways
+	-Route Tables with no public route out, new route table for public traffic using internet gateways
+NAT Instances:
+	-disable source and destination check
+	-must be in public subnet
+	-there must be a route out of the private subnet to the NAT instance in order for it to work
+	-the amount of traffic that NAT instances can support depends on the size of the instance, if bottlenecking increase the instance size
+	-create highly available NAT instances using autoscaling groups, mutliple subnets in different AZs, and a script to automate failover
+	-must be behind a security group
+NAT Gateways:
+	-preferred by enterprise
+	-scale up automatically to 10 Gb/s
+	-no need to patch
+	-not associated with security groups
+	-no static public ip address
+	-remember to update route tables
+	-no need to disable source/destination checks
+	-more secure than NAT instance -- amazon patches
+NACLs
+	-VPC contains default NACL allowing all inbound and outbound traffic
+	-custom NACLs deny all traffic by default
+	-subnets must be associated with NACL, default NACL by default
+	-you can associate a NACL with multiple subnets but not multiple NACLs per subnet
+	-rules executed in order from least to greatest
+	-NACLs have separate inbound and outbound rules for traffic -- stateless because it has to work on both
+	-can block IP addresses unlike security groups
+Application Load Balancers:
+	-you will need at least two public subnets to deploy
+VPC Flow Logs
+	-must be VPCs in same account
+	-cannot tag a flow log
+	-assocations to IAM can't be changed
+	-not all traffic is monitored (see file)
+VPC Endpoints
+	-private communication within VPC to connect to S3 without public IP address
+
+	

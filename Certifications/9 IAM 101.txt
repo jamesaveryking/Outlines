@@ -1,0 +1,20 @@
+Identity Access Management 101
+-setting up users and granting access to AWS console
+-centralized control of account
+-shared access to account
+-granular permissions
+-identity federation (facebook, etc.)
+-multifactor authentication
+-provide temporary access to users when necessary
+-password rotation policy
+-supports PCIDSS compliance
+
+Lab:
+Critical Terms:
+Users: end users
+Groups: collection of users under one set of permissions for internal privileges
+Roles: create roles and assign them to AWS resources for external privileges
+	-it is possible to attach to running EC2 instances
+Policies: document that defines one or more permissions
+	-attached to users, groups, and roles
+	-coded in nested JSON statements with key value pairs

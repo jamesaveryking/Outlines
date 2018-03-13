@@ -1,0 +1,34 @@
+26 EFS concepts and lab
+efs: elastic file system, file storage service for amazon elastic compute cloud
+-storage capacity is elastic, growing and shrinking automatically as files are added / removed
+-cannot mount an ebs volume to two ec2 instances
+	-solved with efs
+-uses NFSv4 
+-only pay for memory in use
+-scales up to petabytes
+-data stored across multiple AZ's in region
+-can support multiple concurrent NFS connections
+-efs is block based instead of object based
+-similar to s3 in read after write consistency
+
+methodology:
+-select AZ, VPC, and mount targets
+-choose subnets
+-choose security groups
+-add tags and review
+
+-launch two EC2 instances
+-provision a load balancer
+	-default VPC with same security group
+-add in both EC2 instances to load balancer
+-write down public IPs of both EC2 instances to get into them
+-instances MUST be in the same security group as the new EFS
+-install apache in both instances and start
+-go into EFS and click file system mount instructions
+	-run command to mount instances to EFS directory but change so that it mounts to var/www/html
+-type in something to var/www/html and it should now appear in both instances 
+
+exam tip:
+-use case is for a file server as a centralized repository for multiple EC2 instances
+-can apply user and directory level permissions to EFS
+-EFS allows multiple EC2, EBS only allows one EC2 instance for connection

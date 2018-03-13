@@ -1,0 +1,62 @@
+37 VPC
+Read VPC FAQ page
+-build out VPC by memory
+virtual private cloud: virtual data center in the cloud, allows you to launch services in a network that you define
+-includes selection of your own IP address range, creation of subnets, and configuratino of route tables and network gateways
+-easily customizable -- public facing subnet for webservers that aaccess internet, and place backend systems such as DBs on another subnet
+-configure network by NACLs
+-always uses 10.0.0.0 address range
+-two ways to connect: internet gateway or virtual private gateway
+	-traffic then sent to router and configured via route tables and network ACL to public or private individual subnets
+-VPC consists of route tables, network ACLs and subnets, as well as security groups and instances in subnets
+	-security groups can span subnets
+	-IP address sits in one AZ
+	IP ranges: /8, /12, /16 descends in number of IP addresses (/8 has the most)
+	-cidr.xyz -- see website
+	-defaults to 5 VPCs in a region but contact AWS for more -- smallest IP addres is /28 with 16 IP addresses
+-launch instances into a subnet of our choosing
+-assign custom IP address ranges in each subnet
+-configure route tables between subnets
+-create and configure gateway and attach to VPC
+**ONE internet gateway PER VPC***
+-much better security control over AWS resources
+-instance security groups
+	-can span AZ'z therefore multiple subnets
+-network ACL's can block IPs or ranges of IPs
+-default vs. custom
+	-default VPC is user friendly, allowing immediate deployment of instances
+		-each has a route to the internet
+		-each EC2 instance has both
+	-custom 
+-VPC Peering: allows you to connect one VPC to another via direct network route using private IP addresses
+-instances behave as if they were on the same private network when peering
+-separate accounts can peer VPCs
+-peering is in a star configuration, one central peered to four others, NO TRANSITIVE PEERING
+	-if VPC A is in the middle it can talk to BCD nodes but BCD have to be peered to talk to B, C, or D
+-think of VPC as a logical data center in AWS
+	-consists of IGWs or virtual private gateways, network access control lists, subnets, security groups, and route tables
+	-one subnet equals one availability zone
+	-one IGW per VPC
+-security groups are stateful not stateless
+	-open both inbound and outbound ports
+-NO TRANSITIVE PEERING
+
+-NAT instances
+	-disable source/destination check on the instance
+	-NAT instances must be in a public subnet
+	-there must be a route out of the private subnet to the NAT instance
+	-the amount of traffic that NAT instances can support depends on teh instance size, if you are bottlenecking increase the instance size
+	-you can create high availability using autoscaling groups, multiple subnets in different AZ's and a script to automate failover
+	-behind a security groups
+-NAT gateway
+	-preferred by enterprise
+	-scale up to 10GB/s
+	-no need to patch
+	-not associate with a security group
+	-automatically assigned a public IP address
+	-remember to update you route tables
+		-point to NAT gateways in multiple AZs for redundancy
+	-no need to disable source/destination checks
+	-more secure than a NAT instance
+		-no SSH, worrying about antivirus, patching - all handled by Amazon
+-application load balancers must be in two public availability zones

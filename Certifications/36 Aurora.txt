@@ -1,0 +1,18 @@
+36 Aurora
+-created in RDS
+-only available in certain regions
+-cannot be installed in-house, only used on AWS
+-is mysql compatible
+	-easily imported
+-RDS, mysql compatible, open-sourced, 5x better performance for mysql at 1/10th cost with similar performance and availability
+-scaling
+	-start with 10GB, increments in 10GB, autoscales
+	-compute resources up to 32 vCPUs and 244Gb of memory
+	-2 copies of DB in each AZ with a minimum of 3 AZs
+	-designed to lose of to 2 copies without affecting write, 3 without affecting read
+	-automatic patching of data
+-replica features
+	-aurora replicas -- separate aurora DBs up to 15
+	-mysql replicas -- up to 5 read replicas
+	-difference: failover:
+		-primary loss of aurora is automatic failover, but not mysql 

@@ -1,0 +1,40 @@
+Management Tools:
+Cloudwatch: monitoring service, bread and butter of sysops administrator exam
+Cloudformation: solutions architect, way of scripting infrastructure, used to deploy wordpress, droomla, etc. websites in different availability zones
+Cloudtrail: records every click in cloud control panel - logs changes to AWS environment, turned on by default, stores data for one week
+Config: monitors configuration of entire aws environment with point in time snapshots
+OpsWorks: similar to elastic beanstalk, uses both chef and puppet to automate environments
+Service Catalog: manages catalog of approved IT services
+Systems Manager: interface for managing resources, usually EC2 patch maintenance 
+Trusted Advisor: favorite of security associate, gives advice of security (open ports, etc.), unused services, how to save money, think of it as an aws accountant
+Managed Services: interface for service management
+
+Media Services:
+Elastic Transcoder: older service, configures media to different sizes for different platforms (desktop, phone, etc.)
+MediaConvert: file based video transcoding with broadcast grade features, used for on demand content and video streams
+MediaLive: high quality video streaming to TV's and internet connected smart devices
+MediaPackage: prepares/protects videos for delivery over internet
+MediaStore: stores media, optimized to store media for live/on demand delivery
+MediaTailor: live broadcasts for targeted advertising
+
+Machine Learning:
+SageMaker: deep learning in development (neural networks)
+Comprehend: sentiment analysis around data -- customer reviews
+DeepLens: artificially aware camera hosted locally on camera instead of in cloud, physical piece of hardware
+Lex: power amazon Alexa service, way to communicate with customers
+Machine Learning: difference between sagemaker - no neural networks, uses dataset analysis in the cloud, used on amazon for recommended products
+Polly: text to speech using new voices, accents, regions of voices
+Rekognition: does both video and images, file upload that describes what is in visual part of file
+Amazon Translate: machine translation service for languages
+Transcribe: automatic speech recognition via upload of video/mp3
+
+Analytics:
+Athena: run SQL queries against S3 bucket
+Elastic Map Reduce: used for processing large amounts of data - uses multiple servers to chop data up for analysis
+Cloudsearch: 
+Elastic Search Services:
+Kinesis: way of ingesting large amounts of data into AWS (social media feeds, etc. for social media tags)
+Kinesis Video Streams: new service used to ingest large amount of data for live video broadcast
+Quicksight: business intelligence tool
+Data Pipeline: moves data between different AWS services
+Glue: new service used for Extract, Transform, and Load in large amounts of data

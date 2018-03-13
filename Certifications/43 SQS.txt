@@ -1,0 +1,40 @@
+43 SQS
+-first ever publicly available service
+-access to message queue to store messages while waiting for computer processing
+	-queue messages that one component generates to be used by another component
+-example: meme website
+	-upload picture to website, stored in S3, triggering lambda function to send title data to SQS,
+	EC2 instances poll SQS queue for messages (jobs), find message from lambda function, and creates meme and stores in different S3 bucket
+-example: travel website
+	-browser queries EC2 instance, package message in SQS queue, another EC2 pulls message, queries, sends back to web server for user
+-autoscaling groups can be applied for determining message on SQS queue
+-pull based system
+-even if application server crashes messages are still in queue based off of timeout variable
+-way to decouple components of application to run independently 
+-messages contain up to 256 KB of data in any format
+-queue acts as buffer between components sending data and components sending data
+-allows for services to keep up with workload beyond compute capacity
+	-autoscale so that over 10 messages provisions new EC2 application servers or scales down if less than 5
+-two types of queues:
+	-standard queues, FIFO queues
+	-standard queues:
+		-defualt queue type
+		-nearly unlimited number of transactions per second
+		-guarantee message delivered at least once
+		-best effort ordering -- not exactly guarnteed order
+	-FIFO:
+		-guaranteed order, delivered once until computer processes
+		-limited to 300 transactions per second
+		-duplicates are not introduced into the queue 
+		-have all capabilities of standard queues
+-key facts:
+	-SQS is pull based not pushed based
+	-256 KB size
+	-messages kept in queue from 1 min to 14 days, default 4 days
+	-visibility timeout is the length of time message is invisible in the SQS queue after a reader picks up that message
+		-if job is processed before visibility time expires message is deleted
+		-if job is not processed message will become visible again and another reader will process
+		-could result in the same message being delivered twice
+		-max is 12 hours -- if something takes over 12 hours don't use SQS
+	-guaranteed process at least once but could be process a couple of time if visibility timeout is lower than job time
+	-SQS long polling is a way to retrieve message from SQS queues -- if no messages in queue resources are not wasted

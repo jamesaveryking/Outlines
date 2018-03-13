@@ -1,0 +1,22 @@
+33 DynamoDB
+-fast, flexible nosql db services for fast latency at any scale
+-best for IOT, mobile, gaming
+-stored on ssd storage
+-spread across 3 geographically distinct data centers (facilities) NOT AZ's
+	-redundancy built in
+	-different consistency models
+		-eventually consistent reads
+			-reads reaching within 1 second
+			-used when immediate read is not necessary
+		-strongly consistent reads
+			-reflects all writes that were successful prior to the read
+-pricing
+	-writing and reading
+		-writing: based on every 10 units
+		-reading: based on every 50 units
+-1 write capacity unit can handle 1 write per second (1000000 writes per day needs 12 consistency units (1000000/24/60/60 = 11.4)
+-expensive for writes, cheap for reads
+-columns can be added dynamically
+	-different from RDS because values would have to be null
+-read and write capacity units can also be added dynamically
+	-in RDS, snapshot must be created and instance size must be increased

@@ -1,0 +1,24 @@
+Cloudfront content delivery network
+CDN: system of distributed servers that deliver web content to user based on location and data needed
+	-cuts down on latency
+Key Terminology:
+-edge location: location where content will be cached
+	-separate than availability zone or region
+	-not for read only, can be written to as well to be replicated to origin
+	-objects cached for length of TTL
+	-cache can be cleared but there is a charge
+-origin: origin of all files that the CDN will distribute - can be S3, EC2, Elastic Load Balancer, or Route53
+-distribution: name given to CDN which consists of a collection of edge locations
+	-can have multiple origins in single distribution
+-web distribution: typically used for "streaming" websites
+-RTMP: used for streaming adobe flash
+Methodology:
+-user makes request to edge location URL
+-edge location sees if object is cached at that particular location
+	-if cached, loads
+	-if not, pulls down object from S3 or other and caches it to the edge location for the specified time to live
+-further requests pull loaded file from edge location until time to live expires
+-first user only suffers performance penalty
+
+-can be used to deliver entire website to edge location
+-designed to work with other services, works also with non-AWS origin server 
